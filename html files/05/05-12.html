@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="http://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://appstorey.com/xmlrpc.php" rel="pingback"/>
+  <script>
+   (function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+  </script>
+  <title>
+   Jesse Tayler talks App Store and NeXTSTEP with AppStorey – AppStorey
+  </title>
+  <!-- Async WordPress.com Remote Login -->
+  <script id="wpcom_remote_login_js">
+   var wpcom_remote_login_extra_auth = '';
+function wpcom_remote_login_remove_dom_node_id( element_id ) {
+	var dom_node = document.getElementById( element_id );
+	if ( dom_node ) { dom_node.remove(); }
+}
+function wpcom_remote_login_remove_dom_node_classes( class_name ) {
+	var dom_nodes = document.querySelectorAll( '.' + class_name );
+	for ( var i = 0; i < dom_nodes.length; i++ ) {
+		dom_nodes[i].remove();
+	}
+}
+function wpcom_remote_login_final_cleanup() {
+	wpcom_remote_login_remove_dom_node_classes( "wpcom_remote_login_msg" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_validate" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_js" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_iframe" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_styles" );
+}
+
+// Watch for messages back from the remote login
+window.addEventListener( "message", function( e ) {
+	if ( e.origin === "https://r-login.wordpress.com" ) {
+		var data = {};
+		try {
+			data = JSON.parse( e.data );
+		} catch( e ) {
+			wpcom_remote_login_final_cleanup();
+			return;
+		}
+
+		if ( data.msg === 'LOGIN' ) {
+			// Clean up the login check iframe
+			wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+
+			var id_regex = new RegExp( /^[0-9]+$/ );
+			var token_regex = new RegExp( /^.*|.*|.*$/ );
+			if (
+				token_regex.test( data.token )
+				&& id_regex.test( data.wpcomid )
+			) {
+				// We have everything we need to ask for a login
+				var script = document.createElement( "script" );
+				script.setAttribute( "id", "wpcom_remote_login_validate" );
+				script.src = '/remote-login.php?wpcom_remote_login=validate'
+					+ '&wpcomid=' + data.wpcomid
+					+ '&token=' + encodeURIComponent( data.token )
+					+ '&host=' + window.location.protocol
+						+ '//' + window.location.hostname;
+				document.body.appendChild( script );
+			}
+
+			return;
+		}
+
+		// Safari ITP, not logged in, so redirect
+		if ( data.msg === 'LOGIN-REDIRECT' ) {
+			window.location = 'https://wordpress.com/log-in?redirect_to=' + window.location.href;
+			return;
+		}
+
+		// Safari ITP, storage access failed, remove the request
+		if ( data.msg === 'LOGIN-REMOVE' ) {
+			var css_zap = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } @media screen and ( max-width: 782px ) { html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } }';
+			var style_zap = document.createElement( 'style' );
+			style_zap.type = 'text/css';
+			style_zap.appendChild( document.createTextNode( css_zap ) );
+			document.body.appendChild( style_zap );
+
+			var e = document.getElementById( 'wpcom_request_access_iframe' );
+			e.parentNode.removeChild( e );
+
+			document.cookie = 'wordpress_com_login_access=denied; path=/; max-age=31536000';
+
+			return;
+		}
+
+		// Safari ITP
+		if ( data.msg === 'REQUEST_ACCESS' ) {
+			console.log( 'request access: safari' );
+
+			// Check ITP iframe enable/disable knob
+			if ( wpcom_remote_login_extra_auth !== 'safari_itp_iframe' ) {
+				return;
+			}
+
+			// If we are in a "private window" there is no ITP.
+			var private_window = false;
+			try {
+				var opendb = window.openDatabase( null, null, null, null );
+			} catch( e ) {
+				private_window = true;
+			}
+
+			if ( private_window ) {
+				console.log( 'private window' );
+				return;
+			}
+
+			var iframe = document.createElement( 'iframe' );
+			iframe.id = 'wpcom_request_access_iframe';
+			iframe.setAttribute( 'scrolling', 'no' );
+			iframe.setAttribute( 'sandbox', 'allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-top-navigation-by-user-activation' );
+			iframe.src = 'https://r-login.wordpress.com/remote-login.php?wpcom_remote_login=request_access&origin=' + encodeURIComponent( data.origin ) + '&wpcomid=' + encodeURIComponent( data.wpcomid );
+
+			var css = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 46px !important; } * html body { margin-top: 46px !important; } @media screen and ( max-width: 660px ) { html { margin-top: 71px !important; } * html body { margin-top: 71px !important; } #wpcom_request_access_iframe { display: block; height: 71px !important; } } #wpcom_request_access_iframe { border: 0px; height: 46px; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 99999; background: #23282d; } ';
+
+			var style = document.createElement( 'style' );
+			style.type = 'text/css';
+			style.id = 'wpcom_request_access_styles';
+			style.appendChild( document.createTextNode( css ) );
+			document.body.appendChild( style );
+
+			document.body.appendChild( iframe );
+		}
+
+		if ( data.msg === 'DONE' ) {
+			wpcom_remote_login_final_cleanup();
+		}
+	}
+}, false );
+
+// Inject the remote login iframe after the page has had a chance to load
+// more critical resources
+window.addEventListener( "DOMContentLoaded", function( e ) {
+	var iframe = document.createElement( "iframe" );
+	iframe.style.display = "none";
+	iframe.setAttribute( "scrolling", "no" );
+	iframe.setAttribute( "id", "wpcom_remote_login_key" );
+	iframe.src = "https://r-login.wordpress.com/remote-login.php"
+		+ "?wpcom_remote_login=key"
+		+ "&origin=aHR0cHM6Ly9hcHBzdG9yZXkuY29t"
+		+ "&wpcomid=94422379"
+		+ "&time=1584706463";
+	document.body.appendChild( iframe );
+}, false );
+  </script>
+  <link href="//s2.wp.com" rel="dns-prefetch"/>
+  <link href="//s1.wp.com" rel="dns-prefetch"/>
+  <link href="//appstoreyblog.wordpress.com" rel="dns-prefetch"/>
+  <link href="//s0.wp.com" rel="dns-prefetch"/>
+  <link href="//wordpress.com" rel="dns-prefetch"/>
+  <link href="//fonts.googleapis.com" rel="dns-prefetch"/>
+  <link href="https://appstorey.com/feed/" rel="alternate" title="AppStorey » Feed" type="application/rss+xml"/>
+  <link href="https://appstorey.com/comments/feed/" rel="alternate" title="AppStorey » Comments Feed" type="application/rss+xml"/>
+  <link href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/feed/" rel="alternate" title="AppStorey » Jesse Tayler talks App Store and NeXTSTEP with AppStorey Comments Feed" type="application/rss+xml"/>
+  <script type="text/javascript">
+   /* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+  </script>
+  <script type="text/javascript">
+   window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1582709031h&ver=5.4-RC1-47426"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+  </script>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://s1.wp.com/_static/??-eJylk9tOwzAMhl+I1OtoNXaBeJa0NcVbDlXirOrb4zYbGgMKYjdVffh+/0ocGAfVesfoGGxSg0k9uQjj0HqroiWD001UtDE+wPdYQKMZOzX4yDfRGmboiBEOyINuj2qJvrRfevskYYOhl0pA2BWPxQaaRKaDxvgFb4IOE0SeDP5BZqGupuvJJ1Z9oO6/EkEzuT7+gr8mY1QkRoUdzcD5OKCu9tW2rveAJ+kXLjnu/OjymLtVLy6ZLBpyeLeg2OrzHZ8ddhQZToTjj6KtPx9ZWWw3RamWBctcLhTZ1HKvd1jLrozoXlu7za6t5rxkkreD5rnDyiSNBq20rWH5xTTNEDBGJV9LySp+E3D1JQg1S+c3ANL4OZNRAueZhI4fP3PhxT6X9VNVbspdVR/eAfxQbcs=?cssminify=yes" id="all-css-0-1" media="all" rel="stylesheet" type="text/css"/>
+  <style id="wp-block-library-inline-css">
+   .has-text-align-justify {
+	text-align:justify;
+}
+  </style>
+  <link crossorigin="anonymous" href="https://fonts.googleapis.com/css?family=Libre+Baskerville%3A400%2C700%2C400italic%7CLato%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CPlayfair+Display%3A400%2C700%2C400italic%2C700italic%7CInconsolata%3A400&amp;subset=latin%2Clatin-ext" id="resonar-fonts-css" media="all" rel="stylesheet"/>
+  <link href="https://s0.wp.com/_static/??-eJyNjtsKwjAQRH/IuA3i5UX8ljRsYyTZDdkNxb830pcWUXybYc6BgbkYz6RICrmZklqIJBCQsMY+fIl7L7KDlat3zChQ2ggVhclVEH0m/AeM5BfYzMVz/lA2v9gk9k4j06aYKblYf6kVx8ShxwCdWtW3dMtXe7SHkz1fhuHxAm4cZ7Y=?cssminify=yes" id="all-css-2-1" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://s2.wp.com/wp-content/mu-plugins/global-print/global-print.css?m=1465851035h&amp;cssminify=yes" id="print-css-3-1" media="print" rel="stylesheet" type="text/css"/>
+  <link href="https://s2.wp.com/_static/??-eJx9jtEKwjAMRX/IGictugfxW7raddGsGUuG+PdW2HAy8CkJnHtz4DmYwFljVugnM9CUMAv4oMi58eN32weRHazwhW0nIiOo0cQbKuY0t4CztT06V0Mibnxh9EVRQNQrBmjI58emdOUwsKhpyeMI0vmxFC/zX0o4YPlFnPj32IS0i33R6ezs9wGu/aVyZ1sdqpN19zdpJ2iM?cssminify=yes" id="all-css-4-1" media="all" rel="stylesheet" type="text/css"/>
+  <style id="jetpack-global-styles-frontend-style-inline-css">
+   :root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+  </style>
+  <script>
+   var related_posts_js_options = {"post_heading":"h4"};
+  </script>
+  <script src="https://s2.wp.com/_static/??-eJx9jMEOwjAMQ3+IruzABgfEt4wtVKmatDSNpv39ggSXHZAsWbae7dfikOekC4iPprdC3b7WRTn5f4AjDHVq0BHyD54zN+D2YSk/MYFTgToF6+zolY8cqStJA7L4CsnOFleytEOy1YPu/WXsb+dxGK5xB1+BRFU=" type="text/javascript">
+  </script>
+  <link href="https://appstoreyblog.wordpress.com/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://s1.wp.com/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://appstorey.com/2016/04/06/the-earliest-web-the-story-of-spiderwoman/" rel="prev" title="The Earliest Web; The Story of SpiderWoman"/>
+  <link href="https://appstorey.com/2016/05/07/on-apples-40th-anniversary-eric-bergerson-tells-how-apple-was-built-upon-next-object-oriented-technology/" rel="next" title="On Apple’s 40th Anniversary, Eric Bergerson tells how Apple was built upon NeXT Object Oriented Technology"/>
+  <meta content="WordPress.com" name="generator"/>
+  <link href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/" rel="canonical"/>
+  <link href="https://wp.me/p6obzB-8s" rel="shortlink"/>
+  <link href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fappstorey.com%2F2016%2F04%2F11%2Fjesse-tayler-talks-appstore-and-nextstep-with-appstorey%2F&amp;for=wpcom-auto-discovery" rel="alternate" type="application/json+oembed"/>
+  <link href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fappstorey.com%2F2016%2F04%2F11%2Fjesse-tayler-talks-appstore-and-nextstep-with-appstorey%2F&amp;for=wpcom-auto-discovery" rel="alternate" type="application/xml+oembed"/>
+  <!-- Jetpack Open Graph Tags -->
+  <meta content="article" property="og:type"/>
+  <meta content="Jesse Tayler talks App Store and NeXTSTEP with AppStorey" property="og:title"/>
+  <meta content="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/" property="og:url"/>
+  <meta content="In the early days of personal computing, there were a lot of different computers, each seemed to have a place in the world. Until one. The NeXT Computer. October 12, 1988, Computing Advances to the…" property="og:description"/>
+  <meta content="2016-04-11T15:27:17+00:00" property="article:published_time"/>
+  <meta content="2019-06-19T17:44:00+00:00" property="article:modified_time"/>
+  <meta content="AppStorey" property="og:site_name"/>
+  <meta content="https://appstoreyblog.files.wordpress.com/2016/04/img_0107.jpg?w=1200" property="og:image"/>
+  <meta content="1200" property="og:image:width"/>
+  <meta content="890" property="og:image:height"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="@theappstorey" name="twitter:creator"/>
+  <meta content="@theappstorey" name="twitter:site"/>
+  <meta content="Jesse Tayler talks App Store and NeXTSTEP with AppStorey" name="twitter:text:title"/>
+  <meta content="https://appstoreyblog.files.wordpress.com/2016/04/img_0107.jpg?w=640" name="twitter:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="https://www.facebook.com/WordPresscom" property="article:publisher"/>
+  <!-- End Jetpack Open Graph Tags -->
+  <link href="https://s1.wp.com/i/favicon.ico" rel="shortcut icon" sizes="16x16 24x24 32x32 48x48" type="image/x-icon"/>
+  <link href="https://s1.wp.com/i/favicon.ico" rel="icon" sizes="16x16 24x24 32x32 48x48" type="image/x-icon"/>
+  <link href="https://s2.wp.com/i/webclip.png" rel="apple-touch-icon"/>
+  <link href="https://appstorey.com/?openidserver=1" rel="openid.server"/>
+  <link href="https://appstorey.com/" rel="openid.delegate"/>
+  <link href="https://appstorey.com/osd.xml" rel="search" title="AppStorey" type="application/opensearchdescription+xml"/>
+  <link href="https://s1.wp.com/opensearch.xml" rel="search" title="WordPress.com" type="application/opensearchdescription+xml"/>
+  <style type="text/css">
+   .recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+  </style>
+  <meta content="AppStorey" name="application-name"/>
+  <meta content="width=device-width;height=device-height" name="msapplication-window"/>
+  <meta content="The untold story of digital computing, inventing the Web and the first AppStore" name="msapplication-tooltip"/>
+  <meta content="name=Subscribe;action-uri=https://appstorey.com/feed/;icon-uri=https://s1.wp.com/i/favicon.ico" name="msapplication-task"/>
+  <meta content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico" name="msapplication-task"/>
+  <meta content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" name="msapplication-task"/>
+  <meta content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" name="msapplication-task"/>
+  <meta content="In the early days of personal computing, there were a lot of different computers, each seemed to have a place in the world. Until one. The NeXT Computer. October 12, 1988, Computing Advances to the NeXT Level. So did Jesse. Come with us, as we journey back to a time where jobs like graphic design were…" name="description"/>
+  <style type="text/css">
+   .site-title,
+		.site-description {
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+  </style>
+  <link href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/amp/" rel="amphtml"/>
+  <link href="https://s2.wp.com/?custom-css=1&amp;csblog=6obzB&amp;cscache=6&amp;csrev=8" id="custom-css-css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body class="post-template-default single single-post postid-524 single-format-standard customizer-styles-applied custom-menu has-site-logo highlander-enabled highlander-light custom-colors">
+  <div class="hfeed site" id="page">
+   <a class="skip-link screen-reader-text" href="#content">
+    Skip to content
+   </a>
+   <header class="site-header" id="masthead" role="banner">
+    <div class="site-branding">
+     <a class="site-logo-link" href="https://appstorey.com/" itemprop="url" rel="home">
+      <img alt="" class="site-logo attachment-resonar-logo" data-attachment-id="253" data-comments-opened="0" data-image-description="" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="AppStoreyTransparent" data-large-file="https://appstoreyblog.files.wordpress.com/2015/09/appstoreytransparent.png?w=387" data-medium-file="https://appstoreyblog.files.wordpress.com/2015/09/appstoreytransparent.png?w=300" data-orig-file="https://appstoreyblog.files.wordpress.com/2015/09/appstoreytransparent.png" data-orig-size="387,105" data-permalink="https://appstorey.com/appstoreytransparent/" data-size="resonar-logo" height="52" itemprop="logo" sizes="(max-width: 192px) 100vw, 192px" src="https://appstoreyblog.files.wordpress.com/2015/09/appstoreytransparent.png?w=192" srcset="https://appstoreyblog.files.wordpress.com/2015/09/appstoreytransparent.png?w=192 192w, https://appstoreyblog.files.wordpress.com/2015/09/appstoreytransparent.png?w=384 384w, https://appstoreyblog.files.wordpress.com/2015/09/appstoreytransparent.png?w=150 150w, https://appstoreyblog.files.wordpress.com/2015/09/appstoreytransparent.png?w=300 300w" width="192"/>
+     </a>
+     <p class="site-title">
+      <a href="https://appstorey.com/" rel="home">
+       AppStorey
+      </a>
+     </p>
+     <p class="site-description">
+      The untold story of digital computing, inventing the Web and the first AppStore
+     </p>
+    </div>
+    <!-- .site-branding -->
+    <button class="sidebar-toggle" id="sidebar-toggle">
+    </button>
+    <nav class="main-navigation" role="navigation">
+     <div class="menu-appstorey-container">
+      <ul class="nav-menu" id="menu-appstorey">
+       <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-17" id="menu-item-17">
+        <a href="https://appstorey.com/">
+         Home
+        </a>
+       </li>
+       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-150" id="menu-item-150">
+        <a href="https://appstorey.com/story/">
+         Story
+        </a>
+       </li>
+       <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-19" id="menu-item-19">
+        <a href="https://appstorey.com/category/history/">
+         History
+        </a>
+       </li>
+       <li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-82" id="menu-item-82">
+        <a href="https://appstorey.com/category/interviews/">
+         Interviews
+        </a>
+       </li>
+       <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-690" id="menu-item-690">
+        <a href="https://appstorey.com/thanks/">
+         Thanks
+        </a>
+       </li>
+      </ul>
+     </div>
+    </nav>
+    <!-- .main-navigation -->
+   </header>
+   <!-- .site-header -->
+   <div class="site-content" id="content">
+    <div class="content-area" id="primary">
+     <main class="site-main" id="main" role="main">
+      <article class="post-524 post type-post status-publish format-standard has-post-thumbnail hentry category-interviews" id="post-524">
+       <div class="entry-header-background" style="background-image:url(https://appstoreyblog.files.wordpress.com/2016/04/img_0107.jpg?w=2000&amp;h=1500&amp;crop=1)">
+        <div class="entry-header-wrapper">
+         <header class="entry-header" id="entry-header">
+          <div class="entry-header-inner">
+           <div class="entry-date">
+            <span class="posted-on">
+             <span class="screen-reader-text">
+              Posted on
+             </span>
+             <a href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/" rel="bookmark">
+              <time class="entry-date published" datetime="2016-04-11T15:27:17+00:00">
+               April 11, 2016
+              </time>
+              <time class="updated" datetime="2019-06-19T17:44:00+00:00">
+               June 19, 2019
+              </time>
+             </a>
+            </span>
+           </div>
+           <h1 class="entry-title">
+            Jesse Tayler talks App Store and NeXTSTEP with AppStorey
+           </h1>
+          </div>
+          <div class="scroll-indicator-wrapper">
+           <a class="scroll-indicator" href="#" id="scroll-indicator">
+            <span class="screen-reader-text">
+             Scroll down to see more content
+            </span>
+           </a>
+          </div>
+         </header>
+        </div>
+       </div>
+       <div class="entry-content-footer">
+        <div class="entry-content">
+         <p>
+          In the early days of personal computing, there were a lot of different computers, each seemed to have a place in the world. Until one. The NeXT Computer.
+          <a href="https://www.youtube.com/watch?v=92NNyd3m79I" rel="noopener" target="_blank">
+           October 12, 1988, Computing Advances to the NeXT Level
+          </a>
+          . So did Jesse.
+         </p>
+         <p>
+          Come with us, as we journey back to a time where jobs like graphic design were tt yet part of computing.
+         </p>
+         <p>
+          Now, AppStorey brings you the true story of the web and the first App Store, along with all the tools and technologies brought together by this one computer. The NeXT Computer.
+         </p>
+         <div class="jetpack-video-wrapper">
+          <div class="embed-vimeo">
+           <iframe allowfullscreen="" frameborder="0" height="612" mozallowfullscreen="" src="https://player.vimeo.com/video/137710183" title="AppStorey | Jesse Tayler | the Technospanse" webkitallowfullscreen="" width="1088">
+           </iframe>
+          </div>
+         </div>
+         <p>
+          Today, Jesse is CEO of a successful iPad and iPhone software development company, the same company he founded as a NeXTSTEP development shop in 1995. However, it was not this startup this story is about. The startup company just before that, has quite a story to be told. A Seattle startup called Paget Press.
+         </p>
+         <figure aria-describedby="caption-attachment-528" class="wp-caption alignright" data-shortcode="caption" id="attachment_528" style="width: 232px">
+          <a href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/img_5216/" rel="attachment wp-att-528">
+           <img alt="The very first AppWrapper Catalog. The AppWrapper was the first electronic AppStore and was made entirely on NeXT" class="size-medium wp-image-528" data-attachment-id="528" data-comments-opened="0" data-image-description="" data-image-meta='{"aperture":"2.2","credit":"","camera":"iPhone 6s Plus","caption":"","created_timestamp":"1459792966","copyright":"","focal_length":"4.15","iso":"100","shutter_speed":"0.066666666666667","title":"","orientation":"1"}' data-image-title="EAW V1 No 1. July 1991" data-large-file="https://appstoreyblog.files.wordpress.com/2016/04/img_5216.jpg?w=757" data-medium-file="https://appstoreyblog.files.wordpress.com/2016/04/img_5216.jpg?w=222" data-orig-file="https://appstoreyblog.files.wordpress.com/2016/04/img_5216.jpg" data-orig-size="2980,4032" data-permalink="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/img_5216/" height="300" sizes="(max-width: 222px) 100vw, 222px" src="https://appstoreyblog.files.wordpress.com/2016/04/img_5216.jpg?w=222&amp;h=300" srcset="https://appstoreyblog.files.wordpress.com/2016/04/img_5216.jpg?w=222&amp;h=300 222w, https://appstoreyblog.files.wordpress.com/2016/04/img_5216.jpg?w=444&amp;h=600 444w, https://appstoreyblog.files.wordpress.com/2016/04/img_5216.jpg?w=111&amp;h=150 111w" width="222"/>
+          </a>
+          <figcaption class="wp-caption-text" id="caption-attachment-528">
+           The very first AppWrapper Catalog. The AppWrapper was the first electronic App Store and was made entirely on NeXT
+          </figcaption>
+         </figure>
+         <p>
+          Jesse was born a startup junkie, and October 12, 1988, his eyes became glazed with NeXT fanaticism, he decided it was time to leave for the West Coast to find his startup software paradise.
+         </p>
+         <p>
+          He made it as far as Seattle.
+         </p>
+         <p>
+          But that was far enough, Jesse joined forces with his first true business partner, and along with her expert guidance and experience, together they helped create a software revolution.
+         </p>
+         <p>
+          Paget Press, was a software publishing startup, dedicated to NeXT computers and focused on independent developers. At this time in computer history, the financial requirement to put a software product into play was a major investment. As a consequence, much potentially valuable software never made it to market.
+         </p>
+         <figure aria-describedby="caption-attachment-226" class="wp-caption aligncenter" data-shortcode="caption" id="attachment_226" style="width: 1200px">
+          <a href="https://appstorey.com/2015/08/18/one-hundred-billion-downloads/appstorey-6121/" rel="attachment wp-att-226">
+           <img alt="" class="wp-image-226 size-full" data-attachment-id="226" data-comments-opened="0" data-image-description="" data-image-meta='{"aperture":"22","credit":"","camera":"Canon EOS 5D Mark II","caption":"","created_timestamp":"1439484897","copyright":"","focal_length":"45","iso":"50","shutter_speed":"0.005","title":"","orientation":"1"}' data-image-title="appstorey-6121" data-large-file="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg?w=1024" data-medium-file="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg?w=300" data-orig-file="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg" data-orig-size="1200,800" data-permalink="https://appstorey.com/2015/08/18/one-hundred-billion-downloads/appstorey-6121/" sizes="(max-width: 1088px) 100vw, 1088px" src="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg?w=1088" srcset="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg?w=1088 1088w, https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg?w=150 150w, https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg?w=300 300w, https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg?w=768 768w, https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg?w=1024 1024w, https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6121.jpg 1200w"/>
+          </a>
+          <figcaption class="wp-caption-text" id="caption-attachment-226">
+           Early description of how an electronic product catalog works. Published by Paget Press in the Electronic AppWrapper, the first App Store.
+          </figcaption>
+         </figure>
+         <p>
+          Paget wanted to change all that. By 1991, they had created the essential catalog of NeXT products, and provided publishing services to help smaller software developers create the packaging and documentation they required to bring their products to market. It seemed to be working.
+         </p>
+         <blockquote>
+          <p>
+           Soon, we realized the printing and the books and packaging was the real problem. We had to solve the whole distribution system, electronically — Jesse Tayler, App Store inventor
+          </p>
+         </blockquote>
+         <figure aria-describedby="caption-attachment-225" class="wp-caption alignleft" data-shortcode="caption" id="attachment_225" style="width: 310px">
+          <a href="https://appstorey.com/2015/08/18/one-hundred-billion-downloads/appstorey-6119/" rel="attachment wp-att-225">
+           <img alt="The product purchase flow diagram from the first AppStore, The Electronic AppWrapper." class="size-medium wp-image-225" data-attachment-id="225" data-comments-opened="0" data-image-description="" data-image-meta='{"aperture":"22","credit":"","camera":"Canon EOS 5D Mark II","caption":"","created_timestamp":"1439484868","copyright":"","focal_length":"45","iso":"50","shutter_speed":"0.005","title":"","orientation":"1"}' data-image-title="Electric Product Catalog Purchase Flow Diagram" data-large-file="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6119.jpg?w=1024" data-medium-file="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6119.jpg?w=300" data-orig-file="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6119.jpg" data-orig-size="1200,800" data-permalink="https://appstorey.com/2015/08/18/one-hundred-billion-downloads/appstorey-6119/" height="200" sizes="(max-width: 300px) 100vw, 300px" src="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6119.jpg?w=300&amp;h=200" srcset="https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6119.jpg?w=300&amp;h=200 300w, https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6119.jpg?w=600&amp;h=400 600w, https://appstoreyblog.files.wordpress.com/2015/08/appstorey-6119.jpg?w=150&amp;h=100 150w" width="300"/>
+          </a>
+          <figcaption class="wp-caption-text" id="caption-attachment-225">
+           The product purchase flow diagram from the first App Store, The Electronic AppWrapper.
+          </figcaption>
+         </figure>
+         <p>
+          It became clear that these printing services, the books and packaging itself was the problem. And there was something else.
+         </p>
+         <p>
+          Independent software developers needed electronic software delivery; but that meant they also needed a way to protect their digital rights online and this was no simple matter.
+         </p>
+         <p>
+          This was the moment where Paget set about turning their popular printed product catalog, into the very first electric product catalog. As it is for so many startup founders, this was to be one of the most challenging efforts of their lives.
+         </p>
+         <p>
+          Paget realized that it had to create a new standard for digital rights, one that allowed especially smaller, more independent developers a fighting chance to get their wares into the hands of users who needed it. This was only fair.
+         </p>
+         <blockquote>
+          <p>
+           “By AppWrapper 3, we really had something working well, and that’s when I first demonstrated the App Store to Steve Jobs, he nodded, and said only ‘I like it’…” — Jesse Tayler for AppStorey
+          </p>
+         </blockquote>
+         <p>
+          This was such a new concept, Paget spent almost a year preparing their audience (advanced software developers and computer scientists) with charts, explanations and diagrams to help the engineers think of a world with electronic distribution —all for something where today, it would be hard to think of a world without.
+         </p>
+         <figure aria-describedby="caption-attachment-584" class="wp-caption alignleft" data-shortcode="caption" id="attachment_584" style="width: 310px">
+          <a href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/eaw_create/" rel="attachment wp-att-584">
+           <img alt="A $449.00 Create drawing application from Stone Design, offered for sale on the AppWrapper electronic product catalog." class="size-medium wp-image-584" data-attachment-id="584" data-comments-opened="0" data-image-description="" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="Create, by Stone Design" data-large-file="https://appstoreyblog.files.wordpress.com/2016/04/eaw_create.png?w=1024" data-medium-file="https://appstoreyblog.files.wordpress.com/2016/04/eaw_create.png?w=300" data-orig-file="https://appstoreyblog.files.wordpress.com/2016/04/eaw_create.png" data-orig-size="1120,832" data-permalink="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/eaw_create/" height="223" sizes="(max-width: 300px) 100vw, 300px" src="https://appstoreyblog.files.wordpress.com/2016/04/eaw_create.png?w=300&amp;h=223" srcset="https://appstoreyblog.files.wordpress.com/2016/04/eaw_create.png?w=300&amp;h=223 300w, https://appstoreyblog.files.wordpress.com/2016/04/eaw_create.png?w=600&amp;h=446 600w, https://appstoreyblog.files.wordpress.com/2016/04/eaw_create.png?w=150&amp;h=111 150w" width="300"/>
+          </a>
+          <figcaption class="wp-caption-text" id="caption-attachment-584">
+           A $449.00 Create drawing application from Stone Design, offered for sale on the AppWrapper electronic product catalog.
+          </figcaption>
+         </figure>
+         <p>
+          As of 2016, Apple’s online application-focused storefront (App Store) is the most profitable app marketplace on the planet. Thousands of new apps are downloaded each second, with a current average price of: $1.24 and 75% of all apps are free of charge.
+         </p>
+         <p>
+          Zero free apps were available on the AppWrapper.
+         </p>
+         <p>
+          This first App Store, The Electronic AppWrapper, was both a battle of encryption, and a landmark in digital rights.
+         </p>
+         <p>
+          It was created in the Pike Place Public Market neighborhood of Seattle Washington.
+         </p>
+         <p>
+          Starting with just 250 apps, The App Store has changed software delivery forever.
+         </p>
+         <blockquote>
+          <p>
+           “[The] App Store has forever changed software and software distribution. Been a economic boon.” —Tim Cook, Apple CEO at WWDC 2015 “98 percent of all Fortune 500 companies creating an iOS app and the average person owning about 119 apps within their iPhone”
+          </p>
+         </blockquote>
+         <figure aria-describedby="caption-attachment-540" class="wp-caption alignright" data-shortcode="caption" id="attachment_540" style="width: 210px">
+          <img alt="Jesse Tayler takes a break on the set of AppStorey, April 1 2016 - Apple's 40th Birthday" class="size-medium wp-image-540" data-attachment-id="540" data-comments-opened="0" data-image-description="" data-image-meta='{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0"}' data-image-title="IMG_0030 2" data-large-file="https://appstoreyblog.files.wordpress.com/2016/04/img_0030-2.jpeg?w=427" data-medium-file="https://appstoreyblog.files.wordpress.com/2016/04/img_0030-2.jpeg?w=200" data-orig-file="https://appstoreyblog.files.wordpress.com/2016/04/img_0030-2.jpeg" data-orig-size="427,640" data-permalink="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/img_0030-2/" height="300" sizes="(max-width: 200px) 100vw, 200px" src="https://appstoreyblog.files.wordpress.com/2016/04/img_0030-2.jpeg?w=200&amp;h=300" srcset="https://appstoreyblog.files.wordpress.com/2016/04/img_0030-2.jpeg?w=200&amp;h=300 200w, https://appstoreyblog.files.wordpress.com/2016/04/img_0030-2.jpeg?w=400&amp;h=600 400w, https://appstoreyblog.files.wordpress.com/2016/04/img_0030-2.jpeg?w=100&amp;h=150 100w" width="200"/>
+          <figcaption class="wp-caption-text" id="caption-attachment-540">
+           Jesse Tayler takes a break on the set of App Storey, April 1 2016 – Apple’s 40th Birthday
+          </figcaption>
+         </figure>
+         <p>
+          Jesse’s background in complex software systems and his innate love for invention, plus maybe a dose of naive altruism, brought out a team and company that would set in motion a new way to distribute and consume software. They created the very first App Store and put it to market.
+         </p>
+         <p>
+          Software has always been electronically transferred, and software encryption has always been part of computing.
+          <span class="Apple-converted-space">
+          </span>
+         </p>
+         <p>
+          So, what is an App Store?
+         </p>
+         <p>
+          Put simply, an App Store is any digital storefront intended to allow search and review of software titles or other media offered for sale electronically. Critically, the computer application hosting the storefront provides a secure, uniform experience that automates the electronic purchase, decryption and installation of software applications or other digital media.
+         </p>
+         <p>
+          The introduction of unified commercial software distribution catalog with a true application storefront to collectively manage and provide encryption for apps and media was a seminal invention. This is because by protecting the digital rights of artists online, the App Store provided the first economically viable, instant distribution mechanism unleashing an explosion of software adoption and creating an economic boom.
+         </p>
+         <p>
+          When compared to shipping boxes and printing user manuals, the pace and efficiency provided by the App Store is profound and has changed software distribution forever.
+         </p>
+         <p>
+          Interestingly, The Electronic AppWrapper was mostly apps with some music or other digital media, the iTunes Music Store was mostly music and some iPod apps. Apple’s Garage Band purveys digital music lessons sharing the same iTunes account as iOS AppStore submissions and hit songs from big Music Labels. Electronic bookstores such as Kindle, Barnes and Noble or Kobo are further examples of successful electronic distribution using the App Store concept.
+         </p>
+         <p>
+          The NeXT Computer technology ignited the dot-com boom, and provided the underlying mechanisms required for the mobile revolution of today, and yet it remains one of history’s least known computers.
+         </p>
+         <p>
+          Until now.
+         </p>
+         <p>
+          Join us as AppStorey brings you the real, true story of the world wide web, the first App Store and the computer that brought it all together.
+         </p>
+         <div class="sharedaddy sd-like-enabled sd-sharing-enabled" id="jp-post-flair">
+          <div class="sharedaddy sd-sharing-enabled">
+           <div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing">
+            <h3 class="sd-title">
+             Share this:
+            </h3>
+            <div class="sd-content">
+             <ul>
+              <li class="share-twitter">
+               <a class="share-twitter sd-button share-icon no-text" data-shared="sharing-twitter-524" href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/?share=twitter" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Twitter">
+                <span>
+                </span>
+                <span class="sharing-screen-reader-text">
+                 Click to share on Twitter (Opens in new window)
+                </span>
+               </a>
+              </li>
+              <li class="share-linkedin">
+               <a class="share-linkedin sd-button share-icon no-text" data-shared="sharing-linkedin-524" href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/?share=linkedin" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on LinkedIn">
+                <span>
+                </span>
+                <span class="sharing-screen-reader-text">
+                 Click to share on LinkedIn (Opens in new window)
+                </span>
+               </a>
+              </li>
+              <li class="share-facebook">
+               <a class="share-facebook sd-button share-icon no-text" data-shared="sharing-facebook-524" href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/?share=facebook" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Facebook">
+                <span>
+                </span>
+                <span class="sharing-screen-reader-text">
+                 Click to share on Facebook (Opens in new window)
+                </span>
+               </a>
+              </li>
+              <li>
+               <a class="sharing-anchor sd-button share-more" href="#">
+                <span>
+                 More
+                </span>
+               </a>
+              </li>
+              <li class="share-end">
+              </li>
+             </ul>
+             <div class="sharing-hidden">
+              <div class="inner" style="display: none;">
+               <ul>
+                <li class="share-email">
+                 <a class="share-email sd-button share-icon no-text" data-shared="" href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/?share=email" rel="nofollow noopener noreferrer" target="_blank" title="Click to email this to a friend">
+                  <span>
+                  </span>
+                  <span class="sharing-screen-reader-text">
+                   Click to email this to a friend (Opens in new window)
+                  </span>
+                 </a>
+                </li>
+                <li class="share-pinterest">
+                 <a class="share-pinterest sd-button share-icon no-text" data-shared="sharing-pinterest-524" href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/?share=pinterest" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Pinterest">
+                  <span>
+                  </span>
+                  <span class="sharing-screen-reader-text">
+                   Click to share on Pinterest (Opens in new window)
+                  </span>
+                 </a>
+                </li>
+                <li class="share-end">
+                </li>
+                <li class="share-tumblr">
+                 <a class="share-tumblr sd-button share-icon no-text" data-shared="" href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/?share=tumblr" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Tumblr">
+                  <span>
+                  </span>
+                  <span class="sharing-screen-reader-text">
+                   Click to share on Tumblr (Opens in new window)
+                  </span>
+                 </a>
+                </li>
+                <li class="share-reddit">
+                 <a class="share-reddit sd-button share-icon no-text" data-shared="" href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/?share=reddit" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Reddit">
+                  <span>
+                  </span>
+                  <span class="sharing-screen-reader-text">
+                   Click to share on Reddit (Opens in new window)
+                  </span>
+                 </a>
+                </li>
+                <li class="share-end">
+                </li>
+                <li class="share-end">
+                </li>
+               </ul>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+          <div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded" data-name="like-post-frame-94422379-524-5e74b39f988f6" data-src="//widgets.wp.com/likes/index.html?ver=20190321#blog_id=94422379&amp;post_id=524&amp;origin=appstoreyblog.wordpress.com&amp;obj_id=94422379-524-5e74b39f988f6&amp;domain=appstorey.com" id="like-post-wrapper-94422379-524-5e74b39f988f6">
+           <h3 class="sd-title">
+            Like this:
+           </h3>
+           <div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px;">
+            <span class="button">
+             <span>
+              Like
+             </span>
+            </span>
+            <span class="loading">
+             Loading...
+            </span>
+           </div>
+           <span class="sd-text-color">
+           </span>
+           <a class="sd-link-color">
+           </a>
+          </div>
+          <div class="jp-relatedposts" id="jp-relatedposts">
+           <h3 class="jp-relatedposts-headline">
+            <em>
+             Related
+            </em>
+           </h3>
+          </div>
+         </div>
+        </div>
+        <!-- .entry-content -->
+        <footer class="entry-footer">
+         <div class="author-info">
+          <div class="author-avatar">
+          </div>
+          <!-- .author-avatar -->
+          <div class="author-description">
+           <h2 class="author-heading">
+            Published by
+           </h2>
+           <h3 class="author-title">
+            AppStorey
+           </h3>
+           <p class="author-bio">
+            This is the story of history's greatest computer, inventing the web and the first App Store.
+            <a class="author-link" href="https://appstorey.com/author/planaby/" rel="author">
+             View all posts by AppStorey
+            </a>
+           </p>
+           <!-- .author-bio -->
+          </div>
+          <!-- .author-description -->
+         </div>
+         <!-- .author-info -->
+         <span class="cat-links">
+          <span class="screen-reader-text">
+           Categories
+          </span>
+          <a href="https://appstorey.com/category/interviews/" rel="category tag">
+           Interviews
+          </a>
+         </span>
+         <span class="comments-link">
+          <a href="https://appstorey.com/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/#comments">
+           13 Comments
+          </a>
+         </span>
+        </footer>
+        <!-- .entry-footer -->
+       </div>
+      </article>
+      <!-- #post-## -->
+      <div class="comments-area" id="comments">
+       <h2 class="comments-title">
+        13 thoughts on “Jesse Tayler talks App Store and NeXTSTEP with AppStorey”
+       </h2>
+       <ol class="comment-list">
+        <li class="pingback even thread-even depth-1 highlander-comment" id="comment-378">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://tecnomania.com.ve/index.php/2018/07/10/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           Apple’s iOS App Store changed the way we think about software
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment" id="comment-379">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="http://linksoftvn.com/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           Apple’s iOS App Store changed the way we think about software | Premium apps reviews Blog and Programing
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback even thread-even depth-1 highlander-comment" id="comment-380">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://buyersinside.com/apples-ios-app-retailer-modified-the-way-in-which-we-take-into-consideration-software-program/" rel="external nofollow ugc">
+           Apple's iOS App Retailer modified the way in which we take into consideration software program | | Buyers Inside
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment" id="comment-382">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="http://etechgrow.com/?p=3763" rel="external nofollow ugc">
+           Apple's iOS App Store changed the way we think about software | Get latest international news | Etech Grow
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback even thread-even depth-1 highlander-comment" id="comment-383">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://greenground.it/2018/07/10/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           Apple's iOS App Store changed the way we think about software | GREENGROUND IT
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment" id="comment-384">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://www.pcfiend.com/2018/07/10/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           PCFiend.com - Apple’s iOS App Store changed the way we think about software
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback even thread-even depth-1 highlander-comment" id="comment-385">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://www.servicesautomationsoftware.com/blog/2018/07/10/apples-ios-application-keep-adjusted-the-way-we-imagine-about-application/" rel="external nofollow ugc">
+           Apple’s iOS Application Keep adjusted the way we imagine about application - Services Automation Software
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment" id="comment-386">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://trueredusa.com/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           Apple’s iOS App Store changed the way we think about software - True RED USA
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback even thread-even depth-1 highlander-comment" id="comment-387">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://www.newsrains.com/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           Apple’s iOS App Store changed the way we think about software | NewsRains.com
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment" id="comment-389">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="http://www.lelagonpost.com/2018/07/10/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           Apple’s iOS App Store changed the way we think about software – Le Lagon Post
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback even thread-even depth-1 highlander-comment" id="comment-391">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://12newsonline.com/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           Apple's iOS App Store changed the way we think about software | 12 News Online
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment" id="comment-392">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://directconnectamerica.com/2018/07/11/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           Apple's iOS App Store changed the way we think about software – Your True News Source
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+        <li class="pingback even thread-even depth-1 highlander-comment" id="comment-393">
+         <div class="comment-body">
+          Pingback:
+          <a class="url" href="https://techandcomms.wordpress.com/2018/07/11/apples-ios-app-store-changed-the-way-we-think-about-software/" rel="external nofollow ugc">
+           Apple’s iOS App Store changed the way we think about software | Tech &amp; Comms News
+          </a>
+         </div>
+        </li>
+        <!-- #comment-## -->
+       </ol>
+       <!-- .comment-list -->
+       <p class="no-comments">
+        Comments are closed.
+       </p>
+      </div>
+      <!-- .comments-area -->
+      <nav aria-label="Posts" class="navigation post-navigation" role="navigation">
+       <h2 class="screen-reader-text">
+        Post navigation
+       </h2>
+       <div class="nav-links">
+        <div class="nav-previous">
+         <a href="https://appstorey.com/2016/04/06/the-earliest-web-the-story-of-spiderwoman/" rel="prev">
+          <span aria-hidden="true" class="meta-nav">
+           Previous
+          </span>
+          <span class="screen-reader-text">
+           Previous post:
+          </span>
+          <span class="post-title">
+           The Earliest Web; The Story of SpiderWoman
+          </span>
+         </a>
+        </div>
+        <div class="nav-next">
+         <a href="https://appstorey.com/2016/05/07/on-apples-40th-anniversary-eric-bergerson-tells-how-apple-was-built-upon-next-object-oriented-technology/" rel="next">
+          <span aria-hidden="true" class="meta-nav">
+           Next
+          </span>
+          <span class="screen-reader-text">
+           Next post:
+          </span>
+          <span class="post-title">
+           On Apple’s 40th Anniversary, Eric Bergerson tells how Apple was built upon NeXT Object Oriented Technology
+          </span>
+         </a>
+        </div>
+       </div>
+      </nav>
+     </main>
+     <!-- .site-main -->
+    </div>
+    <!-- .content-area -->
+    <div class="sidebar" id="sidebar">
+     <div class="sidebar-inner" id="sidebar-inner">
+      <nav class="main-navigation" role="navigation">
+       <h2 class="menu-heading widget-title">
+        Menu
+       </h2>
+       <div class="menu-appstorey-container">
+        <ul class="nav-menu" id="menu-appstorey-1">
+         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-17">
+          <a href="https://appstorey.com/">
+           Home
+          </a>
+         </li>
+         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-150">
+          <a href="https://appstorey.com/story/">
+           Story
+          </a>
+         </li>
+         <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-19">
+          <a href="https://appstorey.com/category/history/">
+           History
+          </a>
+         </li>
+         <li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-82">
+          <a href="https://appstorey.com/category/interviews/">
+           Interviews
+          </a>
+         </li>
+         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-690">
+          <a href="https://appstorey.com/thanks/">
+           Thanks
+          </a>
+         </li>
+        </ul>
+       </div>
+      </nav>
+      <!-- .main-navigation -->
+     </div>
+    </div>
+    <!-- .sidebar -->
+   </div>
+   <!-- .site-content -->
+   <footer class="site-footer" id="colophon" role="contentinfo">
+    <div class="site-info">
+     <a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">
+      Blog at WordPress.com.
+     </a>
+    </div>
+    <!-- .site-info -->
+   </footer>
+   <!-- .site-footer -->
+  </div>
+  <!-- .site -->
+  <!-- -->
+  <div style="display:none">
+  </div>
+  <div id="carousel-reblog-box">
+   <form action="#" name="carousel-reblog">
+    <textarea id="carousel-reblog-content" name="carousel-reblog-content" placeholder="Add your thoughts here... (optional)"></textarea>
+    <label for="carousel-reblog-to-blog-id" id="carousel-reblog-lblogid">
+     Post to
+    </label>
+    <select id="carousel-reblog-to-blog-id" name="carousel-reblog-to-blog-id">
+    </select>
+    <div class="submit">
+     <span class="canceltext">
+      <a class="cancel" href="#">
+       Cancel
+      </a>
+     </span>
+     <input class="button" id="carousel-reblog-submit" name="carousel-reblog-submit" type="submit" value="Reblog Post"/>
+     <input id="carousel-reblog-blog-id" type="hidden" value="94422379"/>
+     <input id="carousel-reblog-blog-url" type="hidden" value="https://appstorey.com"/>
+     <input id="carousel-reblog-blog-title" type="hidden" value="AppStorey"/>
+     <input id="carousel-reblog-post-url" type="hidden" value=""/>
+     <input id="carousel-reblog-post-title" type="hidden" value=""/>
+    </div>
+    <input id="_wpnonce" name="_wpnonce" type="hidden" value="8804cc88f3"/>
+    <input name="_wp_http_referer" type="hidden" value="/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/"/>
+   </form>
+   <div class="arrow">
+   </div>
+  </div>
+  <script type="text/javascript">
+   window.WPCOM_sharing_counts = {"https:\/\/appstorey.com\/2016\/04\/11\/jesse-tayler-talks-appstore-and-nextstep-with-appstorey\/":524};
+  </script>
+  <div id="sharing_email" style="display: none;">
+   <form action="/2016/04/11/jesse-tayler-talks-appstore-and-nextstep-with-appstorey/" method="post">
+    <label for="target_email">
+     Send to Email Address
+    </label>
+    <input id="target_email" name="target_email" type="email" value=""/>
+    <label for="source_name">
+     Your Name
+    </label>
+    <input id="source_name" name="source_name" type="text" value=""/>
+    <label for="source_email">
+     Your Email Address
+    </label>
+    <input id="source_email" name="source_email" type="email" value=""/>
+    <input autocomplete="off" class="input" id="jetpack-source_f_name" name="source_f_name" size="25" title="This field is for validation and should not be changed" type="text" value=""/>
+    <div class="g-recaptcha" data-sitekey="6LcmyE0UAAAAALID28yVNg7pFCodGaArJzHitez_" data-tabindex="0" data-theme="light" data-type="image">
+    </div>
+    <script async="" src="https://www.google.com/recaptcha/api.js?hl=en" type="text/javascript">
+    </script>
+    <img alt="loading" class="loading" height="16" src="https://s2.wp.com/wp-content/mu-plugins/post-flair/sharing/images/loading.gif" style="float: right; display: none" width="16"/>
+    <input class="sharing_send" type="submit" value="Send Email"/>
+    <a class="sharing_cancel" href="#cancel" rel="nofollow" role="button">
+     Cancel
+    </a>
+    <div class="errors errors-1" style="display: none;">
+     Post was not sent - check your email addresses!
+    </div>
+    <div class="errors errors-2" style="display: none;">
+     Email check failed, please try again
+    </div>
+    <div class="errors errors-3" style="display: none;">
+     Sorry, your blog cannot share posts by email.
+    </div>
+   </form>
+  </div>
+  <link href="https://s0.wp.com/_static/??-eJx9jsEKwjAQRH/IdZEaqAfxW9LtNqRNsyGbtPj3tmDFg3icN7xhcE1AEgvHgilU56Oiq1vsODvogtCkOHJJliYI9im1gMu+x3c15E0+k+oJv5bmCsdYZk0S1S8Mi+9ZfpB/OtksVTl8Phxglx7z/WLapm2uN2PGFyQ1THE=?cssminify=yes" id="all-css-0-2" media="all" rel="stylesheet" type="text/css"/>
+  <script>
+   var comment_like_text = {"loading":"Loading..."};
+  </script>
+  <script>
+   var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+var toggleButtonText = {"menu":"Menu","widgets":"Widgets","both":"Menu & Widgets"};
+  </script>
+  <script>
+   var actionbardata = {"siteID":"94422379","siteName":"AppStorey","siteURL":"https:\/\/appstorey.com","icon":"<img alt='' src='https:\/\/s2.wp.com\/i\/logo\/wpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/resonar","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fappstorey.com%2F2016%2F04%2F11%2Fjesse-tayler-talks-appstore-and-nextstep-with-appstorey%2F&signup_flow=account&domain=appstorey.com","themeURL":"https:\/\/wordpress.com\/theme\/resonar\/","xhrURL":"https:\/\/appstorey.com\/wp-admin\/admin-ajax.php","nonce":"d9a04ac121","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"0a3dae01f2\" \/>","referer":"https:\/\/appstorey.com\/2016\/04\/11\/jesse-tayler-talks-appstore-and-nextstep-with-appstorey\/","canFollow":"1","feedID":"46047847","statusMessage":"","customizeLink":"https:\/\/appstoreyblog.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fappstoreyblog.wordpress.com%2F2016%2F04%2F11%2Fjesse-tayler-talks-appstore-and-nextstep-with-appstorey%2F","postID":"524","shortlink":"https:\/\/wp.me\/p6obzB-8s","canEditPost":"","editLink":"https:\/\/wordpress.com\/post\/appstorey.com\/524","statsLink":"https:\/\/wordpress.com\/stats\/post\/524\/appstorey.com","i18n":{"view":"View site","follow":"Follow","following":"Following","edit":"Edit","login":"Log in","signup":"Sign up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Resonar","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/read\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editSubs":"Manage subscriptions","viewReader":"View site in Reader","viewReadPost":"View post in Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/wordpress.com\/log-in?redirect_to=https%3A%2F%2Fappstorey.com%2F2016%2F04%2F11%2Fjesse-tayler-talks-appstore-and-nextstep-with-appstorey%2F&signup_flow=account&domain=appstorey.com\">Log in now.<\/a>","stats":"Stats"}};
+  </script>
+  <script>
+   var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https:\/\/appstorey.com\/wp-admin\/admin-ajax.php","nonce":"ec481d3308","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"0","login_url":"https:\/\/appstoreyblog.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fappstorey.com%2F2016%2F04%2F11%2Fjesse-tayler-talks-appstore-and-nextstep-with-appstorey%2F","blog_id":"94422379","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label for=\"email\">Email<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>","reblog":"Reblog","reblogged":"Reblogged","reblog_add_thoughts":"Add your thoughts here... (optional)","reblogging":"Reblogging...","post_reblog":"Post Reblog","stats_query_args":"blog=94422379&v=wpcom&tz=0&user_id=0&subd=appstoreyblog","is_public":"1","reblog_enabled":""};
+  </script>
+  <script>
+   var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+  </script>
+  <script src="https://s1.wp.com/_static/??-eJydU+1SgzAQfCHTWAdG/eH4LCEc7UFIYi4B69N7qdChhamjf0hm72uX28jRC+1sBBtlS7KGATX4z11LD/I65B3FHojUATai7UeCcJqOHdoBYfw1rYXole5EAMKvVdc+CW/SAS1Jgx2Q5KIER2VrA2FORqtNqjmYySNFOYCtXcgh78ypQWN2Pdrb3nPjJhkjCCMIqDGiPUwjZVm8Fk9l+Sor4xhk7ST4qrtpyoa8BV/t+p4h8cO7zQIqSSP6eyJXRVfA/xXAkJtol2ys3WgnGecv3QZvp8Qj8M6lT5XkJTmrQiZGHXpmZTvROJ1INLgyzHZhk6yO6OxKzeI3qJr3JSou6BVFCHwTboAQMK/5gv2xQwxstLtjz8Ry0eV2J5s1eZaBA4iBebkNZGm7pUvJb+PXT2OZteUVFVwiMHJ+QjNwpyabWDRGYZB0VIGtMp9c9N6/7cuXYv+4fy7K9htOa4gu" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   ( 'fetch' in window ) || document.write( '<script src="https://s0.wp.com/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?m=1573572739h&#038;ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?m=1540208548h&#038;ver=3.26.0-0"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://s1.wp.com/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?m=1550600082h&#038;ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://s2.wp.com/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?m=1540208548h&#038;ver=2.0.2"></scr' + 'ipt>' );
+  </script>
+  <script type="text/javascript">
+   var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-tumblr', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtumblr', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+  </script>
+  <script type="text/javascript">
+   // <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+  </script>
+  <iframe id="likes-master" name="likes-master" scrolling="no" src="https://widgets.wp.com/likes/master.html?ver=20190321#ver=20190321" style="display:none;">
+  </iframe>
+  <div id="likes-other-gravatars">
+   <div class="likes-text">
+    <span>
+     %d
+    </span>
+    bloggers like this:
+   </div>
+   <ul class="wpl-avatars sd-like-gravatars">
+   </ul>
+  </div>
+  <script async="" defer="" src="//stats.wp.com/w.js?61" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   _tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'94422379','blog_tz':'0','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'94422379','v':'wpcom','tz':'0','user_id':'0','post':'524','subd':'appstoreyblog'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1TaVhzUzFMbjdWNHpwZGhTayxPSUFCMGRVYVNrSFguN3FwSmQ5RGtNX3VQcj1yVzhiflM1THQtLGFdQ2toOXYlcnhaT055VDBydF1Ebz0mRzM0aiVsc0JBenl4Mm1qOFpnWVBaWlJKQXlQSHYsdltsdll6bzZxZFA/RUpba1NCY05IVTBZSTRwfnhlNGgvNU9aSGd0UVU0dWVJMS9OMmd2VD9ua3YxfGZTU2R3LlJ+RFFPOUNQY2c3RiZIc2UtYTc5UzNXK3ZNRzdzNElbZXZxdVVSb2JofEpkMXB2NHJfc3Y3MUpGYkF4endvfFFddEpDUFBhUC5DN0ktRkIyQUVXMDQ1YlBpb0ZqNW10SFJINVVT'}]);
+_stq.push([ 'clickTrackerInit', '94422379', '524' ]);
+  </script>
+  <noscript>
+   <img alt="" src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden"/>
+  </noscript>
+  <script>
+   if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+  </script>
+ </body>
+</html>
+<!--
+	generated in 0.169 seconds
+	68689 bytes batcached for 300 seconds
+-->

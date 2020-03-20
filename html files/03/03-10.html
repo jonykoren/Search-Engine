@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="en-US">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Online Recommender Systems – How Does a Website Know What I Want? | AMS Grad Blog
+  </title>
+  <link href="http://gmpg.org/xfn/11" rel="profile"/>
+  <link href="https://blogs.ams.org/mathgradblog/wp-content/themes/gradstudents/style.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://blogs.ams.org/mathgradblog/xmlrpc.php" rel="pingback"/>
+  <script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    tex2jax: { 
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|commentlist|c5t_comment_list"
+    }
+});
+  </script>
+  <link href="//s0.wp.com" rel="dns-prefetch"/>
+  <link href="//platform-api.sharethis.com" rel="dns-prefetch"/>
+  <link href="//cdnjs.cloudflare.com" rel="dns-prefetch"/>
+  <link href="//secure.gravatar.com" rel="dns-prefetch"/>
+  <link href="//s.w.org" rel="dns-prefetch"/>
+  <link href="https://blogs.ams.org/mathgradblog/feed/" rel="alternate" title="AMS Grad Blog » Feed" type="application/rss+xml"/>
+  <link href="https://blogs.ams.org/mathgradblog/comments/feed/" rel="alternate" title="AMS Grad Blog » Comments Feed" type="application/rss+xml"/>
+  <link href="https://blogs.ams.org/mathgradblog/2015/05/25/online-recommender-systems-website-want/feed/" rel="alternate" title="AMS Grad Blog » Online Recommender Systems – How Does a Website Know What I Want? Comments Feed" type="application/rss+xml"/>
+  <!-- This site uses the Google Analytics by MonsterInsights plugin v7.10.4 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+  <script data-cfasync="false" type="text/javascript">
+   var mi_version         = '7.10.4';
+	var mi_track_user      = true;
+	var mi_no_track_reason = '';
+	
+	var disableStr = 'ga-disable-UA-2791151-1';
+
+	/* Function to detect opted out users */
+	function __gaTrackerIsOptedOut() {
+		return document.cookie.indexOf(disableStr + '=true') > -1;
+	}
+
+	/* Disable tracking if the opt-out cookie exists. */
+	if ( __gaTrackerIsOptedOut() ) {
+		window[disableStr] = true;
+	}
+
+	/* Opt-out function */
+	function __gaTrackerOptout() {
+	  document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	  window[disableStr] = true;
+	}
+	
+	if ( mi_track_user ) {
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+		__gaTracker('create', 'UA-2791151-1', 'auto');
+		__gaTracker('set', 'forceSSL', true);
+		__gaTracker('require', 'displayfeatures');
+		__gaTracker('send','pageview');
+	} else {
+		console.log( "" );
+		(function() {
+			/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+			var noopfn = function() {
+				return null;
+			};
+			var noopnullfn = function() {
+				return null;
+			};
+			var Tracker = function() {
+				return null;
+			};
+			var p = Tracker.prototype;
+			p.get = noopfn;
+			p.set = noopfn;
+			p.send = noopfn;
+			var __gaTracker = function() {
+				var len = arguments.length;
+				if ( len === 0 ) {
+					return;
+				}
+				var f = arguments[len-1];
+				if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+					console.log( 'Not running function __gaTracker(' + arguments[0] + " ....) because you are not being tracked. " + mi_no_track_reason );
+					return;
+				}
+				try {
+					f.hitCallback();
+				} catch (ex) {
+
+				}
+			};
+			__gaTracker.create = function() {
+				return new Tracker();
+			};
+			__gaTracker.getByName = noopnullfn;
+			__gaTracker.getAll = function() {
+				return [];
+			};
+			__gaTracker.remove = noopfn;
+			window['__gaTracker'] = __gaTracker;
+					})();
+		}
+  </script>
+  <!-- / Google Analytics by MonsterInsights -->
+  <script type="text/javascript">
+   window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blogs.ams.org\/mathgradblog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.5"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+  </script>
+  <style type="text/css">
+   img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+  </style>
+  <link href="https://blogs.ams.org/mathgradblog/wp-includes/css/dist/block-library/style.min.css?ver=5.2.5" id="wp-block-library-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://blogs.ams.org/mathgradblog/wp-content/plugins/sharethis-share-buttons/css/mu-style.css?ver=5.2.5" id="share-this-share-buttons-sticky-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://blogs.ams.org/mathgradblog/wp-content/plugins/share-this/css/style.css?ver=5.2.5" id="st-widget-css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="https://blogs.ams.org/mathgradblog/wp-content/plugins/jetpack/css/jetpack.css?ver=7.1.2" id="jetpack_css-css" media="all" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">
+   /* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[]","home_url":"https:\/\/blogs.ams.org\/mathgradblog","hash_tracking":"false"};
+/* ]]> */
+  </script>
+  <script src="https://blogs.ams.org/mathgradblog/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend.min.js?ver=7.10.4" type="text/javascript">
+  </script>
+  <script src="//platform-api.sharethis.com/js/sharethis.js#property=5bb630ab752ef70011efd3a7&amp;product=unknown-share-buttons-wp" type="text/javascript">
+  </script>
+  <script src="https://blogs.ams.org/mathgradblog/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp" type="text/javascript">
+  </script>
+  <script src="https://blogs.ams.org/mathgradblog/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1" type="text/javascript">
+  </script>
+  <link href="https://blogs.ams.org/mathgradblog/wp-json/" rel="https://api.w.org/"/>
+  <link href="https://blogs.ams.org/mathgradblog/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+  <link href="https://blogs.ams.org/mathgradblog/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+  <link href="https://blogs.ams.org/mathgradblog/2015/05/17/bridging-gap-2-eine-kleine-nachtmathematics/" rel="prev" title="Bridging the Gap 2: Eine Kleine NachtMathematics"/>
+  <link href="https://blogs.ams.org/mathgradblog/2015/06/03/solution-panicked-classroom/" rel="next" title="My solution to a panicked classroom"/>
+  <meta content="WordPress 5.2.5" name="generator"/>
+  <link href="https://blogs.ams.org/mathgradblog/2015/05/25/online-recommender-systems-website-want/" rel="canonical"/>
+  <link href="https://wp.me/p3gbww-6MB" rel="shortlink"/>
+  <link href="https://blogs.ams.org/mathgradblog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblogs.ams.org%2Fmathgradblog%2F2015%2F05%2F25%2Fonline-recommender-systems-website-want%2F" rel="alternate" type="application/json+oembed"/>
+  <link href="https://blogs.ams.org/mathgradblog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblogs.ams.org%2Fmathgradblog%2F2015%2F05%2F25%2Fonline-recommender-systems-website-want%2F&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+  <script charset="utf-8" type="text/javascript">
+   var switchTo5x=true;
+  </script>
+  <script charset="utf-8" id="st_insights_js" src="https://ws.sharethis.com/button/buttons.js?publisher=e6415229-163e-4097-a273-1a386a4a26b8&amp;product=sharethis-wordpress" type="text/javascript">
+  </script>
+  <script charset="utf-8" type="text/javascript">
+   stLight.options({"publisher":"e6415229-163e-4097-a273-1a386a4a26b8","doNotCopy":true,"hashAddressBar":false,"doNotHash":true});var st_type="wordpress4.9.8";
+  </script>
+  <link href="//v0.wordpress.com" rel="dns-prefetch"/>
+  <link href="//widgets.wp.com" rel="dns-prefetch"/>
+  <link href="//s0.wp.com" rel="dns-prefetch"/>
+  <link href="//0.gravatar.com" rel="dns-prefetch"/>
+  <link href="//1.gravatar.com" rel="dns-prefetch"/>
+  <link href="//2.gravatar.com" rel="dns-prefetch"/>
+  <style id="custom-background-css" type="text/css">
+   body.custom-background { background-color: #ffffff; }
+  </style>
+  <!-- Jetpack Open Graph Tags -->
+  <meta content="article" property="og:type"/>
+  <meta content="Online Recommender Systems – How Does a Website Know What I Want?" property="og:title"/>
+  <meta content="https://blogs.ams.org/mathgradblog/2015/05/25/online-recommender-systems-website-want/" property="og:url"/>
+  <meta content="“People you may know.” “Other products you may like.” “Customers Who Bought This Item Also Bought…” We’ve all seen these suggestions when browsing the web, be it on Facebook or Amazon o…" property="og:description"/>
+  <meta content="2015-05-26T04:02:24+00:00" property="article:published_time"/>
+  <meta content="2015-11-02T04:10:28+00:00" property="article:modified_time"/>
+  <meta content="https://www.facebook.com/tyler.clark12" property="article:author"/>
+  <meta content="AMS Grad Blog" property="og:site_name"/>
+  <meta content="https://s0.wp.com/i/blank.jpg" property="og:image"/>
+  <meta content="en_US" property="og:locale"/>
+  <meta content="@tylermath12" name="twitter:creator"/>
+  <meta content="@AMSGradBlog" name="twitter:site"/>
+  <meta content="Online Recommender Systems – How Does a Website Know What I Want?" name="twitter:text:title"/>
+  <meta content="summary" name="twitter:card"/>
+  <!-- End Jetpack Open Graph Tags -->
+  <style id="wp-custom-css" type="text/css">
+   /*
+Welcome to Custom CSS!
+
+CSS (Cascading Style Sheets) is a kind of code that tells the browser how
+to render a web page. You may delete these comments and get started with
+your customizations.
+
+By default, your stylesheet will be loaded after the theme stylesheets,
+which means that your rules can take precedence and override the theme CSS
+rules. Just write here what you want to change, you don't need to copy all
+your theme's stylesheet content.
+*/
+#reply-title {
+	color: #000;
+	font-size: 10px;
+	font-weight: normal;
+	margin-bottom: 0;
+}
+#branding img {
+	max-width:940px;
+}
+  </style>
+ </head>
+ <body class="post-template-default single single-post postid-26077 single-format-standard custom-background">
+  <style>
+   .AMS_gray a {
+	color: #FFF;
+	text-decoration: none;
+	margin-bottom: 7px;
+	padding-top: 4px;
+	padding-right: 12px;
+	padding-bottom: 4px;
+	padding-left: 12px;
+}
+.AMS_gray a:hover {
+	color: #FFF;
+	background: #0057B8;
+	border-radius: 4px;
+}
+.AMS_gray {
+	color: transparent;
+	background-color: #98A4AE;
+}
+.mainchoices {
+	height: 1.1em !important;	
+}
+  </style>
+  <div class="clearfix">
+   <br/>
+  </div>
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+   <p class="text-center">
+    <a href="http://www.ams.org/">
+     <img alt="American Mathematical Society Blogs" class="img-responsive center-block" src="http://www.ams.org/images/content/logo.png"/>
+    </a>
+   </p>
+  </div>
+  <div class="col-md-3">
+  </div>
+  <div class="clearfix">
+   <br/>
+  </div>
+  <!-- Popular links -->
+  <div class="col-md-12 AMS_gray">
+   <br/>
+   <nav aria-label="Products and Services" class="text-center mainchoices">
+    <a href="https://bookstore.ams.org" title="Bookstore">
+     Bookstore
+    </a>
+    <a href="http://www.ams.org/mathscinet" title="MathSciNet">
+     MathSciNet
+     <sup>
+      ®
+     </sup>
+    </a>
+    <a href="http://www.ams.org/journals" title="Journals">
+     Journals
+    </a>
+    <a href="http://www.ams.org/member-directory" title="Member Directory">
+     Member Directory
+    </a>
+    <a href="http://www.ams.org/employment-services" title="Employment Services">
+     Employment Services
+    </a>
+    <a href="http://www.ams.org/support-ams" title="Giving to the AMS">
+     Giving to the AMS
+    </a>
+    <a href="http://www.ams.org/about-us" title="About the AMS">
+     About the AMS
+    </a>
+   </nav>
+   <br/>
+  </div>
+  <!-- / Popular links -->
+  <div class="clearfix">
+   <br/>
+   <br/>
+  </div>
+  <div class="hfeed" id="wrapper">
+   <div id="header">
+    <div id="masthead">
+     <div id="branding" role="banner">
+      <br/>
+      <img alt="" height="" src="https://blogs.ams.org/mathgradblog/files/2019/06/blogs-grad-student.jpg" width=""/>
+     </div>
+     <!-- #branding -->
+     <div id="access" role="navigation">
+      <div class="skip-link screen-reader-text">
+       <a href="#content" title="Skip to content">
+        Skip to content
+       </a>
+      </div>
+      <div class="menu-header">
+       <ul class="menu" id="menu-ams-grad-blog">
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-22182" id="menu-item-22182">
+         <a href="http://blogs.ams.org/mathgradblog/">
+          Blog
+         </a>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22181" id="menu-item-22181">
+         <a href="https://blogs.ams.org/mathgradblog/about/">
+          About
+         </a>
+        </li>
+        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22179" id="menu-item-22179">
+         <a href="https://blogs.ams.org/mathgradblog/contact/">
+          Contact
+         </a>
+        </li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-22183" id="menu-item-22183">
+         <a href="http://blogs.ams.org/mathgradblog/feed">
+          RSS
+         </a>
+        </li>
+        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-31237" id="menu-item-31237">
+         <a href="http://www.ams.org/?utm_source=mathgradblog&amp;utm_medium=blog">
+          AMS.org
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <!-- #access -->
+    </div>
+    <!-- #masthead -->
+   </div>
+   <!-- #header -->
+   <div id="main">
+    <div id="container">
+     <div id="content" role="main">
+      <div class="navigation" id="nav-above">
+       <div class="nav-previous">
+        <a href="https://blogs.ams.org/mathgradblog/2015/05/17/bridging-gap-2-eine-kleine-nachtmathematics/" rel="prev">
+         <span class="meta-nav">
+          ←
+         </span>
+         Bridging the Gap 2: Eine Kleine NachtMathematics
+        </a>
+       </div>
+       <div class="nav-next">
+        <a href="https://blogs.ams.org/mathgradblog/2015/06/03/solution-panicked-classroom/" rel="next">
+         My solution to a panicked classroom
+         <span class="meta-nav">
+          →
+         </span>
+        </a>
+       </div>
+      </div>
+      <!-- #nav-above -->
+      <div class="post-26077 post type-post status-publish format-standard hentry category-math-in-pop-culture category-mathematics-online" id="post-26077">
+       <h1 class="entry-title">
+        Online Recommender Systems – How Does a Website Know What I Want?
+       </h1>
+       <div class="entry-meta">
+        <span class="meta-prep meta-prep-author">
+         Posted on
+        </span>
+        <a href="https://blogs.ams.org/mathgradblog/2015/05/25/online-recommender-systems-website-want/" rel="bookmark" title="11:02 pm">
+         <span class="entry-date">
+          May 25, 2015
+         </span>
+        </a>
+        <span class="meta-sep">
+         by
+        </span>
+        <span class="author vcard">
+         <a class="url fn n" href="https://blogs.ams.org/mathgradblog/author/sblanda/" title="View all posts by Stephanie Blanda">
+          Stephanie Blanda
+         </a>
+        </span>
+       </div>
+       <!-- .entry-meta -->
+       <div class="entry-content">
+        <p>
+         “People you may know.” “Other products you may like.” “Customers Who Bought This Item Also Bought…” We’ve all seen these suggestions when browsing the web, be it on Facebook or Amazon or some other platform. But how do the sites come up with these recommendations? Sometimes they seem very far off (why should I become friends with someone when we only have one mutual friend?) to eerily tailored (how did you know my favorite band!?!?). This area of research falls under the broad category of recommender systems.
+        </p>
+        <p>
+         <span id="more-26077">
+         </span>
+        </p>
+        <p>
+         Recommender systems is a relatively new area of research in machine learning. There are two main ways that recommender systems produce a list of recommendations for a user – collaborative or content-based filtering. Collaborative filtering uses past behavior (items that a user previously viewed or purchased, in addition to any ratings the user gave those items) and similar decisions made by other users to create a model. This model then predicts items that the user may find interesting. In content-based filtering the model uses a series of discrete characteristics of an item in order to recommend additional items with similar properties. One of the benefits of recommender systems over search algorithms is that recommender systems help users discover items that they might not have otherwise found. Recommender systems is an active research area in data mining and machine learning.
+        </p>
+        <p>
+         Collaborative filtering methods are based on collecting and analyzing a large amount of data pertaining to users’ behaviors, activities, or preferences and predicting what users will like based on their similarity to other users. One advantage to this approach is that a machine can give good recommendations about complex things (such as movies) without being able to understand the item itself. These types of methods are also called user-based nearest neighbor recommendations and are based on the assumption that users with similar tastes in the past will continue to have similar tastes in the future. In order for these methods to be useful and accurate, information must be accumulated from a user’s profile. This can be done explicitly (by asking a user to rate an item, by asking a user to rank a set of items, or by presenting two items to a user and asking him/her to choose which one he/she prefers) or implicitly (by observing the items a user views, by analyzing item/user viewing times, or by keeping a record of the items that a user has purchased previously). This information can be continuously updated to keep the user’s profile current. Once the data is collected, the collaborative filtering method identifies other customers that had similar preferences to those of the current user in the past and calculates a list of recommended items for the user. One common similarity measure is the Pearson correlation coefficient (calculated by taking the covariance of the two variables divided by the product of their standard deviations).
+        </p>
+        <p>
+         One of the most famous examples of collaborative filtering is an algorithm popularized by Amazon’s recommender system The idea behind their method is item-to-item collaborative filtering. That is, if a user bought item x, then he/she will also (probably) buy item y. Facebook, LinkedIn, and other social networking sites examine the network of connections between a user and his/her friends and then implement collaborative filtering algorithms to suggest new groups the user might be interested in joining or people that the user may know.
+        </p>
+        <p>
+         No algorithm is perfect, and collaborative filtering approaches often suffer from three main problems:
+        </p>
+        <ul>
+         <li>
+          <b>
+           Cold Start:
+          </b>
+          Collaborative filtering systems must build a profile for each user but this takes a large amount of data in order for the recommendations to be meaningful and accurate.
+         </li>
+         <li>
+          <b>
+           Scalability:
+          </b>
+          Collaborative filtering systems are used in areas where there are lots of choices. For example, with Amazon there are millions of products from which to choose. A large amount of computational power is often needed to calculate recommendations.
+         </li>
+         <li>
+          <b>
+           Sparsity:
+          </b>
+          Again, thinking about Amazon, there are millions of products available (which is true for other major e-commerce sites, as well). Even the most active users will only have rated a small subset of the overall database of products. This means that a particular item (even if it is extremely popular) will have very few ratings.
+         </li>
+        </ul>
+        <p>
+         Another popular approach to implementing recommender systems is content-based filtering. In content-based filtering a user profile is built to provide information about the types of items that the user likes based on keywords used to describe the items. In these systems a recommendation is made by presenting similar items to those the user liked in the past (or items that are similar to what the user is currently looking at). This approach has roots in information retrieval and information filtering research.
+        </p>
+        <p>
+         The content-based filtering method creates a profile for each item (based on a set of discrete attributes and features) which is used to characterize the item in the system. The system then creates a content-based profile for the user based on a weighted vector of item features (from items the user has previously rated or purchased and from items the user is currently viewing). The weights denote the importance of each feature to the user. There are many possible ways of computing these weights, from Bayesian Classifiers to cluster analysis to decision trees to artificial neural networks. Whatever the calculation technique the goal of the weighted vector is the same – to estimate the probability that the user is going to like a suggested item.
+        </p>
+        <p>
+         One example of a content-based filtering is Pandora Radio. When a user goes to the Pandora website, he/she is prompted to “Enter artist, genre or composer to create a station.” Pandora then uses content-based filtering to find music with similar qualities to the song, artist, or genre that the user provided.
+        </p>
+        <p>
+         The main issue with content-based filtering is that the system is unable to apply user preferences about one type of item to another item type. For example, how does a user’s music preferences impact his or her preference in reading material? When the system is limited to recommending content of they same type, the value of the recommendations is limited.
+        </p>
+        <p>
+         So now you know how websites make suggestions tailored to your likes and dislikes. As research into recommender systems progresses the suggestions will just keep getting better and better!
+        </p>
+        <p>
+        </p>
+        <p>
+         Sources:
+        </p>
+        <p>
+         Allen, R.B. (1990). “User Models: Theory, Method, Practice”. International J. Man-Machine Studies.
+        </p>
+        <p>
+         Montaner, M.; Lopez, B.; de la Rosa, J. L. (June 2003).
+         <a href="http://www.springerlink.com/content/kk844421t5466k35/">
+          “A Taxonomy of Recommender Agents on the Internet”
+         </a>
+         .
+         <i>
+          Artificial Intelligence Review
+         </i>
+         <b>
+          19
+         </b>
+         (4): 285–330.
+         <a href="http://en.wikipedia.org/wiki/Digital_object_identifier">
+          doi
+         </a>
+         :
+         <a href="http://dx.doi.org/10.1023%2FA%3A1022850703159">
+          10.1023/A:1022850703159
+         </a>
+         .
+        </p>
+        <p align="LEFT">
+         <a href="http://patft.uspto.gov/netacgi/nph-Parser?Sect1=PTO2&amp;Sect2=HITOFF&amp;p=1&amp;u=/netahtml/PTO/search-bool.html&amp;r=1&amp;f=G&amp;l=50&amp;co1=AND&amp;d=PTXT&amp;s1=6,266,649.PN.&amp;OS=PN/6,266,649&amp;RS=PN/6,266,649">
+          Collaborative Recommendations Using Item-to-Item Similarity Mappings
+         </a>
+        </p>
+        <div class="sharethis-inline-share-buttons" style="margin-top: 0px; margin-bottom: 0px;">
+        </div>
+       </div>
+       <!-- .entry-content -->
+       <div id="entry-author-info">
+        <div id="author-avatar">
+         <img alt="" class="avatar avatar-60 photo" height="60" src="https://secure.gravatar.com/avatar/9ae307623d701278e37cd0666e8b1c55?s=60&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/9ae307623d701278e37cd0666e8b1c55?s=120&amp;d=mm&amp;r=g 2x" width="60"/>
+        </div>
+        <!-- #author-avatar -->
+        <div id="author-description">
+         <h2>
+          About Stephanie Blanda
+         </h2>
+         Stephanie is a math Ph.D. student, with a minor in Computational Science, at Penn State University.  She obtained a B.S. from Lebanon Valley College, where she double majored in Mathematics and Computer Science.  Currently, Stephanie is studying the interface of two viscous fluids under a shear flow, specifically with applications to wind generated ocean waves.
+         <div id="author-link">
+          <a href="https://blogs.ams.org/mathgradblog/author/sblanda/">
+           View all posts by Stephanie Blanda
+           <span class="meta-nav">
+            →
+           </span>
+          </a>
+         </div>
+         <!-- #author-link	-->
+        </div>
+        <!-- #author-description -->
+       </div>
+       <!-- #entry-author-info -->
+       <div class="entry-utility">
+        This entry was posted in
+        <a href="https://blogs.ams.org/mathgradblog/category/math-in-pop-culture/" rel="category tag">
+         Math in Pop Culture
+        </a>
+        ,
+        <a href="https://blogs.ams.org/mathgradblog/category/mathematics-online/" rel="category tag">
+         Mathematics Online
+        </a>
+        . Bookmark the
+        <a href="https://blogs.ams.org/mathgradblog/2015/05/25/online-recommender-systems-website-want/" rel="bookmark" title="Permalink to Online Recommender Systems – How Does a Website Know What I Want?">
+         permalink
+        </a>
+        .
+       </div>
+       <!-- .entry-utility -->
+      </div>
+      <!-- #post-## -->
+      <div class="navigation" id="nav-below">
+       <div class="nav-previous">
+        <a href="https://blogs.ams.org/mathgradblog/2015/05/17/bridging-gap-2-eine-kleine-nachtmathematics/" rel="prev">
+         <span class="meta-nav">
+          ←
+         </span>
+         Bridging the Gap 2: Eine Kleine NachtMathematics
+        </a>
+       </div>
+       <div class="nav-next">
+        <a href="https://blogs.ams.org/mathgradblog/2015/06/03/solution-panicked-classroom/" rel="next">
+         My solution to a panicked classroom
+         <span class="meta-nav">
+          →
+         </span>
+        </a>
+       </div>
+      </div>
+      <!-- #nav-below -->
+      <div id="comments">
+       <h3 id="comments-title">
+        One Response to
+        <em>
+         Online Recommender Systems – How Does a Website Know What I Want?
+        </em>
+       </h3>
+       <ol class="commentlist">
+        <li class="comment even thread-even depth-1" id="li-comment-7049">
+         <div id="comment-7049">
+          <div class="comment-author vcard">
+           <img alt="" class="avatar avatar-40 photo" height="40" src="https://secure.gravatar.com/avatar/1f280b1b129b6413deed96abe76d1f1f?s=40&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/1f280b1b129b6413deed96abe76d1f1f?s=80&amp;d=mm&amp;r=g 2x" width="40"/>
+           <cite class="fn">
+            Alisha Ross
+           </cite>
+           <span class="says">
+            says:
+           </span>
+          </div>
+          <!-- .comment-author .vcard -->
+          <div class="comment-meta commentmetadata">
+           <a href="https://blogs.ams.org/mathgradblog/2015/05/25/online-recommender-systems-website-want/#comment-7049">
+            April 19, 2019 at 12:37 am
+           </a>
+          </div>
+          <!-- .comment-meta .commentmetadata -->
+          <div class="comment-body">
+           <p>
+            An impressive share! I have just forwarded this onto a coworker who had been doing a little
+            <br/>
+            homework on this. And he actually ordered me dinner simply because
+            <br/>
+            I found it for him… lol. So allow me to reword this….
+            <br/>
+            Thank YOU for the meal!! But yeah, thanks for spending some time to discuss
+            <br/>
+            this topic here on your blog.
+            <br/>
+            Regards
+            <br/>
+            Ross Alisha
+           </p>
+          </div>
+          <div class="reply">
+           <a aria-label="Reply to Alisha Ross" class="comment-reply-link" data-belowelement="comment-7049" data-commentid="7049" data-postid="26077" data-respondelement="respond" href="/mathgradblog/2015/05/25/online-recommender-systems-website-want/?replytocom=7049#respond" rel="nofollow">
+            Reply
+           </a>
+          </div>
+          <!-- .reply -->
+         </div>
+         <!-- #comment-##  -->
+        </li>
+        <!-- #comment-## -->
+       </ol>
+       <div class="comment-respond" id="respond">
+        <h3 class="comment-reply-title" id="reply-title">
+         Leave a Reply
+         <small>
+          <a href="/mathgradblog/2015/05/25/online-recommender-systems-website-want/#respond" id="cancel-comment-reply-link" rel="nofollow" style="display:none;">
+           Cancel reply
+          </a>
+         </small>
+        </h3>
+        <form action="https://blogs.ams.org/mathgradblog/wp-comments-post.php" class="comment-form" id="commentform" method="post">
+         <p class="comment-notes">
+          <span id="email-notes">
+           Your email address will not be published.
+          </span>
+          Required fields are marked
+          <span class="required">
+           *
+          </span>
+         </p>
+         <p class="comment-form-comment">
+          <label for="comment">
+           Comment
+          </label>
+          <textarea cols="45" id="comment" maxlength="65525" name="comment" required="required" rows="8"></textarea>
+         </p>
+         <p>
+          <b>
+           HTML tags are not allowed.
+          </b>
+         </p>
+         <p class="comment-form-author">
+          <label for="author">
+           Name
+           <span class="required">
+            *
+           </span>
+          </label>
+          <input id="author" maxlength="245" name="author" required="required" size="30" type="text" value="" x-autocompletetype="name-full"/>
+         </p>
+         <p class="comment-form-email">
+          <label for="email">
+           Email
+           <span class="required">
+            *
+           </span>
+          </label>
+          <input aria-describedby="email-notes" id="email" maxlength="100" name="email" required="required" size="30" type="text" value="" x-autocompletetype="email"/>
+         </p>
+         <p class="form-submit">
+         </p>
+         <p class="comment-subscription-form">
+          <input id="subscribe_comments" name="subscribe_comments" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox" value="subscribe"/>
+          <label class="subscribe-label" for="subscribe_comments" id="subscribe-label">
+           Notify me of follow-up comments by email.
+          </label>
+         </p>
+         <p class="comment-subscription-form">
+          <input id="subscribe_blog" name="subscribe_blog" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox" value="subscribe"/>
+          <label class="subscribe-label" for="subscribe_blog" id="subscribe-blog-label">
+           Notify me of new posts by email.
+          </label>
+         </p>
+         <input class="submit" id="submit" name="submit" type="submit" value="Post Comment"/>
+         <input id="comment_post_ID" name="comment_post_ID" type="hidden" value="26077"/>
+         <input id="comment_parent" name="comment_parent" type="hidden" value="0"/>
+         <!-- 2,737,457 Spambots Blocked by Simple Comments version 1.3.8.4 located at https://www.toddlahman.com/shop/simple-comments/  -->
+         <p>
+         </p>
+         <h3>
+          <noscript>
+           JavaScript must be turned on to leave a comment.
+          </noscript>
+         </h3>
+         <input id="pwd_field_sec" name="sec_pwd_field" type="hidden" value=""/>
+         <input id="comment_ip_sec" name="sec_comment_ip" type="hidden" value=""/>
+        </form>
+       </div>
+       <!-- #respond -->
+      </div>
+      <!-- #comments -->
+     </div>
+     <!-- #content -->
+    </div>
+    <!-- #container -->
+    <div class="widget-area" id="primary" role="complementary">
+     <ul class="xoxo">
+      <li class="widget-container widget_execphp" id="execphp-2">
+       <div class="execphpwidget">
+        <p>
+         The opinions expressed on this blog are the views of the writer(s) and do not necessarily reflect the views and opinions of the American Mathematical Society
+        </p>
+       </div>
+      </li>
+      <li class="widget-container widget_search" id="search-2">
+       <form action="https://blogs.ams.org/mathgradblog/" class="searchform" id="searchform" method="get" role="search">
+        <div>
+         <label class="screen-reader-text" for="s">
+          Search for:
+         </label>
+         <input id="s" name="s" type="text" value=""/>
+         <input id="searchsubmit" type="submit" value="Search"/>
+        </div>
+       </form>
+      </li>
+      <li class="widget-container widget_blog_subscription jetpack_subscription_widget" id="blog_subscription-3">
+       <h3 class="widget-title">
+        Subscribe to Blog via Email
+       </h3>
+       <form accept-charset="utf-8" action="#" id="subscribe-blog-blog_subscription-3" method="post">
+        <div id="subscribe-text">
+         <p>
+          Enter your email address to subscribe to this blog and receive notifications of new posts by email.
+         </p>
+        </div>
+        <p>
+         Join 6,487 other subscribers
+        </p>
+        <p id="subscribe-email">
+         <label class="screen-reader-text" for="subscribe-field-blog_subscription-3" id="jetpack-subscribe-label">
+          Email Address
+         </label>
+         <input class="required" id="subscribe-field-blog_subscription-3" name="email" placeholder="Email Address" required="required" type="email" value=""/>
+        </p>
+        <p id="subscribe-submit">
+         <input name="action" type="hidden" value="subscribe"/>
+         <input name="source" type="hidden" value="https://blogs.ams.org/mathgradblog/2015/05/25/online-recommender-systems-website-want/"/>
+         <input name="sub-type" type="hidden" value="widget"/>
+         <input name="redirect_fragment" type="hidden" value="blog_subscription-3"/>
+         <button name="jetpack_subscriptions_widget" type="submit">
+          Subscribe
+         </button>
+        </p>
+       </form>
+      </li>
+      <li class="widget-container widget_execphp" id="execphp-5">
+       <div class="execphpwidget">
+        <h4>
+         <a href="http://blogs.ams.org/">
+          <strong>
+           AMS Blogs
+          </strong>
+         </a>
+        </h4>
+        <ul>
+         <li>
+          <a href="http://blogs.ams.org/beyondreviews" rel="me" title="Beyond Reviews: Inside MathSciNet">
+           Beyond Reviews: Inside MathSciNet
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/blogonmathblogs/" rel="me" title="Blog on Math Blogs">
+           Blog on Math Blogs
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/bookends/" rel="me" title="Book Ends">
+           Book Ends
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/capitalcurrents/" rel="me" title="Capital Currents">
+           Capital Currents
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/mathmentoringnetwork/" rel="me" title="e-Mentoring Network ">
+           e-Mentoring Network
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/mathgradblog" rel="me" title="Graduate Students Blog">
+           Graduate Student Blog
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/inclusionexclusion/" rel="me" title="inclusion/exclusion">
+           inclusion/exclusion
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/livingproof/" rel="me" title="Living Proof">
+           Living Proof
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/mathmamas/" rel="me" title="Math Mamas">
+           Math Mamas
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/matheducation/" rel="me" title="On Teaching and Learning">
+           On Teaching and Learning Mathematics
+          </a>
+         </li>
+         <li>
+          <a href="http://blogs.ams.org/phdplus/" rel="me" title="PhD + epsilon">
+           PhD + epsilon
+          </a>
+         </li>
+        </ul>
+        <h4>
+         <a href="http://blogs.ams.org/">
+          <strong>
+           Retired Blogs
+          </strong>
+         </a>
+        </h4>
+        <ul>
+         <li>
+          <a href="http://blogs.ams.org/visualinsight/" rel="me" title="Visual Insight">
+           Visual Insight
+          </a>
+         </li>
+         <li>
+          <a href="https://blogs.ams.org/onthemarket/" rel="me" title="On the Market">
+           On the Market
+          </a>
+         </li>
+        </ul>
+        <h4>
+         <a href="http://www.ams.org/about-us/blogging/" rel="me" title="Blogging for the AMS">
+          Blogging for the AMS
+         </a>
+        </h4>
+       </div>
+      </li>
+      <li class="widget-container widget_recent_entries" id="recent-posts-2">
+       <h3 class="widget-title">
+        Recent Posts
+       </h3>
+       <ul>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2020/03/07/a-tribute-to-katherine/">
+          A tribute to Katherine
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2020/02/29/a-reflection-on-giving-talks/">
+          A Reflection on Giving Talks
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2020/01/23/to-be-or-not-to-be-there-conferencing-in-the-age-of-flygskam/">
+          To be or not to be there: Conferencing in the age of flygskam
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2020/01/15/dear-first-year-this-isnt-something-you-can-plan-for-part-3/">
+          Dear first year, this isn’t something you can plan for (Part 3)
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2019/12/27/mathematics-from-arts/">
+          Mathematics from arts?
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li class="widget-container widget_recent_comments" id="recent-comments-2">
+       <h3 class="widget-title">
+        Recent Comments
+       </h3>
+       <ul id="recentcomments">
+        <li class="recentcomments">
+         <span class="comment-author-link">
+          Ethan Zell
+         </span>
+         on
+         <a href="https://blogs.ams.org/mathgradblog/2019/12/05/a-defense-of-diversity-statements-in-hiring/#comment-7174">
+          A Defense of Diversity Statements in Hiring
+         </a>
+        </li>
+        <li class="recentcomments">
+         <span class="comment-author-link">
+          Bruno Duchesne
+         </span>
+         on
+         <a href="https://blogs.ams.org/mathgradblog/2020/01/23/to-be-or-not-to-be-there-conferencing-in-the-age-of-flygskam/#comment-7163">
+          To be or not to be there: Conferencing in the age of flygskam
+         </a>
+        </li>
+        <li class="recentcomments">
+         <span class="comment-author-link">
+          Lukasz
+         </span>
+         on
+         <a href="https://blogs.ams.org/mathgradblog/2014/05/30/presburger-arithmetic-model-theory-mathematical-computing/#comment-7161">
+          Presburger Arithmetic: From Model Theory to Mathematical Computing
+         </a>
+        </li>
+        <li class="recentcomments">
+         <span class="comment-author-link">
+          Abby Racicot
+         </span>
+         on
+         <a href="https://blogs.ams.org/mathgradblog/2012/05/22/math-flash-cards/#comment-7159">
+          Math Flash Cards
+         </a>
+        </li>
+        <li class="recentcomments">
+         <span class="comment-author-link">
+          Johan Richter
+         </span>
+         on
+         <a href="https://blogs.ams.org/mathgradblog/2019/12/05/a-defense-of-diversity-statements-in-hiring/#comment-7157">
+          A Defense of Diversity Statements in Hiring
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li class="widget-container widget_archive" id="archives-2">
+       <h3 class="widget-title">
+        Archives
+       </h3>
+       <ul>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2020/03/">
+          March 2020
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2020/02/">
+          February 2020
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2020/01/">
+          January 2020
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2019/12/">
+          December 2019
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2019/11/">
+          November 2019
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2019/10/">
+          October 2019
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2019/09/">
+          September 2019
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2019/08/">
+          August 2019
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2018/11/">
+          November 2018
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2018/09/">
+          September 2018
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2018/06/">
+          June 2018
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2018/05/">
+          May 2018
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2018/03/">
+          March 2018
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2018/02/">
+          February 2018
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2018/01/">
+          January 2018
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/12/">
+          December 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/11/">
+          November 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/10/">
+          October 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/09/">
+          September 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/08/">
+          August 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/07/">
+          July 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/06/">
+          June 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/04/">
+          April 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/03/">
+          March 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/02/">
+          February 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2017/01/">
+          January 2017
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/12/">
+          December 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/11/">
+          November 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/10/">
+          October 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/09/">
+          September 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/08/">
+          August 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/07/">
+          July 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/06/">
+          June 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/05/">
+          May 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/04/">
+          April 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/03/">
+          March 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/02/">
+          February 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2016/01/">
+          January 2016
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/12/">
+          December 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/11/">
+          November 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/10/">
+          October 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/09/">
+          September 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/07/">
+          July 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/06/">
+          June 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/05/">
+          May 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/04/">
+          April 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/03/">
+          March 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2015/01/">
+          January 2015
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/12/">
+          December 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/11/">
+          November 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/10/">
+          October 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/09/">
+          September 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/08/">
+          August 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/07/">
+          July 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/06/">
+          June 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/05/">
+          May 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/04/">
+          April 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/03/">
+          March 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/02/">
+          February 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2014/01/">
+          January 2014
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/12/">
+          December 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/11/">
+          November 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/10/">
+          October 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/09/">
+          September 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/08/">
+          August 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/07/">
+          July 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/06/">
+          June 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/05/">
+          May 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/04/">
+          April 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/03/">
+          March 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/02/">
+          February 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2013/01/">
+          January 2013
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/12/">
+          December 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/11/">
+          November 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/10/">
+          October 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/09/">
+          September 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/08/">
+          August 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/07/">
+          July 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/06/">
+          June 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/05/">
+          May 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/04/">
+          April 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/03/">
+          March 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/02/">
+          February 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2012/01/">
+          January 2012
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/12/">
+          December 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/11/">
+          November 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/10/">
+          October 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/09/">
+          September 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/08/">
+          August 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/07/">
+          July 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/06/">
+          June 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/05/">
+          May 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/04/">
+          April 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/03/">
+          March 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/02/">
+          February 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2011/01/">
+          January 2011
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/12/">
+          December 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/11/">
+          November 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/10/">
+          October 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/09/">
+          September 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/08/">
+          August 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/07/">
+          July 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/06/">
+          June 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/05/">
+          May 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/04/">
+          April 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/03/">
+          March 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/02/">
+          February 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2010/01/">
+          January 2010
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/12/">
+          December 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/11/">
+          November 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/10/">
+          October 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/09/">
+          September 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/08/">
+          August 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/07/">
+          July 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/06/">
+          June 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/05/">
+          May 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/04/">
+          April 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/03/">
+          March 2009
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/2009/02/">
+          February 2009
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li class="widget-container widget_categories" id="categories-2">
+       <h3 class="widget-title">
+        Categories
+       </h3>
+       <ul>
+        <li class="cat-item cat-item-2">
+         <a href="https://blogs.ams.org/mathgradblog/category/advice/">
+          Advice
+         </a>
+        </li>
+        <li class="cat-item cat-item-316">
+         <a href="https://blogs.ams.org/mathgradblog/category/math/algebra-math/">
+          Algebra
+         </a>
+        </li>
+        <li class="cat-item cat-item-312">
+         <a href="https://blogs.ams.org/mathgradblog/category/math/algebraic-geometry/">
+          Algebraic Geometry
+         </a>
+        </li>
+        <li class="cat-item cat-item-3">
+         <a href="https://blogs.ams.org/mathgradblog/category/ams/">
+          AMS
+         </a>
+        </li>
+        <li class="cat-item cat-item-323">
+         <a href="https://blogs.ams.org/mathgradblog/category/math/analysis/">
+          Analysis
+         </a>
+        </li>
+        <li class="cat-item cat-item-4">
+         <a href="https://blogs.ams.org/mathgradblog/category/announcement/">
+          Announcement
+         </a>
+        </li>
+        <li class="cat-item cat-item-340">
+         <a href="https://blogs.ams.org/mathgradblog/category/arts-math/">
+          Arts &amp; Math
+         </a>
+        </li>
+        <li class="cat-item cat-item-176">
+         <a href="https://blogs.ams.org/mathgradblog/category/biology/">
+          Biology
+         </a>
+        </li>
+        <li class="cat-item cat-item-5">
+         <a href="https://blogs.ams.org/mathgradblog/category/book-reviews/">
+          Book Reviews
+         </a>
+        </li>
+        <li class="cat-item cat-item-6">
+         <a href="https://blogs.ams.org/mathgradblog/category/conferences-2/">
+          Conferences
+         </a>
+        </li>
+        <li class="cat-item cat-item-7">
+         <a href="https://blogs.ams.org/mathgradblog/category/crossword-puzzles/">
+          Crossword Puzzles
+         </a>
+        </li>
+        <li class="cat-item cat-item-121">
+         <a href="https://blogs.ams.org/mathgradblog/category/general/diversity/">
+          Diversity
+         </a>
+        </li>
+        <li class="cat-item cat-item-175">
+         <a href="https://blogs.ams.org/mathgradblog/category/ecology/">
+          Ecology
+         </a>
+        </li>
+        <li class="cat-item cat-item-274">
+         <a href="https://blogs.ams.org/mathgradblog/category/editorial-statement/">
+          Editorial Statement
+         </a>
+        </li>
+        <li class="cat-item cat-item-8">
+         <a href="https://blogs.ams.org/mathgradblog/category/general/">
+          General
+         </a>
+        </li>
+        <li class="cat-item cat-item-139">
+         <a href="https://blogs.ams.org/mathgradblog/category/grad-school/">
+          Grad School
+         </a>
+        </li>
+        <li class="cat-item cat-item-223">
+         <a href="https://blogs.ams.org/mathgradblog/category/advice/grad-student-life/">
+          Grad student life
+         </a>
+        </li>
+        <li class="cat-item cat-item-9">
+         <a href="https://blogs.ams.org/mathgradblog/category/interview-2/">
+          Interview
+         </a>
+        </li>
+        <li class="cat-item cat-item-10">
+         <a href="https://blogs.ams.org/mathgradblog/category/interviews/">
+          Interviews
+         </a>
+        </li>
+        <li class="cat-item cat-item-11">
+         <a href="https://blogs.ams.org/mathgradblog/category/jobs/">
+          Jobs
+         </a>
+        </li>
+        <li class="cat-item cat-item-162">
+         <a href="https://blogs.ams.org/mathgradblog/category/linear-algebra/">
+          Linear Algebra
+         </a>
+        </li>
+        <li class="cat-item cat-item-119">
+         <a href="https://blogs.ams.org/mathgradblog/category/mam/">
+          MAM
+         </a>
+        </li>
+        <li class="cat-item cat-item-12">
+         <a href="https://blogs.ams.org/mathgradblog/category/math/">
+          Math
+         </a>
+        </li>
+        <li class="cat-item cat-item-158">
+         <a href="https://blogs.ams.org/mathgradblog/category/math-education/">
+          Math Education
+         </a>
+        </li>
+        <li class="cat-item cat-item-13">
+         <a href="https://blogs.ams.org/mathgradblog/category/math-games/">
+          Math Games
+         </a>
+        </li>
+        <li class="cat-item cat-item-244">
+         <a href="https://blogs.ams.org/mathgradblog/category/math-history/">
+          Math History
+         </a>
+        </li>
+        <li class="cat-item cat-item-14">
+         <a href="https://blogs.ams.org/mathgradblog/category/math-in-pop-culture/">
+          Math in Pop Culture
+         </a>
+        </li>
+        <li class="cat-item cat-item-157">
+         <a href="https://blogs.ams.org/mathgradblog/category/math-teaching/">
+          Math Teaching
+         </a>
+        </li>
+        <li class="cat-item cat-item-329">
+         <a href="https://blogs.ams.org/mathgradblog/category/mathematicians/">
+          Mathematicians
+         </a>
+        </li>
+        <li class="cat-item cat-item-15">
+         <a href="https://blogs.ams.org/mathgradblog/category/mathematics-in-society/">
+          Mathematics in Society
+         </a>
+        </li>
+        <li class="cat-item cat-item-16">
+         <a href="https://blogs.ams.org/mathgradblog/category/mathematics-online/">
+          Mathematics Online
+         </a>
+        </li>
+        <li class="cat-item cat-item-17">
+         <a href="https://blogs.ams.org/mathgradblog/category/news/">
+          News
+         </a>
+        </li>
+        <li class="cat-item cat-item-331">
+         <a href="https://blogs.ams.org/mathgradblog/category/math/number-theory/">
+          Number Theory
+         </a>
+        </li>
+        <li class="cat-item cat-item-117">
+         <a href="https://blogs.ams.org/mathgradblog/category/publishing/">
+          Publishing
+         </a>
+        </li>
+        <li class="cat-item cat-item-237">
+         <a href="https://blogs.ams.org/mathgradblog/category/puzzles/">
+          puzzles
+         </a>
+        </li>
+        <li class="cat-item cat-item-163">
+         <a href="https://blogs.ams.org/mathgradblog/category/social-justice/">
+          Social Justice
+         </a>
+        </li>
+        <li class="cat-item cat-item-170">
+         <a href="https://blogs.ams.org/mathgradblog/category/starting-grad-schol/">
+          Starting Grad Schol
+         </a>
+        </li>
+        <li class="cat-item cat-item-19">
+         <a href="https://blogs.ams.org/mathgradblog/category/statistics/">
+          Statistics
+         </a>
+        </li>
+        <li class="cat-item cat-item-224">
+         <a href="https://blogs.ams.org/mathgradblog/category/advice/staying-organized/">
+          staying organized
+         </a>
+        </li>
+        <li class="cat-item cat-item-20">
+         <a href="https://blogs.ams.org/mathgradblog/category/teaching/">
+          Teaching
+         </a>
+        </li>
+        <li class="cat-item cat-item-21">
+         <a href="https://blogs.ams.org/mathgradblog/category/technology-math/">
+          Technology &amp; Math
+         </a>
+        </li>
+        <li class="cat-item cat-item-314">
+         <a href="https://blogs.ams.org/mathgradblog/category/math/topology-math/">
+          Topology
+         </a>
+        </li>
+        <li class="cat-item cat-item-1">
+         <a href="https://blogs.ams.org/mathgradblog/category/uncategorized/">
+          Uncategorized
+         </a>
+        </li>
+        <li class="cat-item cat-item-118">
+         <a href="https://blogs.ams.org/mathgradblog/category/voting-theory/">
+          Voting Theory
+         </a>
+        </li>
+       </ul>
+      </li>
+      <li class="widget-container widget_execphp" id="execphp-3">
+       <div class="execphpwidget">
+        <h3>
+         <strong>
+          Comments Guidelines
+         </strong>
+        </h3>
+        <br/>
+        <p>
+         The AMS encourages your comments, and hopes you will join the discussions. We review comments before they're posted, and those that are offensive, abusive, off-topic or promoting a commercial product, person or website will not be posted. Expressing disagreement is fine, but mutual respect is required.
+        </p>
+       </div>
+      </li>
+      <li class="widget-container widget_execphp" id="execphp-4">
+       <div class="execphpwidget">
+        <h3>
+         <strong>
+          Powered by MathJax
+         </strong>
+        </h3>
+        <p>
+         <a href="http://www.mathjax.org">
+          <img alt="" by="" mathjax="" src="https://blogs.ams.org/wp-content/uploads/2018/02/badge-square.png" title="Powered by MathJax"/>
+         </a>
+        </p>
+       </div>
+      </li>
+      <li class="widget-container widget_meta" id="meta-2">
+       <h3 class="widget-title">
+        Meta
+       </h3>
+       <ul>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/wp-login.php">
+          Log in
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/feed/">
+          Entries
+          <abbr title="Really Simple Syndication">
+           RSS
+          </abbr>
+         </a>
+        </li>
+        <li>
+         <a href="https://blogs.ams.org/mathgradblog/comments/feed/">
+          Comments
+          <abbr title="Really Simple Syndication">
+           RSS
+          </abbr>
+         </a>
+        </li>
+        <li>
+         <a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">
+          WordPress.org
+         </a>
+        </li>
+       </ul>
+      </li>
+     </ul>
+    </div>
+    <!-- #primary .widget-area -->
+   </div>
+   <!-- #main -->
+   <div id="footer" role="contentinfo">
+    <div id="colophon">
+     <div id="site-info">
+      <a href="https://blogs.ams.org/mathgradblog/" rel="home" title="AMS Grad Blog">
+       AMS Grad Blog
+      </a>
+     </div>
+     <!-- #site-info -->
+     <div id="site-generator">
+      <a href="http://wordpress.org/" rel="generator" title="Semantic Personal Publishing Platform">
+       Powered by WordPress.
+      </a>
+     </div>
+     <!-- #site-generator -->
+    </div>
+    <!-- #colophon -->
+   </div>
+   <!-- #footer -->
+  </div>
+  <!-- #wrapper -->
+  <!-- Typography -->
+  <script src="https://use.fontawesome.com/7da0d8a943.js">
+  </script>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+  </script>
+  <div class="col-md-9 col-md-offset-2">
+   <!--Footer-->
+   <div class="col-md-3 col-sm-12 col-xs-12">
+    <h4>
+     <a href="http://www.ams.org/publications">
+      <i aria-hidden="true" class="fa fa-book">
+      </i>
+      Publications
+     </a>
+    </h4>
+    <ul>
+     <li>
+      <a href="http://www.ams.org/bookstore/">
+       Bookstore
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/ebooks">
+       eBook Collections
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/mathscinet/">
+       MathSciNet
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/journals/">
+       Journals
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="col-md-3 col-sm-12 col-xs-12">
+    <h4>
+     <a href="http://www.ams.org/membership/">
+      <i aria-hidden="true" class="fa fa-user-circle">
+      </i>
+      Membership
+     </a>
+    </h4>
+    <ul>
+     <li>
+      <a href="http://www.ams.org/individual">
+       Join the AMS
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/renew">
+       Renew your membership
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/institutional">
+       Institutional membership
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/cml">
+       Member Directory (CML)
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="col-md-3 col-sm-12 col-xs-12">
+    <h4>
+     <a href="http://www.ams.org/meetings">
+      <i aria-hidden="true" class="fa fa-group">
+      </i>
+      Meetings &amp; Conferences
+     </a>
+    </h4>
+    <ul>
+     <li>
+      <a href="http://www.ams.org/national-index">
+       National
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/international-index">
+       International
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/sectional-index">
+       Sectional
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/amsconf">
+       AMS Conferences
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="col-md-3 col-sm-12 col-xs-12">
+    <h4>
+     <a href="http://www.ams.org/publicoutreach">
+      <i aria-hidden="true" class="fa fa-television">
+      </i>
+      News &amp; Public Outreach
+     </a>
+    </h4>
+    <ul>
+     <li>
+      <a href="http://www.ams.org/news?class_id=1&amp;expand=1&amp;type=news">
+       News
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/wwtbam">
+       Who Wants to Be a Mathematician
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/mathimagery ">
+       Mathematical Imagery
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/mathmoments">
+       Mathematical Moments
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="clearfix">
+   </div>
+   <div class="col-md-3 col-sm-12 col-xs-12">
+    <h4>
+     <a href="http://www.ams.org/profession">
+      <i aria-hidden="true" class="fa fa-briefcase">
+      </i>
+      The Profession
+     </a>
+    </h4>
+    <ul>
+     <li>
+      <a href="http://www.ams.org/employment-services">
+       Employment Services
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/emp-survey">
+       Data on the Profession
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/ams-fellows">
+       Fellows of the AMS
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/prizes">
+       Prizes and Awards
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="col-md-3 col-sm-12 col-xs-12">
+    <h4>
+     <a href="http://www.ams.org/programs">
+      <i aria-hidden="true" class="fa fa-forward">
+      </i>
+      Programs
+     </a>
+    </h4>
+    <ul>
+     <li>
+      <a href="http://www.ams.org/mrc">
+       Mathematics Research Communities
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/travel-grants">
+       Travel Grants
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/ams-fellowships">
+       AMS Fellowships
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/students">
+       Programs for Students
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="col-md-3 col-sm-12 col-xs-12">
+    <h4>
+     <a href="http://www.ams.org/government">
+      <i aria-hidden="true" class="fa fa-handshake-o">
+      </i>
+      Government Relations
+     </a>
+    </h4>
+    <ul>
+     <li>
+      <a href="/govnews">
+       Policy &amp; Advocacy News
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="col-md-3 col-sm-12 col-xs-12">
+    <h4>
+     <a href="http://www.ams.org/about-us">
+      <i aria-hidden="true" class="fa fa-info-circle">
+      </i>
+      About the AMS
+     </a>
+    </h4>
+    <ul>
+     <li>
+      <a href="http://www.ams.org/about-us">
+       Mission
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/governance">
+       Governance
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/contact/reach">
+       Contact Us
+      </a>
+     </li>
+     <li>
+      <a href="http://www.ams.org/custserv">
+       Help and FAQ
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="clearfix">
+   </div>
+   <p class="h5 text-center notiblogbull">
+    <a href="https://www.ams.org/notices">
+     Notices of the AMS
+    </a>
+    ·
+    <a href="https://www.ams.org/bull">
+     Bulletin of the AMS
+    </a>
+   </p>
+   <p class="h5 text-center socialicons">
+    <a href="https://www.facebook.com/pages/American-Mathematical-Society/216331555216" title="Facebook">
+     <i aria-hidden="true" class="fa fa-facebook-square fa-2x">
+     </i>
+    </a>
+    <a href="https://twitter.com/amermathsoc" title="Twitter">
+     <i aria-hidden="true" class="fa fa-twitter-square fa-2x">
+     </i>
+    </a>
+    <a href="https://www.linkedin.com/company/51001/" title="LinkedIn">
+     <i aria-hidden="true" class="fa fa-linkedin-square fa-2x">
+     </i>
+    </a>
+    <a href="https://instagram.com/amermathsoc" title="Instagram">
+     <i aria-hidden="true" class="fa fa-instagram fa-2x">
+     </i>
+    </a>
+    <a href="https://www.youtube.com/amermathsoc" title="YouTube">
+     <i aria-hidden="true" class="fa fa-youtube-square fa-2x">
+     </i>
+    </a>
+   </p>
+   <div class="clearfix">
+   </div>
+   <div class="col-md-12 col-sm-12 text-center">
+    <p>
+     American Mathematical Society ·
+     <a href="https://goo.gl/maps/ZvJdkQEC79p" title="Google map 201 Charles Street Providence, Rhode Island">
+      201 Charles Street Providence, Rhode Island 02904-2213
+     </a>
+     ·
+     <a href="tel:401-455-4077">
+      401-455-4000
+     </a>
+     or
+     <a href="tel:800-321-4267">
+      800-321-4267
+     </a>
+    </p>
+    <p>
+     ©
+     <a href="http://www.ams.org/copyright">
+      Copyright
+     </a>
+     <script>
+      var now = new Date();
+        document.write(now.getFullYear());
+     </script>
+     , American Mathematical Society ·
+     <a href="/privacy">
+      Privacy Statement
+     </a>
+    </p>
+   </div>
+  </div>
+  <!--/Footer-->
+  <div style="display:none">
+   <div class="grofile-hash-map-9ae307623d701278e37cd0666e8b1c55">
+   </div>
+   <div class="grofile-hash-map-04f5c0476462673d4e92f180227db174">
+   </div>
+  </div>
+  <script src="https://blogs.ams.org/mathgradblog/wp-includes/js/comment-reply.min.js?ver=5.2.5" type="text/javascript">
+  </script>
+  <script src="https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=202012" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   /* <![CDATA[ */
+var sc_ipwd_script = {"sc_ajaxurl":"https:\/\/blogs.ams.org\/mathgradblog\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+  </script>
+  <script src="https://blogs.ams.org/mathgradblog/wp-content/plugins/simple-comments/js/comments/sc-ipwd-nn.min.js?ver=1.3.8.4" type="text/javascript">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js?config=TeX-MML-AM_CHTML&amp;ver=5.2.5" type="text/javascript">
+  </script>
+  <script src="https://secure.gravatar.com/js/gprofiles.js?ver=2020Maraa" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   /* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+  </script>
+  <script src="https://blogs.ams.org/mathgradblog/wp-content/plugins/jetpack/modules/wpgroho.js?ver=5.2.5" type="text/javascript">
+  </script>
+  <script src="https://blogs.ams.org/mathgradblog/wp-includes/js/wp-embed.min.js?ver=5.2.5" type="text/javascript">
+  </script>
+  <script async="async" defer="defer" src="https://stats.wp.com/e-202012.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+   _stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:7.1.2',blog:'48186556',post:'26077',tz:'-5',srv:'blogs.ams.org'} ]);
+	_stq.push([ 'clickTrackerInit', '48186556', '26077' ]);
+  </script>
+ </body>
+</html>

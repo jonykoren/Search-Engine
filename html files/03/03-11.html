@@ -1,0 +1,2657 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="No" name="access"/>
+  <meta content="10462" name="journal_id"/>
+  <meta content="A Taxonomy of Recommender Agents on the Internet" name="dc.title"/>
+  <meta content="Artificial Intelligence Review 2003 19:4" name="dc.source"/>
+  <meta content="text/html" name="dc.format"/>
+  <meta content="Springer" name="dc.publisher"/>
+  <meta content="OriginalPaper" name="dc.type"/>
+  <meta content="En" name="dc.language"/>
+  <meta content="2003 Kluwer Academic Publishers" name="dc.copyright"/>
+  <meta content="journalpermissions@springernature.com" name="dc.rightsAgent"/>
+  <meta content="Recently, Artificial Intelligence techniques have proved useful inhelping users to handle the large amount of information on the Internet.The idea of personalized search engines, intelligent software agents,and recommender systems has been widely accepted among users who requireassistance in searching, sorting, classifying, filtering and sharingthis vast quantity of information. In this paper, we present astate-of-the-art taxonomy of intelligent recommender agents on theInternet. We have analyzed 37 different systems and their references andhave sorted them into a list of 8 basic dimensions. These dimensions arethen used to establish a taxonomy under which the systems analyzed areclassified. Finally, we conclude this paper with a cross-dimensionalanalysis with the aim of providing a starting point for researchers toconstruct their own recommender system." name="dc.description"/>
+  <meta content="1573-7462" name="prism.issn"/>
+  <meta content="Artificial Intelligence Review" name="prism.publicationName"/>
+  <meta content="19" name="prism.volume"/>
+  <meta content="4" name="prism.number"/>
+  <meta content="OriginalPaper" name="prism.section"/>
+  <meta content="285" name="prism.startingPage"/>
+  <meta content="330" name="prism.endingPage"/>
+  <meta content="2003 Kluwer Academic Publishers" name="prism.copyright"/>
+  <meta content="journalpermissions@springernature.com" name="prism.rightsAgent"/>
+  <meta content="https://link.springer.com/article/10.1023/A:1022850703159" name="prism.url"/>
+  <meta content="doi:10.1023/A:1022850703159" name="prism.doi"/>
+  <meta content="https://link.springer.com/content/pdf/10.1023/A:1022850703159.pdf" name="citation_pdf_url"/>
+  <meta content="https://link.springer.com/article/10.1023/A:1022850703159" name="citation_fulltext_html_url"/>
+  <meta content="Artificial Intelligence Review" name="citation_journal_title"/>
+  <meta content="Artificial Intelligence Review" name="citation_journal_abbrev"/>
+  <meta content="Kluwer Academic Publishers" name="citation_publisher"/>
+  <meta content="1573-7462" name="citation_issn"/>
+  <meta content="A Taxonomy of Recommender Agents on the Internet" name="citation_title"/>
+  <meta content="19" name="citation_volume"/>
+  <meta content="4" name="citation_issue"/>
+  <meta content="2003/06" name="citation_publication_date"/>
+  <meta content="285" name="citation_firstpage"/>
+  <meta content="330" name="citation_lastpage"/>
+  <meta content="Article" name="citation_article_type"/>
+  <meta content="en" name="citation_language"/>
+  <meta content="doi:10.1023/A:1022850703159" name="dc.identifier"/>
+  <meta content="10.1023/A:1022850703159" name="DOI"/>
+  <meta content="10.1023/A:1022850703159" name="citation_doi"/>
+  <meta content="Recently, Artificial Intelligence techniques have proved useful inhelping users to handle the large amount of information on the Internet.The idea of perso" name="description"/>
+  <meta content="Miquel Montaner" name="dc.creator"/>
+  <meta content="Beatriz López" name="dc.creator"/>
+  <meta content="Josep Lluís de la Rosa" name="dc.creator"/>
+  <meta content="Artificial Intelligence" name="dc.subject"/>
+  <meta content="Computer Science, general" name="dc.subject"/>
+  <meta content="Amazon (2001). http://www.amazon.com." name="citation_reference"/>
+  <meta content="Armstrong, R., Freitag, D., Joachims, T. &amp; Mitchell, T. (1995). WebWatcher: A Learning Apprentice for the World Wide Web. In 1995 AAAI Spring Symposium on Information Gathering from Heterogeneous Distributed Environments." name="citation_reference"/>
+  <meta content="citation_title=IfWeb: A Prototype of User Models Based Intelligent Agent for Document Filtering and Navigation in the World Wide Web; citation_inbook_title=Proceedings of UM'97; citation_publication_date=1997; citation_id=CR3; citation_author=F. Asnicar; citation_author=C. Tasso; citation_publisher=Chia Laguna" name="citation_reference"/>
+  <meta content="Balabanovic, M. &amp; Shoham, Y. (1997). Combining Content-Based and Collaborative Recommendation. Communications of the ACM." name="citation_reference"/>
+  <meta content="Basu, C., Hirsh, H. &amp; Cohen, W. (1998). Recommendation as Classification: Using Social and Content-Based Information in Recommendation. In Proceedings of AAAI'98, 714–720." name="citation_reference"/>
+  <meta content="citation_title=Casmir: Information Retrieval Based on Collaborative User Profiling; citation_inbook_title=Proceedings of PAAM'99; citation_publication_date=1999; citation_pages=41-56; citation_id=CR6; citation_author=B. Berney; citation_author=E. Ferneley; citation_publisher=The Practical Application Company Ltd." name="citation_reference"/>
+  <meta content="citation_title=Learning Collaborative Information Filters; citation_inbook_title=Proceedings of the International Conference on Machine Learning; citation_publication_date=1998; citation_id=CR7; citation_author=D. Billsus; citation_author=M. J. Pazzani; citation_publisher=Morgan Kaufmann Publishers" name="citation_reference"/>
+  <meta content="citation_title=A Hybrid User Model for News Classification; citation_inbook_title=Proceedings of UM'99; citation_publication_date=1999; citation_pages=99-108; citation_id=CR8; citation_author=D. Billsus; citation_author=M. J. Pazzani; citation_publisher=Springer-Verlag" name="citation_reference"/>
+  <meta content="Boone, G. (1998). Concept Features in RE:Agent, an Intelligent Email Agent. In The Second International Conference on Autonomous Agents (Agents' 98). Minneapolis/St. Paul." name="citation_reference"/>
+  <meta content="citation_title=Empirical Analysis of Predictive Algorithms for Collaborative Filtering; citation_inbook_title=Uncertainty in Artificial Intelligence: Proceedings of the 14th Conference; citation_publication_date=1998; citation_pages=43-52; citation_id=CR10; citation_author=J. Breese; citation_author=D. Heckerman; citation_author=C. Kadie; citation_publisher=Morgan Kaufmann" name="citation_reference"/>
+  <meta content="Buckley, C. &amp; Salton, G. (1995). Optimization of Relevance Feedback Weights. In Fox, E., Ingwersen, P. &amp; Fidel, R. (eds.) Proceedings of the Eighteenth Annual International ACM SIGIR Conference on Research and Development in Information Retrieval, 351–357." name="citation_reference"/>
+  <meta content="Buckley, C., Singhal, A., Mitra, M. &amp; Salton, G. (1996). New Retrieval Approaches Using SMART. In Proceedings of TREC-4. NIST Special Publication." name="citation_reference"/>
+  <meta content="citation_title=The Paradox of the Active User; citation_inbook_title=Interfacing Thought: Cognitive Aspects of Human-Computer Interaction; citation_publication_date=1987; citation_pages=26-28; citation_id=CR13; citation_author=J. Carroll; citation_author=M. B. Rosson; citation_publisher=MIT Press" name="citation_reference"/>
+  <meta content="CDNow (2001). http://www.cdnow.com." name="citation_reference"/>
+  <meta content="Chatterjee, P., Hoffman, D. L. &amp; Novak, T. P. (1998). Modeling the Clickstream: Implications for Web-Based Advertising Efforts. Working Paper. Vanderbilt University." name="citation_reference"/>
+  <meta content="Chen, L. &amp; Sycara, K. (1998). Webmate: A Personal Agent for Browsing and Searching. In Proceedings of AGENTS' 98, 132–139. ACM." name="citation_reference"/>
+  <meta content="Chen, Z., Meng, X., Zhu, B. &amp; Fowler, R. (2000). WebSail: From On-Line Learning to Web Search. In Proceedings of the 2000 International Conference on Web Information Systems Engineering." name="citation_reference"/>
+  <meta content="citation_title=The CN2 Induction Algorithm; citation_inbook_title=Machine Learning; citation_publication_date=1989; citation_pages=261-283; citation_id=CR18; citation_author=P. Clark; citation_author=T. Niblett; citation_publisher=Kluwer Academic Publishers" name="citation_reference"/>
+  <meta content="citation_title=Fast Effective Rule Induction; citation_inbook_title=Proceedings of ML95; citation_publication_date=1995; citation_pages=115-123; citation_id=CR19; citation_author=W. Cohen; citation_publisher=Morgan Kaufmann" name="citation_reference"/>
+  <meta content="Cohen, W. &amp; Singer, Y. (1999). A Simple, Fast, and Effective Rule Learner. In Proceedings of AAAI-99, 335–342." name="citation_reference"/>
+  <meta content="citation_title=WebSift: The Web Site Information Filter System; citation_inbook_title=Proceedings of the 1999 KDD Workshop on Web Mining; citation_publication_date=1999; citation_id=CR21; citation_author=R. Cooley; citation_author=P. N. Tan; citation_author=J. Srivastava; citation_publisher=Springer-Verlag" name="citation_reference"/>
+  <meta content="citation_journal_title=Machine Learning; citation_title=A Weighted Nearest Neighbor Algorithm for Learning with Symbolic Features; citation_author=S. Cost, S. Salzberg; citation_volume=10; citation_publication_date=1993; citation_pages=57-78; citation_id=CR22" name="citation_reference"/>
+  <meta content="Cunningham, P., Bergmann, R., Schmitt, S., Traphoner, R., Breen, S. &amp; Smyth, B. (2001). WebSell: Intelligent Sales Assistants for the World Wide Web. In E-2001." name="citation_reference"/>
+  <meta content="citation_title=Pattern Classification and Scene Analysis; citation_publication_date=1973; citation_isbn=0471223611; citation_id=CR24; citation_author=R. Duda; citation_author=P. Hart; citation_publisher=John Wiley &amp; Sons" name="citation_reference"/>
+  <meta content="citation_journal_title=Communications of the ACM; citation_title=Using Collaborative Filtering to Weave an Information Tapestry; citation_author=D. Goldberg, D. Nichols, B. M. Oki, D. Terry; citation_volume=35; citation_publication_date=1992; citation_pages=61-70; citation_id=CR25" name="citation_reference"/>
+  <meta content="citation_journal_title=Proceedings of AAAI; citation_title=Combining Collaborative Filtering with Personal Agents for Better Recommendations; citation_author=N. Good, J. Schafer, J. Konstan, A. Borchers, B. Sarwar, J. Herlocker, J. Riedl; citation_volume=35; citation_publication_date=1999; citation_pages=439-446; citation_id=CR26" name="citation_reference"/>
+  <meta content="Greening, D. (1997). Building Consumer Trust with Accurate Product Recommendations. Likeminds White Paper LMWSWP-210-6966." name="citation_reference"/>
+  <meta content="Hayes, C. &amp; Cunningham, P. (1999). Smart Radio – a Proposal. In Trinity College Dublin, Computer Science, Technical Report, TCD-CS-1999-24." name="citation_reference"/>
+  <meta content="Hayes, C. &amp; Cunningham, P. (2000). Smart Radio: Building Music Radio on the Fly. In Proceedings of Expert Systems 2000 (ES2000). Cambridge, UK." name="citation_reference"/>
+  <meta content="Hayes, C., Cunningham, P. &amp; Smyth, B. (2001). A Case-Based Reasoning View of Automated Collaborative Filtering. In Trinity College Dublin, Computer Science, Technical Report, TCD-CS-2001-09." name="citation_reference"/>
+  <meta content="Herlocker, J., Konstan, J., Borchers, A. &amp; Riedl, J. (1999). An Algorithmic Framework for Performing Collaborative Filtering. In Proceedings of the 1999 Conference on Research and Development in Information Retrieval." name="citation_reference"/>
+  <meta content="Herlocker, J., Konstan, J. &amp; Riedl, J. (2000). Explaining Collaborative Filtering Recommendations. In Proceedings of ACM 2000 Conference on Computer Supported Cooperative Work." name="citation_reference"/>
+  <meta content="Hill, W., Stead, L., Rosenstein, M. &amp; Furnas, G. (1995). Recommending and Evaluating Choices in a Virtual Community of Use. In Proceedings of CHI'95, 194–201. Denver." name="citation_reference"/>
+  <meta content="Hofmann, T. &amp; Puzicha, J. (1999). Latent Class Models for Collaborative Filtering. In Proceedings of IJCAI'99, 688–693. Stockholm, ISBN 1-55860-613-0." name="citation_reference"/>
+  <meta content="Holte, R. C. &amp; Yan, N. Y. (1996). Inferring What a User Is Not Interested In. In AAAI Spring Symp. on Machine Learning in Information Access. Stanford." name="citation_reference"/>
+  <meta content="citation_title=Beehive: A System for Cooperative Filtering and Sharing of Information; citation_publication_date=1996; citation_id=CR36; citation_author=B. Huberman; citation_author=M. Kaminsky; citation_publisher=Xerox, Palo Alto Research Center" name="citation_reference"/>
+  <meta content="citation_journal_title=User Modeling and User-Adapted Interaction; citation_title=A User Model Neural Network for a Personal News Service; citation_author=A. Jennings, H. Higuchi; citation_volume=3; citation_publication_date=1993; citation_pages=1-25; citation_id=CR37" name="citation_reference"/>
+  <meta content="citation_title=An Introduction to Bayesian Networks; citation_publication_date=1996; citation_id=CR38; citation_author=F. V. Jensen; citation_publisher=Springer" name="citation_reference"/>
+  <meta content="Joachims, T., Freitag, D. &amp; Mitchell, T. (1997). WebWatcher: A Tour Guide for the World Wide Web. In Proceedings of IJCAI'97, 770–775. Nagoya, Japan." name="citation_reference"/>
+  <meta content="Kamba, T., Bharat, K. &amp; Albers, M. C. (1995). The Krakatoa Chronicle – an Interactive, Personalized, Newspaper on the Web. In Proceedings of the Fourth International World Wide Web Conference, 159–170." name="citation_reference"/>
+  <meta content="citation_journal_title=The Knowledge Engineering Review; citation_title=Personalized Hypermedia Presentation Techniques for Improving Online Customer Relationships; citation_author=A. Kobsa, J. Koenemann, W. Pohl; citation_volume=16; citation_publication_date=2001; citation_pages=111-155; citation_id=CR41" name="citation_reference"/>
+  <meta content="citation_journal_title=Communications of the ACM; citation_title=Grouplens: Applying Collaborative Filtering to Usenet News; citation_author=J. Konstan, B. Miller, D. Maltz, J. Herlocker, L. Gordon, J. Riedl; citation_volume=40; citation_publication_date=1997; citation_pages=77-87; citation_id=CR42" name="citation_reference"/>
+  <meta content="Koychev, I. (2000). Gradual Forgetting for Adaptation to Concept Drift. In Proceedings of ECAI 2000 Workshop Current Issues in Spatio-Temporal Reasoning." name="citation_reference"/>
+  <meta content="citation_journal_title=AI Magazine; citation_title=LifeStyle Finder: Intelligent User Profiling Using Large-Scale Demographic Data; citation_author=B. Krulwich; citation_volume=18; citation_issue=2; citation_publication_date=1997; citation_pages=37-45; citation_id=CR44" name="citation_reference"/>
+  <meta content="Krulwich, B. &amp; Burkey, C. (1995). ContactFinder: Extracting Indications of Expertise and Answering Questions with Referrals. Working Notes of the 1995 Fall Symposium on Intelligent Knowledge Navigation and Retrieval, 85–91. Technical Report FS-95-03, The AAAI Press." name="citation_reference"/>
+  <meta content="Krulwich, B. &amp; Burkey, C. (1996). Learning User Information Interests Through Extraction of Semantically Significant Phrases. In Proceedings of he AAAI Spring Symposium on Machine Learning in Information Access. Stanford, CA." name="citation_reference"/>
+  <meta content="Lang, K. (1995). NewsWeeder: Learning to Filter News. In Proceedings of the 12th International Conference on Machine Learning, 331–339. Lake Tahoe, CA." name="citation_reference"/>
+  <meta content="Lieberman, H. (1995). Letizia: An Agent that Assists Web Browsing. In Proceedings of the IJCAI'95, 924–929." name="citation_reference"/>
+  <meta content="Lieberman, H., Van Dyke, N. W. &amp; Vivacqua, A. S. (1999). Let's Browse: A Collaborative Web Browsing Agent. In Proceedings of International Conference on Intelligent User Interfaces, 924–929." name="citation_reference"/>
+  <meta content="citation_journal_title=Communications of the ACM; citation_title=Agents that Reduce Work and Information Overload; citation_author=P. Maes; citation_volume=37; citation_issue=7; citation_publication_date=1994; citation_pages=30-40; citation_id=CR50" name="citation_reference"/>
+  <meta content="citation_journal_title=Machine Learning; citation_title=Selecting Examples for Partial Memory Learning; citation_author=M. A. Maloof, R. S. Michalski; citation_volume=41; citation_publication_date=2000; citation_pages=27-52; citation_id=CR51" name="citation_reference"/>
+  <meta content="Minio, M. &amp; Tasso, C. (1996). User Modeling for Information Filtering on Internet Services: Exploiting an Extended Version of the UMT Shell. In UM96 Workshop on User Modeling for Information Filtering on the WWW. Kailua-Kona, Hawaii." name="citation_reference"/>
+  <meta content="citation_journal_title=Communications of the ACM; citation_title=Experience with a Learning Personal Assistant; citation_author=T. Mitchell, R. Caruana, D. Freitag, J. McDermott, D. Zabowski; citation_volume=37; citation_issue=7; citation_publication_date=1994; citation_pages=81-91; citation_id=CR53" name="citation_reference"/>
+  <meta content="citation_title=Leap: A Learning Apprentice for VLSI Design; citation_inbook_title=Proceedings of IJCAI'85; citation_publication_date=1985; citation_pages=573-580; citation_id=CR54; citation_author=T. M. Mitchell; citation_author=S. Mahadevan; citation_author=L. Steinberg; citation_publisher=Morgan Kaufmann" name="citation_reference"/>
+  <meta content="citation_title=Personal WebWatcher: Implementation and Design; citation_publication_date=1996; citation_id=CR55; citation_author=D. Mladenic; citation_publisher=J. Stefan Institute" name="citation_reference"/>
+  <meta content="Mobasher, B., Cooley, R. &amp; Srivastava, J. (2000). Automatic Personalization Based on Web Usage Mining. Communications of the ACM
+43(8)." name="citation_reference"/>
+  <meta content="citation_title=Information Filtering Based on User Behaviour Analysis and Best Match Text Retrieval; citation_inbook_title=Proceedings of SIGIR'94; citation_publication_date=1994; citation_pages=272-81; citation_id=CR57; citation_author=M. Morita; citation_author=Y. Shinoda; citation_publisher=Springer-Verlag" name="citation_reference"/>
+  <meta content="citation_title=Amalthaea: Information Filtering and Discovery Using a Multiagent Evolving System; citation_inbook_title=Journal of Applied AI; citation_publication_date=1997; citation_pages=437-457; citation_id=CR58; citation_author=A. Moukas; citation_publisher=Springer-Verlag" name="citation_reference"/>
+  <meta content="Nichols, D. M. (1997). Implicit Rating and Filtering. In Proceedings of 5th DELOS Workshop on Filtering and Collaborative Filtering, 31–36." name="citation_reference"/>
+  <meta content="citation_journal_title=User Modelling and User Adapted Interaction; citation_title=Heterogeneous Learning in the Doppelganger User Modelling System; citation_author=L. J. Orwant; citation_volume=4; citation_issue=2; citation_publication_date=1995; citation_pages=107-130; citation_id=CR60" name="citation_reference"/>
+  <meta content="Pazzani, M. (1999). A Framework for Collaborative, Content-Based and Demographic Filtering. Artificial Intelligence Review." name="citation_reference"/>
+  <meta content="citation_journal_title=Machine Learning; citation_title=Learning and Revising User Profiles: The Identification of Interesting Web Sites; citation_author=M. Pazzani, D. Billsus; citation_volume=27; citation_publication_date=1997; citation_pages=313-331; citation_id=CR62" name="citation_reference"/>
+  <meta content="Pazzani, M., Muramatsu, J. &amp; Billsus, D. (1996). Syskill &amp; Webert: Identifying Interesting Web Sites. In Proceedings of the Thirteenth National Conference on Artificial Intelligence, 54–61." name="citation_reference"/>
+  <meta content="citation_journal_title=IEEE Computer; citation_title=Traditional, Semantic, and Hyper-Semantic Approaches to Data Modeling; citation_author=G. Potter, R. Trueblood; citation_volume=21; citation_issue=6; citation_publication_date=1988; citation_pages=53-63; citation_id=CR64" name="citation_reference"/>
+  <meta content="Pretschner, A. &amp; Gauch, S. (1999). Ontology-Based Personalized Search. In Proceedings of ICTAI'99, 391–398." name="citation_reference"/>
+  <meta content="Quinlan, J. R. (1983). Learning Efficient Classification Procedures and Their Application to Chess End Games. In Michalski, R. S., Carbonell, J. G. &amp; Mitchell, T. M. (eds.) Machine Learning: An Artificial Intelligence Approach, 463–482." name="citation_reference"/>
+  <meta content="citation_title=The Minimum Description Length Principle and Categorical Theories; citation_inbook_title=Proceedings of ML'94; citation_publication_date=1994; citation_id=CR67; citation_author=J. R. Quinlan; citation_publisher=Morgan Kaufmann" name="citation_reference"/>
+  <meta content="Resnick, P., Iacovou, N., Suchak, M., Bergstrom, P. &amp; Riedl, J. (1994). Grouplens: An Open Architecture for Collaborative Filtering of Netnews. In Proceedings of ACM CSCW'94, 175–186." name="citation_reference"/>
+  <meta content="citation_journal_title=Cognitive Science; citation_title=User Modeling via Stereotypes; citation_author=E. Rich; citation_volume=3; citation_publication_date=1979; citation_pages=329-354; citation_id=CR69" name="citation_reference"/>
+  <meta content="Riordan, A. &amp; Sorensen, H. (1995). An Intelligent Agent for High-Precision Information Filtering. In Proceedings of the CIKM-95 Conference." name="citation_reference"/>
+  <meta content="Sakagami, H., Kamba, T. &amp; Koseki, Y. (1997). Learning Personal Preferences on Online Newspaper articles for User Behaviors. In Proc. 6th Int. World Wide Web Conference, 291–300." name="citation_reference"/>
+  <meta content="citation_journal_title=Information Processing and Management; citation_title=Term-Weighting Approaches in Automatic Text Retrieval; citation_author=G. Salton, C. Buckley; citation_volume=24; citation_issue=5; citation_publication_date=1988; citation_pages=513-523; citation_id=CR72" name="citation_reference"/>
+  <meta content="citation_title=Improving Retrieval Performance by Relevance Feedback; citation_inbook_title=Readings in Information Retrieval; citation_publication_date=1990; citation_pages=513-523; citation_id=CR73; citation_author=G. Salton; citation_author=C. Buckley; citation_publisher=Morgan Kauffman" name="citation_reference"/>
+  <meta content="citation_title=Introduction to Modern Information Retrieval; citation_publication_date=1983; citation_id=CR74; citation_author=G. Salton; citation_author=M. McGill; citation_publisher=McGraw-Hill Publishing Company" name="citation_reference"/>
+  <meta content="Sarwar, B. M., Karypis, G., Konstan, J. A. &amp; Riedl, J. (2000). Analysis of Recommender Algorithms for E-Commerce. In ACM E-Commerce 2000 Conference." name="citation_reference"/>
+  <meta content="citation_journal_title=Journal of Data Mining and Knowledge Discovery; citation_title=Electronic Commerce Recommender Applications; citation_author=J. B. Schafer, J. Konstan, J. Riedl; citation_volume=5; citation_publication_date=2001; citation_pages=115-152; citation_id=CR76" name="citation_reference"/>
+  <meta content="Schwab, I., Kobsa, A. &amp; Koychev, I. (2000). Learning about Users from Observation. In AAAI 2000 Spring Symposium: Adaptive User Interface." name="citation_reference"/>
+  <meta content="Schwab, I., Kobsa, A. &amp; Koychev, I. (2001). Learning User's Interests Through Positive Examples Using Content Analysis and Collaborative Filtering. Submitted." name="citation_reference"/>
+  <meta content="Shardanand, U. (1994). Social Information Filtering for Music Recommendation. MIT EECS M. Eng. thesis, also TR-94-04. Learning and Common Sense Group. MIT Media Laboratory." name="citation_reference"/>
+  <meta content="Shardanand, U. &amp; Maes, P. (1995). Social Information Filtering: Algorithms for Automating ‘Word of Mouth’.... In Proceedings of CHI'95, 210–217." name="citation_reference"/>
+  <meta content="Sheth, B. &amp; Maes, P. (1993). Evolving Agents for Personalitzed Information Filtering. In Proceedings of the Ninth Conferece on Artificial Intelligence for Applications. IEEE Computer Society Press." name="citation_reference"/>
+  <meta content="Sorensen, H. &amp; McElligot, M. (1995). PSUN: A Profiling System for Usenet News. In CKIM' 95 Workshop on Intelligent Information Agents." name="citation_reference"/>
+  <meta content="citation_journal_title=Journal of Universal Computer Science; citation_title=Profiling with the INFORMER Text Filtering Agent; citation_author=H. Sorensen, A. O. Riordan, C. O. Riordan; citation_volume=3; citation_issue=8; citation_publication_date=1997; citation_pages=988-1006; citation_id=CR83" name="citation_reference"/>
+  <meta content="Stefani, A. &amp; Strappavara, C. (1998). Personalizing Access to Web Wites: The SiteIF Project. In Proceedings of HYPERTEXT'98." name="citation_reference"/>
+  <meta content="Terveen, L. G. &amp; Hill, W. (2001). Beyond Recommender Systems: Helping People Help Eachother. In Carroll, J. (ed.) HCI in the New Millennium. Addison Wesley." name="citation_reference"/>
+  <meta content="citation_journal_title=User Modelling and User-Adapted Interaction; citation_title=Feature Based Modelling: A Methodology for Producing Coherent, Consistent, Dynamically Changing Models of Agents' Competencies; citation_author=G. Webb, M. Kuzmycz; citation_volume=5; citation_publication_date=1996; citation_pages=117-150; citation_id=CR86" name="citation_reference"/>
+  <meta content="citation_journal_title=Machine Learning; citation_title=Learning in the Presence of Concept Drift and Hidden Contexts; citation_author=G. Widmer, M. Kubat; citation_volume=23; citation_publication_date=1996; citation_pages=69-101; citation_id=CR87" name="citation_reference"/>
+  <meta content="Yan, T. W. &amp; Garcia-Molina, H. (1995). Sift – a Tool for Wide-Area Information Dissemination. In Proceedings of the 1195 USENIX Technical Conference, 177–186." name="citation_reference"/>
+  <meta content="Miquel Montaner" name="citation_author"/>
+  <meta content="mmontane@eia.udg.es" name="citation_author_email"/>
+  <meta content="Agents Research Laboratory, Institut d'Informàtica i Aplicacions, Universitat de Girona, Campus Montilivi, Girona, Spain" name="citation_author_institution"/>
+  <meta content="Beatriz López" name="citation_author"/>
+  <meta content="blopez@eia.udg.es" name="citation_author_email"/>
+  <meta content="Agents Research Laboratory, Institut d'Informàtica i Aplicacions, Universitat de Girona, Campus Montilivi, Girona, Spain" name="citation_author_institution"/>
+  <meta content="Josep Lluís de la Rosa" name="citation_author"/>
+  <meta content="peplluis@eia.udg.es" name="citation_author_email"/>
+  <meta content="Agents Research Laboratory, Institut d'Informàtica i Aplicacions, Universitat de Girona, Campus Montilivi, Girona, Spain" name="citation_author_institution"/>
+  <meta content="summary" name="twitter:card"/>
+  <meta content="A Taxonomy of Recommender Agents on the Internet" name="twitter:title"/>
+  <meta content="@SpringerLink" name="twitter:site"/>
+  <meta content="Recently, Artificial Intelligence techniques have proved useful inhelping users to handle the large amount of information on the Internet.The idea of personalized search engines, intelligent software agents,and recommender systems has been widely accepted among users who requireassistance in searching, sorting, classifying, filtering and sharingthis vast quantity of information. In this paper, we present astate-of-the-art taxonomy of intelligent recommender agents on theInternet. We have analyzed 37 different systems and their references andhave sorted them into a list of 8 basic dimensions. These dimensions arethen used to establish a taxonomy under which the systems analyzed areclassified. Finally, we conclude this paper with a cross-dimensionalanalysis with the aim of providing a starting point for researchers toconstruct their own recommender system." name="twitter:description"/>
+  <meta content="https://static-content.springer.com/cover/journal/10462/19/4.jpg" name="twitter:image"/>
+  <meta content="Content cover image" name="twitter:image:alt"/>
+  <meta content="http://api.springer.com/metadata/pam?q=doi:10.1023/A:1022850703159&amp;api_key=" name="citation_springer_api_url"/>
+  <meta content="telephone=no" name="format-detection"/>
+  <meta content="2003/06/01" name="citation_cover_date"/>
+  <meta content="https://link.springer.com/article/10.1023/A:1022850703159" property="og:url"/>
+  <meta content="article" property="og:type"/>
+  <meta content="Artificial Intelligence Review" property="og:site_name"/>
+  <meta content="A Taxonomy of Recommender Agents on the Internet" property="og:title"/>
+  <meta content="Recently, Artificial Intelligence techniques have proved useful inhelping users to handle the large amount of information on the Internet.The idea of personalized search engines, intelligent software agents,and recommender systems has been widely accepted among users who requireassistance in searching, sorting, classifying, filtering and sharingthis vast quantity of information. In this paper, we present astate-of-the-art taxonomy of intelligent recommender agents on theInternet. We have analyzed 37 different systems and their references andhave sorted them into a list of 8 basic dimensions. These dimensions arethen used to establish a taxonomy under which the systems analyzed areclassified. Finally, we conclude this paper with a cross-dimensionalanalysis with the aim of providing a starting point for researchers toconstruct their own recommender system." property="og:description"/>
+  <meta content="https://media.springernature.com/w110/springer-static/cover/journal/10462.jpg" property="og:image"/>
+  <title>
+   A Taxonomy of Recommender Agents on the Internet | SpringerLink
+  </title>
+  <link href="/oscar-static/images/favicons/springerlink/favicon-eb9f5576a3.ico" rel="shortcut icon"/>
+  <link href="/oscar-static/images/favicons/springerlink/favicon-eb9f5576a3.ico" rel="icon" sizes="16x16 32x32 48x48"/>
+  <link href="/oscar-static/images/favicons/springerlink/favicon-16x16-8bd8c1c945.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/oscar-static/images/favicons/springerlink/favicon-32x32-61a52d80ab.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/oscar-static/images/favicons/springerlink/favicon-48x48-0ec46b6b10.png" rel="icon" sizes="48x48" type="image/png"/>
+  <link href="/oscar-static/images/favicons/springerlink/app-icon-iphone@3x-f259d46347.png" rel="apple-touch-icon"/>
+  <link href="/oscar-static/images/favicons/springerlink/ic_launcher_hdpi-f77cda7f65.png" rel="apple-touch-icon" sizes="72x72"/>
+  <link href="/oscar-static/images/favicons/springerlink/app-icon-ipad-c3fd26520d.png" rel="apple-touch-icon" sizes="76x76"/>
+  <link href="/oscar-static/images/favicons/springerlink/app-icon-114x114-3d7d4cf9f3.png" rel="apple-touch-icon" sizes="114x114"/>
+  <link href="/oscar-static/images/favicons/springerlink/app-icon-iphone@2x-67b35150b3.png" rel="apple-touch-icon" sizes="120x120"/>
+  <link href="/oscar-static/images/favicons/springerlink/ic_launcher_xxhdpi-986442de7b.png" rel="apple-touch-icon" sizes="144x144"/>
+  <link href="/oscar-static/images/favicons/springerlink/app-icon-ipad@2x-677ba24d04.png" rel="apple-touch-icon" sizes="152x152"/>
+  <link href="/oscar-static/images/favicons/springerlink/app-icon-iphone@3x-f259d46347.png" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="/oscar-static/app-springerlink/css/core-article-2e8ab716a5.css" media="screen" rel="stylesheet"/>
+  <link href="/oscar-static/app-springerlink/css/enhanced-article-1d76ed1d73.css" id="js-mustard" media="only screen and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0), (-ms-high-contrast: none), only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)" rel="stylesheet"/>
+  <script type="text/javascript">
+   window.dataLayer = [{"Country":"ES","doi":"10.1023-A:1022850703159","Journal Title":"Artificial Intelligence Review","Journal Id":10462,"Keywords":"agents, information filtering, personalization, profile exploitation, profile generation, profile maintenance, recommender systems, taxonomy, user modelling","kwrd":["agents","information_filtering","personalization","profile_exploitation","profile_generation","profile_maintenance","recommender_systems","taxonomy","user_modelling"],"Labs":"Y","ksg":"Krux.segments","kuid":"Krux.uid","Has Body":"N","Features":[],"Open Access":"N","hasAccess":"N","bypassPaywall":"N","user":{"license":{"businessPartnerID":[],"businessPartnerIDString":""}},"Access Type":"no-access","Bpids":"","Bpnames":"","BPID":["1"],"VG Wort Identifier":"pw-vgzm.415900-10.1023-A:1022850703159","Full HTML":"N","Subject Codes":["SCI","SCI21000","SCI00001"],"pmc":["I","I21000","I00001"],"session":{"authentication":{"loginStatus":"N"},"attributes":{"edition":"academic"}},"content":{"serial":{"eissn":"1573-7462","pissn":"0269-2821"},"type":"Article","category":{"pmc":{"primarySubject":"Computer Science","primarySubjectCode":"I","secondarySubjects":{"1":"Artificial Intelligence","2":"Computer Science, general"},"secondarySubjectCodes":{"1":"I21000","2":"I00001"}},"sucode":"SC6"},"attributes":{"deliveryPlatform":"oscar"}},"Event Category":"Article","GA Key":"UA-26408784-1","DOI":"10.1023/A:1022850703159","Page":"article"}];
+        var event = new CustomEvent('dataLayerCreated');
+        document.dispatchEvent(event);
+  </script>
+  <script id="jquery" src="/oscar-static/js/jquery-220afd743d.js">
+  </script>
+  <script>
+   function OptanonWrapper() {
+        dataLayer.push({
+            'event' : 'onetrustActive'
+        });
+    }
+  </script>
+  <script charset="UTF-8" data-test="onetrust-link" src="https://cdn.cookielaw.org/consent/6b2ec9cd-5ace-4387-96d2-963e596401c6.js" type="text/javascript">
+  </script>
+ </head>
+ <body class="shared-article-renderer">
+  <div class="u-vh-full">
+   <div class="c-ad c-ad--LB1" data-test="springer-doubleclick-ad">
+    <div class="c-ad c-ad__inner">
+     <p class="c-ad__label">
+      Advertisement
+     </p>
+     <div data-gpt-sizes="728x90" data-gpt-targeting="pos=LB1;articleid=5115761;" data-gpt-unitpath="/270604982/springerlink/10462/article" id="div-gpt-ad-LB1">
+     </div>
+    </div>
+   </div>
+   <div class="u-position-relative">
+    <header class="c-header u-mb-24" data-test="publisher-header">
+     <div class="c-header__container">
+      <div class="c-header__brand">
+       <a class="u-display-block" data-test="springerlink-logo" href="/" id="logo" title="Go to homepage">
+        <picture>
+         <source srcset="/oscar-static/images/springerlink/svg/springerlink-253e23a83d.svg" type="image/svg+xml">
+          <img alt="SpringerLink" data-test="header-academic" height="30" src="/oscar-static/images/springerlink/png/springerlink-1db8a5b8b1.png" width="148"/>
+         </source>
+        </picture>
+       </a>
+      </div>
+      <div class="c-header__navigation">
+       <button class="c-header__link u-button-reset u-mr-24" data-expander="" data-expander-autofocus="true" data-expander-target="#popup-search" data-test="header-search-button" type="button">
+        <span class="u-display-flex u-align-items-center">
+         Search
+         <svg aria-hidden="true" class="c-icon u-ml-8" focusable="false" height="14" width="14">
+          <use xlink:href="#global-icon-search">
+          </use>
+         </svg>
+        </span>
+       </button>
+       <nav>
+        <ul class="c-header__menu" data-enhanced-menu="">
+         <li class="c-header__item u-hide-at-lt-lg">
+          <a class="c-header__link" data-test="login-link" href="//link.springer.com/signup-login?previousUrl=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1023%2FA%3A1022850703159">
+           Log in
+          </a>
+         </li>
+        </ul>
+       </nav>
+      </div>
+     </div>
+    </header>
+    <div class="c-popup-search u-mb-16 js-header-search u-js-hide" id="popup-search">
+     <div class="c-popup-search__content">
+      <div class="u-container">
+       <div class="c-popup-search__container" data-test="springerlink-popup-search">
+        <div class="app-search">
+         <form action="/search" method="GET" role="search">
+          <label class="app-search__label" for="search">
+           Search SpringerLink
+          </label>
+          <div class="app-search__content">
+           <input autocomplete="off" class="app-search__input" data-search-input="" id="search" name="query" role="textbox" type="text" value=""/>
+           <button class="app-search__button" type="submit">
+            <span class="u-visually-hidden">
+             Search
+            </span>
+            <svg aria-hidden="true" class="c-icon" focusable="false" height="14" width="14">
+             <use xlink:href="#global-icon-search">
+             </use>
+            </svg>
+           </button>
+           <input name="searchType" type="hidden" value="publisherSearch"/>
+          </div>
+         </form>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="u-container u-mt-32 u-mb-32 u-clearfix" data-component="article-container" id="main-content">
+    <main class="c-article-main-column u-float-left js-main-column">
+     <article itemscope="" itemtype="http://schema.org/ScholarlyArticle" lang="en">
+      <div class="c-article-header">
+       <header>
+        <ul class="c-article-identifiers" data-test="article-identifier">
+         <li class="c-article-identifiers__item">
+          <a data-track="click" data-track-action="publication date" data-track-category="article body" data-track-label="link" href="#article-info">
+           Published:
+           <time datetime="2003-06" itemprop="datePublished">
+            June 2003
+           </time>
+          </a>
+         </li>
+        </ul>
+        <h1 class="c-article-title u-h1" data-article-title="" data-test="article-title" itemprop="name headline">
+         A Taxonomy of Recommender Agents on the Internet
+        </h1>
+        <ul class="c-author-list js-list-authors js-etal-collapsed" data-etal="25" data-etal-small="3" data-test="authors-list">
+         <li class="c-author-list__item" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+          <span itemprop="name">
+           <a data-test="author-name" data-track="click" data-track-action="open author" data-track-category="article body" data-track-label="link" href="#auth-1">
+            Miquel Montaner
+           </a>
+          </span>
+          <sup class="u-js-hide">
+           <a href="#Aff1">
+            1
+           </a>
+           <span class="u-visually-hidden" itemprop="affiliation" itemscope="itemscope" itemtype="http://schema.org/Organization">
+            <meta content="Universitat de Girona, Campus Montilivi" itemprop="name"/>
+            <meta content="grid.5319.e, 0000000121797512, Agents Research Laboratory, Institut d'Informàtica i Aplicacions, Universitat de Girona, Campus Montilivi, 17071, Girona, Spain" itemprop="address"/>
+           </span>
+          </sup>
+          ,
+         </li>
+         <li class="c-author-list__item" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+          <span itemprop="name">
+           <a data-test="author-name" data-track="click" data-track-action="open author" data-track-category="article body" data-track-label="link" href="#auth-2">
+            Beatriz López
+           </a>
+          </span>
+          <sup class="u-js-hide">
+           <a href="#Aff1">
+            1
+           </a>
+           <span class="u-visually-hidden" itemprop="affiliation" itemscope="itemscope" itemtype="http://schema.org/Organization">
+            <meta content="Universitat de Girona, Campus Montilivi" itemprop="name"/>
+            <meta content="grid.5319.e, 0000000121797512, Agents Research Laboratory, Institut d'Informàtica i Aplicacions, Universitat de Girona, Campus Montilivi, 17071, Girona, Spain" itemprop="address"/>
+           </span>
+          </sup>
+          &amp;
+         </li>
+         <li class="c-author-list__item" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+          <span itemprop="name">
+           <a data-test="author-name" data-track="click" data-track-action="open author" data-track-category="article body" data-track-label="link" href="#auth-3">
+            Josep Lluís de la Rosa
+           </a>
+          </span>
+          <sup class="u-js-hide">
+           <a href="#Aff1">
+            1
+           </a>
+           <span class="u-visually-hidden" itemprop="affiliation" itemscope="itemscope" itemtype="http://schema.org/Organization">
+            <meta content="Universitat de Girona, Campus Montilivi" itemprop="name"/>
+            <meta content="grid.5319.e, 0000000121797512, Agents Research Laboratory, Institut d'Informàtica i Aplicacions, Universitat de Girona, Campus Montilivi, 17071, Girona, Spain" itemprop="address"/>
+           </span>
+          </sup>
+         </li>
+        </ul>
+        <p class="c-article-info-details" data-container-section="info">
+         <a data-test="journal-link" href="/journal/10462">
+          <i data-test="journal-title">
+           Artificial Intelligence Review
+          </i>
+         </a>
+         <b data-test="journal-volume">
+          <span class="u-visually-hidden">
+           volume
+          </span>
+          19
+         </b>
+         ,
+         <span class="u-visually-hidden">
+          pages
+         </span>
+         <span itemprop="pageStart">
+          285
+         </span>
+         –
+         <span itemprop="pageEnd">
+          330
+         </span>
+         (
+         <span data-test="article-publication-year">
+          2003
+         </span>
+         )
+         <a class="c-article-info-details__cite-as u-hide-print" data-track="click" data-track-action="cite this article" data-track-category="article body" data-track-label="link" href="#citeas">
+          Cite this article
+         </a>
+        </p>
+        <div data-test="article-metrics">
+         <div id="altmetric-container">
+          <div class="c-article-metrics-bar__wrapper u-clear-both">
+           <ul class="c-article-metrics-bar u-list-inline">
+            <li class="c-article-metrics-bar__item">
+             <p class="c-article-metrics-bar__count">
+              1843
+              <span class="c-article-metrics-bar__label">
+               Accesses
+              </span>
+             </p>
+            </li>
+            <li class="c-article-metrics-bar__item">
+             <p class="c-article-metrics-bar__count">
+              322
+              <span class="c-article-metrics-bar__label">
+               Citations
+              </span>
+             </p>
+            </li>
+            <li class="c-article-metrics-bar__item">
+             <p class="c-article-metrics-bar__count">
+              11
+              <span class="c-article-metrics-bar__label">
+               Altmetric
+              </span>
+             </p>
+            </li>
+            <li class="c-article-metrics-bar__item">
+             <p class="c-article-metrics-bar__details">
+              <a data-track="click" data-track-action="view metrics" data-track-category="article body" data-track-label="link" href="/article/10.1023%2FA%3A1022850703159/metrics" rel="nofollow">
+               Metrics
+               <span class="u-visually-hidden">
+                details
+               </span>
+              </a>
+             </p>
+            </li>
+           </ul>
+          </div>
+         </div>
+        </div>
+       </header>
+      </div>
+      <div class="c-article-body" data-article-body="true" data-track-component="article body">
+       <section aria-labelledby="Abs1" lang="en">
+        <div class="c-article-section" id="Abs1-section">
+         <h2 class="c-article-section__title u-h2 js-section-title js-c-reading-companion-sections-item" id="Abs1">
+          Abstract
+         </h2>
+         <div class="c-article-section__content" id="Abs1-content">
+          <p>
+           Recently, Artificial Intelligence techniques have proved useful inhelping users to handle the large amount of information on the Internet.The idea of personalized search engines, intelligent software agents,and recommender systems has been widely accepted among users who requireassistance in searching, sorting, classifying, filtering and sharingthis vast quantity of information. In this paper, we present astate-of-the-art taxonomy of intelligent recommender agents on theInternet. We have analyzed 37 different systems and their references andhave sorted them into a list of 8 basic dimensions. These dimensions arethen used to establish a taxonomy under which the systems analyzed areclassified. Finally, we conclude this paper with a cross-dimensionalanalysis with the aim of providing a starting point for researchers toconstruct their own recommender system.
+          </p>
+         </div>
+        </div>
+       </section>
+       <div class="c-notes">
+        <p class="c-notes__text">
+         This is a preview of subscription content,
+         <a data-track="click" data-track-action="login" data-track-label="link" href="//link.springer.com/signup-login?previousUrl=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1023%2FA%3A1022850703159" id="test-login-banner-link">
+          log in
+         </a>
+         to check access.
+        </p>
+       </div>
+       <div class="c-article-buy-box c-article-buy-box--article">
+        <div class="sprcom-buybox-articleSidebar" id="sprcom-buybox-articleSidebar">
+         <h2 class="c-box__heading">
+          Access options
+         </h2>
+         <article class="c-box" data-test-id="buy-article">
+          <h3 class="c-box__heading">
+           Buy single article
+          </h3>
+          <div class="c-box__body">
+           <div class="buybox__info">
+            <p>
+             Instant access to the full article PDF.
+            </p>
+           </div>
+           <div class="buybox__buy">
+            <p class="buybox__price">
+             37,40 €
+            </p>
+            <p class="buybox__price-info">
+             Price
+             <b>
+              includes VAT
+             </b>
+             for Spain
+            </p>
+            <form action="https://order.springer.com/public/checkout?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_article&amp;abtest=v2" method="post">
+             <input name="type" type="hidden" value="article"/>
+             <input name="doi" type="hidden" value="10.1023/A:1022850703159"/>
+             <input name="isxn" type="hidden" value="1573-7462"/>
+             <input name="contenttitle" type="hidden" value="A Taxonomy of Recommender Agents on the Internet"/>
+             <input name="copyrightyear" type="hidden" value="2003"/>
+             <input name="year" type="hidden" value=""/>
+             <input name="authors" type="hidden" value="Miquel Montaner, Beatriz López, Josep Lluís de la Rosa"/>
+             <input name="title" type="hidden" value="Artificial Intelligence Review"/>
+             <input name="mac" type="hidden" value="3D687E13B2905DF36DF4A0A636121FA0"/>
+             <input class="c-box__button" data-track="click" data-track-action="buy pdf" data-track-category="ppv" data-track-label="buy article action, new buybox" type="submit" value="Buy article PDF"/>
+            </form>
+           </div>
+          </div>
+         </article>
+         <article class="c-box buybox__subscribe-subscription" data-test-id="journal-subscription">
+          <h3 class="c-box__heading">
+           Subscribe to journal
+          </h3>
+          <div class="c-box__body">
+           <div class="buybox__info">
+            <p>
+             Immediate online access to all issues from 2019. Subscription will auto renew annually.
+            </p>
+           </div>
+           <div class="buybox__buy">
+            <p class="buybox__price">
+             80,33 €
+            </p>
+            <p class="buybox__price-info">
+             Price
+             <b>
+              includes VAT
+             </b>
+             for Spain
+            </p>
+            <form action="https://order.springer.com/public/checkout?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_journal&amp;abtest=v2" method="post">
+             <input name="type" type="hidden" value="journal"/>
+             <input name="contenttitle" type="hidden" value="Artificial Intelligence Review"/>
+             <input name="journalnumber" type="hidden" value="10462"/>
+             <input name="pricetype" type="hidden" value="PSE"/>
+             <input name="countrycode" type="hidden" value="ES"/>
+             <input class="c-box__button" data-track="click" data-track-action="subscribe to journal" data-track-category="journal" data-track-label="subscribe action, new buybox" type="submit" value="Buy journal subscription"/>
+            </form>
+           </div>
+          </div>
+         </article>
+         <article class="c-box buybox__rent-article" data-test-id="journal-subscription" id="deepdyve" style="display: none">
+          <div class="c-box__body">
+           <div class="buybox__info">
+            <p>
+             <a class="deepdyve-link" data-track="click" data-track-action="rent article" data-track-label="rent action, new buybox" target="deepdyve">
+              Rent this article via DeepDyve.
+             </a>
+            </p>
+           </div>
+          </div>
+          <script>
+           function deepDyveResponse(data) {
+                if (data.status === 'ok') {
+                    [].slice.call(document.querySelectorAll('.c-box.buybox__rent-article')).forEach(function (article) {
+                        article.style.display = 'flex'
+                        var link = article.querySelector('.deepdyve-link')
+                        if (link) {
+                          link.setAttribute('href', data.url)
+                        }
+                    })
+                }
+            }
+
+            var script = document.createElement('script')
+            script.src = '//www.deepdyve.com/rental-link?docId=10.1023/A:1022850703159&journal=1573-7462&fieldName=journal_doi&affiliateId=springer&format=jsonp&callback=deepDyveResponse'
+            document.body.appendChild(script)
+          </script>
+         </article>
+         <aside class="buybox__institutional-sub">
+          <div class="c-box__body">
+           <div class="buybox__info">
+            <p>
+             <a data-track="click" data-track-action="institutional link" data-track-label="institutional subscriptions, new buybox" href="https://www.springernature.com/gp/librarians/licensing/license-options?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_institutionalCustomer&amp;abtest=v2">
+              Learn more about Institutional subscriptions
+             </a>
+            </p>
+           </div>
+          </div>
+         </aside>
+         <style>
+          .sprcom-buybox-articleSidebar{
+  box-shadow: 0px 0px 5px rgba(51,51,51,0.101);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+.sprcom-buybox-articleSidebar *{
+  box-sizing: border-box;
+  line-height: calc(100% + 4px);
+  margin: 0px;
+}
+.sprcom-buybox-articleSidebar > *{
+  display: flex;
+  flex-basis: 240px;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0.5px;
+}
+.sprcom-buybox-articleSidebar > *{
+  box-shadow: 0 0 0 1px rgba(204,204,204,0.494);
+}
+.sprcom-buybox-articleSidebar .c-box__body{
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 6%;
+}
+.sprcom-buybox-articleSidebar .c-box__body .buybox__buy{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.sprcom-buybox-articleSidebar p{
+  color: #333;
+  font-size: 15px;
+}
+.sprcom-buybox-articleSidebar .buybox__price{
+  font-size: 24px;
+  font-weight: 500;
+  line-height: calc(100% + 8px);
+  margin: 20px 0;
+  order: 1;
+}
+.sprcom-buybox-articleSidebar form{
+  order: 1;
+}
+.sprcom-buybox-articleSidebar .buybox__price-info{
+  margin-bottom: 20px;
+}
+.sprcom-buybox-articleSidebar .c-box__heading{
+  background-color: #f0f0f0;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 10px 12px;
+  text-align: center;
+}
+.sprcom-buybox-articleSidebar .c-box__button{
+  background-color: #3365A4;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
+  max-width: 222px;
+  padding: 10px 12px;
+  text-decoration: none;
+  width: 100%;
+}
+.sprcom-buybox-articleSidebar h3{
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.sprcom-buybox-articleSidebar h2{
+  flex-basis: 100%;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub, .buybox__rent-article .c-box__body{
+  flex-direction: row;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub, .buybox__rent-article .buybox__info{
+  text-align: left;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub{
+  background-color: #f0f0f0;
+}
+.sprcom-buybox-articleSidebar .visually-hidden{
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.sprcom-buybox-articleSidebar style{
+  display: none;
+}
+         </style>
+        </div>
+       </div>
+       <div class="u-display-none">
+       </div>
+       <section aria-labelledby="Bib1">
+        <div class="c-article-section" id="Bib1-section">
+         <h2 class="c-article-section__title u-h2 js-section-title js-c-reading-companion-sections-item" id="Bib1">
+          References
+         </h2>
+         <div class="c-article-section__content" id="Bib1-content">
+          <div data-container-section="references">
+           <ol class="c-article-references">
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Amazon (2001). http://www.amazon.com." itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR1">
+              Amazon (2001). http://www.amazon.com.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Armstrong, R., Freitag, D., Joachims, T. &amp; Mitchell, T. (1995). WebWatcher: A Learning Apprentice for the Worl" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR2">
+              Armstrong, R., Freitag, D., Joachims, T. &amp; Mitchell, T. (1995). WebWatcher: A Learning Apprentice for the World Wide Web. In
+              <i>
+               1995 AAAI Spring Symposium on Information Gathering from Heterogeneous Distributed Environments
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="F.. Asnicar, C.. Tasso, " itemprop="author"/>
+             <meta content="1997" itemprop="datePublished"/>
+             <meta content="Asnicar, F. &amp; Tasso, C. (1997). IfWeb: A Prototype of User Models Based Intelligent Agent for Document Filteri" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR3">
+              Asnicar, F. &amp; Tasso, C. (1997). IfWeb: A Prototype of User Models Based Intelligent Agent for Document Filtering and Navigation in the World Wide Web. In
+              <i>
+               Proceedings of UM'97
+              </i>
+              . Sardinia, Italy: Chia Laguna.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 3 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20UM%2797&amp;publication_year=1997&amp;author=Asnicar%2CF.&amp;author=Tasso%2CC.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Balabanovic, M. &amp; Shoham, Y. (1997). Combining Content-Based and Collaborative Recommendation. Communications " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR4">
+              Balabanovic, M. &amp; Shoham, Y. (1997). Combining Content-Based and Collaborative Recommendation.
+              <i>
+               Communications of the ACM
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Basu, C., Hirsh, H. &amp; Cohen, W. (1998). Recommendation as Classification: Using Social and Content-Based Infor" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR5">
+              Basu, C., Hirsh, H. &amp; Cohen, W. (1998). Recommendation as Classification: Using Social and Content-Based Information in Recommendation. In
+              <i>
+               Proceedings of AAAI'98
+              </i>
+              , 714–720.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="B.. Berney, E.. Ferneley, " itemprop="author"/>
+             <meta content="1999" itemprop="datePublished"/>
+             <meta content="Berney, B. &amp; Ferneley, E. (1999). Casmir: Information Retrieval Based on Collaborative User Profiling. In Proc" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR6">
+              Berney, B. &amp; Ferneley, E. (1999). Casmir: Information Retrieval Based on Collaborative User Profiling. In
+              <i>
+               Proceedings of PAAM'99
+              </i>
+              , 41–56. Lancashire: The Practical Application Company Ltd.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 6 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20PAAM%2799&amp;pages=41-56&amp;publication_year=1999&amp;author=Berney%2CB.&amp;author=Ferneley%2CE.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="D.. Billsus, M. J.. Pazzani, " itemprop="author"/>
+             <meta content="1998" itemprop="datePublished"/>
+             <meta content="Billsus, D. &amp; Pazzani, M. J. (1998). Learning Collaborative Information Filters. In Proceedings of the Interna" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR7">
+              Billsus, D. &amp; Pazzani, M. J. (1998). Learning Collaborative Information Filters. In
+              <i>
+               Proceedings of the International Conference on Machine Learning
+              </i>
+              . Madison, WI: Morgan Kaufmann Publishers.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 7 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20International%20Conference%20on%20Machine%20Learning&amp;publication_year=1998&amp;author=Billsus%2CD.&amp;author=Pazzani%2CM.%20J.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="D.. Billsus, M. J.. Pazzani, " itemprop="author"/>
+             <meta content="1999" itemprop="datePublished"/>
+             <meta content="Billsus, D. &amp; Pazzani, M. J. (1999). A Hybrid User Model for News Classification. In Proceedings of UM'99, 99–" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR8">
+              Billsus, D. &amp; Pazzani, M. J. (1999). A Hybrid User Model for News Classification. In
+              <i>
+               Proceedings of UM'99
+              </i>
+              , 99–108. Wien, New York: Springer-Verlag.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 8 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20UM%2799&amp;pages=99-108&amp;publication_year=1999&amp;author=Billsus%2CD.&amp;author=Pazzani%2CM.%20J.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Boone, G. (1998). Concept Features in RE:Agent, an Intelligent Email Agent. In The Second International Confer" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR9">
+              Boone, G. (1998). Concept Features in RE:Agent, an Intelligent Email Agent. In
+              <i>
+               The Second International Conference on Autonomous Agents (Agents' 98)
+              </i>
+              . Minneapolis/St. Paul.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="J.. Breese, D.. Heckerman, C.. Kadie, " itemprop="author"/>
+             <meta content="1998" itemprop="datePublished"/>
+             <meta content="Breese, J., Heckerman, D. &amp; Kadie, C. (1998). Empirical Analysis of Predictive Algorithms for Collaborative Fi" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR10">
+              Breese, J., Heckerman, D. &amp; Kadie, C. (1998). Empirical Analysis of Predictive Algorithms for Collaborative Filtering.
+              <i>
+               Uncertainty in Artificial Intelligence: Proceedings of the 14th Conference
+              </i>
+              , 43–52. San Francisco: Morgan Kaufmann.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 10 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Uncertainty%20in%20Artificial%20Intelligence%3A%20Proceedings%20of%20the%2014th%20Conference&amp;pages=43-52&amp;publication_year=1998&amp;author=Breese%2CJ.&amp;author=Heckerman%2CD.&amp;author=Kadie%2CC.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Buckley, C. &amp; Salton, G. (1995). Optimization of Relevance Feedback Weights. In Fox, E., Ingwersen, P. &amp; Fidel" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR11">
+              Buckley, C. &amp; Salton, G. (1995). Optimization of Relevance Feedback Weights. In Fox, E., Ingwersen, P. &amp; Fidel, R. (eds.)
+              <i>
+               Proceedings of the Eighteenth Annual International ACM SIGIR Conference on Research and Development in Information Retrieval
+              </i>
+              , 351–357.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Buckley, C., Singhal, A., Mitra, M. &amp; Salton, G. (1996). New Retrieval Approaches Using SMART. In Proceedings " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR12">
+              Buckley, C., Singhal, A., Mitra, M. &amp; Salton, G. (1996). New Retrieval Approaches Using SMART. In
+              <i>
+               Proceedings of TREC-4
+              </i>
+              . NIST Special Publication.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="J.. Carroll, M. B.. Rosson, " itemprop="author"/>
+             <meta content="1987" itemprop="datePublished"/>
+             <meta content="Carroll, J. &amp; Rosson, M. B. (1987). The Paradox of the Active User. In Carroll, J. M. (ed.) Interfacing Though" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR13">
+              Carroll, J. &amp; Rosson, M. B. (1987). The Paradox of the Active User. In Carroll, J. M. (ed.)
+              <i>
+               Interfacing Thought: Cognitive Aspects of Human-Computer Interaction
+              </i>
+              , 26–28. Cambridge, MA: MIT Press.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 13 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Interfacing%20Thought%3A%20Cognitive%20Aspects%20of%20Human-Computer%20Interaction&amp;pages=26-28&amp;publication_year=1987&amp;author=Carroll%2CJ.&amp;author=Rosson%2CM.%20B.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="CDNow (2001). http://www.cdnow.com." itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR14">
+              CDNow (2001). http://www.cdnow.com.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Chatterjee, P., Hoffman, D. L. &amp; Novak, T. P. (1998). Modeling the Clickstream: Implications for Web-Based Adv" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR15">
+              Chatterjee, P., Hoffman, D. L. &amp; Novak, T. P. (1998). Modeling the Clickstream: Implications for Web-Based Advertising Efforts.
+              <i>
+               Working Paper
+              </i>
+              . Vanderbilt University.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Chen, L. &amp; Sycara, K. (1998). Webmate: A Personal Agent for Browsing and Searching. In Proceedings of AGENTS' " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR16">
+              Chen, L. &amp; Sycara, K. (1998). Webmate: A Personal Agent for Browsing and Searching. In
+              <i>
+               Proceedings of AGENTS' 98
+              </i>
+              , 132–139. ACM.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Chen, Z., Meng, X., Zhu, B. &amp; Fowler, R. (2000). WebSail: From On-Line Learning to Web Search. In Proceedings " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR17">
+              Chen, Z., Meng, X., Zhu, B. &amp; Fowler, R. (2000). WebSail: From On-Line Learning to Web Search. In
+              <i>
+               Proceedings of the 2000 International Conference on Web Information Systems Engineering
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="P.. Clark, T.. Niblett, " itemprop="author"/>
+             <meta content="1989" itemprop="datePublished"/>
+             <meta content="Clark, P. &amp; Niblett, T. (1989). The CN2 Induction Algorithm. In Machine Learning, Vol. 3, 261–283. The Netherl" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR18">
+              Clark, P. &amp; Niblett, T. (1989). The CN2 Induction Algorithm. In
+              <i>
+               Machine Learning
+              </i>
+              , Vol. 3, 261–283. The Netherlands: Kluwer Academic Publishers.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 18 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Machine%20Learning&amp;pages=261-283&amp;publication_year=1989&amp;author=Clark%2CP.&amp;author=Niblett%2CT.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="W.. Cohen, " itemprop="author"/>
+             <meta content="1995" itemprop="datePublished"/>
+             <meta content="Cohen, W. (1995). Fast Effective Rule Induction. In Proceedings of ML95, 115–123. San Francisco: Morgan Kaufma" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR19">
+              Cohen, W. (1995). Fast Effective Rule Induction. In
+              <i>
+               Proceedings of ML95
+              </i>
+              , 115–123. San Francisco: Morgan Kaufmann.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 19 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20ML95&amp;pages=115-123&amp;publication_year=1995&amp;author=Cohen%2CW.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Cohen, W. &amp; Singer, Y. (1999). A Simple, Fast, and Effective Rule Learner. In Proceedings of AAAI-99, 335–342." itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR20">
+              Cohen, W. &amp; Singer, Y. (1999). A Simple, Fast, and Effective Rule Learner. In
+              <i>
+               Proceedings of AAAI-99
+              </i>
+              , 335–342.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="R.. Cooley, P. N.. Tan, J.. Srivastava, " itemprop="author"/>
+             <meta content="1999" itemprop="datePublished"/>
+             <meta content="Cooley, R., Tan, P. N. &amp; Srivastava, J. (1999). WebSift: The Web Site Information Filter System. In Proceeding" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR21">
+              Cooley, R., Tan, P. N. &amp; Srivastava, J. (1999). WebSift: The Web Site Information Filter System. In
+              <i>
+               Proceedings of the 1999 KDD Workshop on Web Mining
+              </i>
+              . San Diego, CA: Springer-Verlag.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 21 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%201999%20KDD%20Workshop%20on%20Web%20Mining&amp;publication_year=1999&amp;author=Cooley%2CR.&amp;author=Tan%2CP.%20N.&amp;author=Srivastava%2CJ.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="S.. Cost, S.. Salzberg, " itemprop="author"/>
+             <meta content="1993" itemprop="datePublished"/>
+             <meta content="Cost, S. &amp; Salzberg, S. (1993). A Weighted Nearest Neighbor Algorithm for Learning with Symbolic Features. Mac" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR22">
+              Cost, S. &amp; Salzberg, S. (1993). A Weighted Nearest Neighbor Algorithm for Learning with Symbolic Features.
+              <i>
+               Machine Learning
+              </i>
+              <b>
+               10
+              </b>
+              : 57–78.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 22 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20Weighted%20Nearest%20Neighbor%20Algorithm%20for%20Learning%20with%20Symbolic%20Features&amp;journal=Machine%20Learning&amp;volume=10&amp;pages=57-78&amp;publication_year=1993&amp;author=Cost%2CS.&amp;author=Salzberg%2CS.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Cunningham, P., Bergmann, R., Schmitt, S., Traphoner, R., Breen, S. &amp; Smyth, B. (2001). WebSell: Intelligent S" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR23">
+              Cunningham, P., Bergmann, R., Schmitt, S., Traphoner, R., Breen, S. &amp; Smyth, B. (2001). WebSell: Intelligent Sales Assistants for the World Wide Web. In
+              <i>
+               E-2001
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="R.. Duda, P.. Hart, " itemprop="author"/>
+             <meta content="1973" itemprop="datePublished"/>
+             <meta content="Duda, R. &amp; Hart, P. (1973). Pattern Classification and Scene Analysis. New York: John Wiley &amp; Sons, ISBN-04712" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR24">
+              Duda, R. &amp; Hart, P. (1973).
+              <i>
+               Pattern Classification and Scene Analysis
+              </i>
+              . New York: John Wiley &amp; Sons, ISBN-0471223611.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 24 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Pattern%20Classification%20and%20Scene%20Analysis&amp;publication_year=1973&amp;author=Duda%2CR.&amp;author=Hart%2CP.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="D.. Goldberg, D.. Nichols, B. M.. Oki, D.. Terry, " itemprop="author"/>
+             <meta content="1992" itemprop="datePublished"/>
+             <meta content="Goldberg, D., Nichols, D., Oki, B. M. &amp; Terry, D. (1992). Using Collaborative Filtering to Weave an Informatio" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR25">
+              Goldberg, D., Nichols, D., Oki, B. M. &amp; Terry, D. (1992). Using Collaborative Filtering to Weave an Information Tapestry.
+              <i>
+               Communications of the ACM
+              </i>
+              <b>
+               35
+              </b>
+              : 61–70.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 25 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Using%20Collaborative%20Filtering%20to%20Weave%20an%20Information%20Tapestry&amp;journal=Communications%20of%20the%20ACM&amp;volume=35&amp;pages=61-70&amp;publication_year=1992&amp;author=Goldberg%2CD.&amp;author=Nichols%2CD.&amp;author=Oki%2CB.%20M.&amp;author=Terry%2CD.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="N.. Good, J.. Schafer, J.. Konstan, A.. Borchers, B.. Sarwar, J.. Herlocker, J.. Riedl, " itemprop="author"/>
+             <meta content="1999" itemprop="datePublished"/>
+             <meta content="Good, N., Schafer, J., Konstan, J., Borchers, A., Sarwar, B., Herlocker, J. &amp; Riedl, J. (1999). Combining Coll" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR26">
+              Good, N., Schafer, J., Konstan, J., Borchers, A., Sarwar, B., Herlocker, J. &amp; Riedl, J. (1999). Combining Collaborative Filtering with Personal Agents for Better Recommendations. In
+              <i>
+               Proceedings of AAAI
+              </i>
+              , Vol. 35, 439–446. AAAI Press.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 26 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Combining%20Collaborative%20Filtering%20with%20Personal%20Agents%20for%20Better%20Recommendations&amp;journal=Proceedings%20of%20AAAI&amp;volume=35&amp;pages=439-446&amp;publication_year=1999&amp;author=Good%2CN.&amp;author=Schafer%2CJ.&amp;author=Konstan%2CJ.&amp;author=Borchers%2CA.&amp;author=Sarwar%2CB.&amp;author=Herlocker%2CJ.&amp;author=Riedl%2CJ.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Greening, D. (1997). Building Consumer Trust with Accurate Product Recommendations. Likeminds White Paper LMWS" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR27">
+              Greening, D. (1997). Building Consumer Trust with Accurate Product Recommendations.
+              <i>
+               Likeminds White Paper LMWSWP-210-6966
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Hayes, C. &amp; Cunningham, P. (1999). Smart Radio – a Proposal. In Trinity College Dublin, Computer Science, Tech" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR28">
+              Hayes, C. &amp; Cunningham, P. (1999). Smart Radio – a Proposal. In
+              <i>
+               Trinity College Dublin, Computer Science
+              </i>
+              , Technical Report, TCD-CS-1999-24.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Hayes, C. &amp; Cunningham, P. (2000). Smart Radio: Building Music Radio on the Fly. In Proceedings of Expert Syst" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR29">
+              Hayes, C. &amp; Cunningham, P. (2000). Smart Radio: Building Music Radio on the Fly. In
+              <i>
+               Proceedings of Expert Systems 2000 (ES2000)
+              </i>
+              . Cambridge, UK.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Hayes, C., Cunningham, P. &amp; Smyth, B. (2001). A Case-Based Reasoning View of Automated Collaborative Filtering" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR30">
+              Hayes, C., Cunningham, P. &amp; Smyth, B. (2001). A Case-Based Reasoning View of Automated Collaborative Filtering. In
+              <i>
+               Trinity College Dublin, Computer Science
+              </i>
+              , Technical Report, TCD-CS-2001-09.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Herlocker, J., Konstan, J., Borchers, A. &amp; Riedl, J. (1999). An Algorithmic Framework for Performing Collabora" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR31">
+              Herlocker, J., Konstan, J., Borchers, A. &amp; Riedl, J. (1999). An Algorithmic Framework for Performing Collaborative Filtering. In
+              <i>
+               Proceedings of the 1999 Conference on Research and Development in Information Retrieval
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Herlocker, J., Konstan, J. &amp; Riedl, J. (2000). Explaining Collaborative Filtering Recommendations. In Proceedi" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR32">
+              Herlocker, J., Konstan, J. &amp; Riedl, J. (2000). Explaining Collaborative Filtering Recommendations. In
+              <i>
+               Proceedings of ACM 2000 Conference on Computer Supported Cooperative Work
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Hill, W., Stead, L., Rosenstein, M. &amp; Furnas, G. (1995). Recommending and Evaluating Choices in a Virtual Comm" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR33">
+              Hill, W., Stead, L., Rosenstein, M. &amp; Furnas, G. (1995). Recommending and Evaluating Choices in a Virtual Community of Use. In
+              <i>
+               Proceedings of CHI'95
+              </i>
+              , 194–201. Denver.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Hofmann, T. &amp; Puzicha, J. (1999). Latent Class Models for Collaborative Filtering. In Proceedings of IJCAI'99," itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR34">
+              Hofmann, T. &amp; Puzicha, J. (1999). Latent Class Models for Collaborative Filtering. In
+              <i>
+               Proceedings of IJCAI'99
+              </i>
+              , 688–693. Stockholm, ISBN 1-55860-613-0.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Holte, R. C. &amp; Yan, N. Y. (1996). Inferring What a User Is Not Interested In. In AAAI Spring Symp. on Machine " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR35">
+              Holte, R. C. &amp; Yan, N. Y. (1996). Inferring What a User Is Not Interested In. In
+              <i>
+               AAAI Spring Symp. on Machine Learning in Information Access
+              </i>
+              . Stanford.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="B.. Huberman, M.. Kaminsky, " itemprop="author"/>
+             <meta content="1996" itemprop="datePublished"/>
+             <meta content="Huberman, B. &amp; Kaminsky, M. (1996). Beehive: A System for Cooperative Filtering and Sharing of Information. Te" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR36">
+              Huberman, B. &amp; Kaminsky, M. (1996). Beehive: A System for Cooperative Filtering and Sharing of Information.
+              <i>
+               Technical Report, Dynamics of Computation Group
+              </i>
+              . Palo Alto, CA: Xerox, Palo Alto Research Center.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 36 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Beehive%3A%20A%20System%20for%20Cooperative%20Filtering%20and%20Sharing%20of%20Information&amp;publication_year=1996&amp;author=Huberman%2CB.&amp;author=Kaminsky%2CM.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="A.. Jennings, H.. Higuchi, " itemprop="author"/>
+             <meta content="1993" itemprop="datePublished"/>
+             <meta content="Jennings, A. &amp; Higuchi, H. (1993). A User Model Neural Network for a Personal News Service. User Modeling and " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR37">
+              Jennings, A. &amp; Higuchi, H. (1993). A User Model Neural Network for a Personal News Service.
+              <i>
+               User Modeling and User-Adapted Interaction
+              </i>
+              <b>
+               3
+              </b>
+              : 1–25.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 37 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20User%20Model%20Neural%20Network%20for%20a%20Personal%20News%20Service&amp;journal=User%20Modeling%20and%20User-Adapted%20Interaction&amp;volume=3&amp;pages=1-25&amp;publication_year=1993&amp;author=Jennings%2CA.&amp;author=Higuchi%2CH.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="F. V.. Jensen, " itemprop="author"/>
+             <meta content="1996" itemprop="datePublished"/>
+             <meta content="Jensen, F. V. (1996). An Introduction to Bayesian Networks. New York: Springer." itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR38">
+              Jensen, F. V. (1996).
+              <i>
+               An Introduction to Bayesian Networks
+              </i>
+              . New York: Springer.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 38 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=An%20Introduction%20to%20Bayesian%20Networks&amp;publication_year=1996&amp;author=Jensen%2CF.%20V.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Joachims, T., Freitag, D. &amp; Mitchell, T. (1997). WebWatcher: A Tour Guide for the World Wide Web. In Proceedin" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR39">
+              Joachims, T., Freitag, D. &amp; Mitchell, T. (1997). WebWatcher: A Tour Guide for the World Wide Web. In
+              <i>
+               Proceedings of IJCAI'97
+              </i>
+              , 770–775. Nagoya, Japan.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Kamba, T., Bharat, K. &amp; Albers, M. C. (1995). The Krakatoa Chronicle – an Interactive, Personalized, Newspaper" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR40">
+              Kamba, T., Bharat, K. &amp; Albers, M. C. (1995). The Krakatoa Chronicle – an Interactive, Personalized, Newspaper on the Web. In
+              <i>
+               Proceedings of the Fourth International World Wide Web Conference
+              </i>
+              , 159–170.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="A.. Kobsa, J.. Koenemann, W.. Pohl, " itemprop="author"/>
+             <meta content="2001" itemprop="datePublished"/>
+             <meta content="Kobsa, A., Koenemann, J. &amp; Pohl, W. (2001). Personalized Hypermedia Presentation Techniques for Improving Onli" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR41">
+              Kobsa, A., Koenemann, J. &amp; Pohl, W. (2001). Personalized Hypermedia Presentation Techniques for Improving Online Customer Relationships.
+              <i>
+               The Knowledge Engineering Review
+              </i>
+              <b>
+               16
+              </b>
+              : 111–155.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 41 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Personalized%20Hypermedia%20Presentation%20Techniques%20for%20Improving%20Online%20Customer%20Relationships&amp;journal=The%20Knowledge%20Engineering%20Review&amp;volume=16&amp;pages=111-155&amp;publication_year=2001&amp;author=Kobsa%2CA.&amp;author=Koenemann%2CJ.&amp;author=Pohl%2CW.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="J.. Konstan, B.. Miller, D.. Maltz, J.. Herlocker, L.. Gordon, J.. Riedl, " itemprop="author"/>
+             <meta content="1997" itemprop="datePublished"/>
+             <meta content="Konstan, J., Miller, B., Maltz, D., Herlocker, J., Gordon, L. &amp; Riedl, J. (1997). Grouplens: Applying Collabor" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR42">
+              Konstan, J., Miller, B., Maltz, D., Herlocker, J., Gordon, L. &amp; Riedl, J. (1997). Grouplens: Applying Collaborative Filtering to Usenet News.
+              <i>
+               Communications of the ACM
+              </i>
+              <b>
+               40
+              </b>
+              : 77–87.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 42 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Grouplens%3A%20Applying%20Collaborative%20Filtering%20to%20Usenet%20News&amp;journal=Communications%20of%20the%20ACM&amp;volume=40&amp;pages=77-87&amp;publication_year=1997&amp;author=Konstan%2CJ.&amp;author=Miller%2CB.&amp;author=Maltz%2CD.&amp;author=Herlocker%2CJ.&amp;author=Gordon%2CL.&amp;author=Riedl%2CJ.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Koychev, I. (2000). Gradual Forgetting for Adaptation to Concept Drift. In Proceedings of ECAI 2000 Workshop C" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR43">
+              Koychev, I. (2000). Gradual Forgetting for Adaptation to Concept Drift. In
+              <i>
+               Proceedings of ECAI 2000 Workshop Current Issues in Spatio-Temporal Reasoning
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="B.. Krulwich, " itemprop="author"/>
+             <meta content="1997" itemprop="datePublished"/>
+             <meta content="Krulwich, B. (1997). LifeStyle Finder: Intelligent User Profiling Using Large-Scale Demographic Data. AI Magaz" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR44">
+              Krulwich, B. (1997). LifeStyle Finder: Intelligent User Profiling Using Large-Scale Demographic Data.
+              <i>
+               AI Magazine
+              </i>
+              <b>
+               18
+              </b>
+              (2): 37–45.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 44 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=LifeStyle%20Finder%3A%20Intelligent%20User%20Profiling%20Using%20Large-Scale%20Demographic%20Data&amp;journal=AI%20Magazine&amp;volume=18&amp;issue=2&amp;pages=37-45&amp;publication_year=1997&amp;author=Krulwich%2CB.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Krulwich, B. &amp; Burkey, C. (1995). ContactFinder: Extracting Indications of Expertise and Answering Questions w" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR45">
+              Krulwich, B. &amp; Burkey, C. (1995). ContactFinder: Extracting Indications of Expertise and Answering Questions with Referrals.
+              <i>
+               Working Notes of the 1995 Fall Symposium on Intelligent Knowledge Navigation and Retrieval
+              </i>
+              , 85–91. Technical Report FS-95-03, The AAAI Press.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Krulwich, B. &amp; Burkey, C. (1996). Learning User Information Interests Through Extraction of Semantically Signi" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR46">
+              Krulwich, B. &amp; Burkey, C. (1996). Learning User Information Interests Through Extraction of Semantically Significant Phrases. In
+              <i>
+               Proceedings of he AAAI Spring Symposium on Machine Learning in Information Access
+              </i>
+              . Stanford, CA.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Lang, K. (1995). NewsWeeder: Learning to Filter News. In Proceedings of the 12th International Conference on M" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR47">
+              Lang, K. (1995). NewsWeeder: Learning to Filter News. In
+              <i>
+               Proceedings of the 12th International Conference on Machine Learning
+              </i>
+              , 331–339. Lake Tahoe, CA.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Lieberman, H. (1995). Letizia: An Agent that Assists Web Browsing. In Proceedings of the IJCAI'95, 924–929." itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR48">
+              Lieberman, H. (1995). Letizia: An Agent that Assists Web Browsing. In
+              <i>
+               Proceedings of the IJCAI'95
+              </i>
+              , 924–929.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Lieberman, H., Van Dyke, N. W. &amp; Vivacqua, A. S. (1999). Let's Browse: A Collaborative Web Browsing Agent. In " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR49">
+              Lieberman, H., Van Dyke, N. W. &amp; Vivacqua, A. S. (1999). Let's Browse: A Collaborative Web Browsing Agent. In
+              <i>
+               Proceedings of International Conference on Intelligent User Interfaces
+              </i>
+              , 924–929.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="P.. Maes, " itemprop="author"/>
+             <meta content="1994" itemprop="datePublished"/>
+             <meta content="Maes, P. (1994). Agents that Reduce Work and Information Overload. Communications of the ACM
+37(7): 30–40." itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR50">
+              Maes, P. (1994). Agents that Reduce Work and Information Overload.
+              <i>
+               Communications of the ACM
+              </i>
+              <b>
+               37
+              </b>
+              (7): 30–40.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 50 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Agents%20that%20Reduce%20Work%20and%20Information%20Overload&amp;journal=Communications%20of%20the%20ACM&amp;volume=37&amp;issue=7&amp;pages=30-40&amp;publication_year=1994&amp;author=Maes%2CP.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="M. A.. Maloof, R. S.. Michalski, " itemprop="author"/>
+             <meta content="2000" itemprop="datePublished"/>
+             <meta content="Maloof, M. A. &amp; Michalski, R. S. (2000). Selecting Examples for Partial Memory Learning. Machine Learning
+41: " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR51">
+              Maloof, M. A. &amp; Michalski, R. S. (2000). Selecting Examples for Partial Memory Learning.
+              <i>
+               Machine Learning
+              </i>
+              <b>
+               41
+              </b>
+              : 27–52.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 51 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Selecting%20Examples%20for%20Partial%20Memory%20Learning&amp;journal=Machine%20Learning&amp;volume=41&amp;pages=27-52&amp;publication_year=2000&amp;author=Maloof%2CM.%20A.&amp;author=Michalski%2CR.%20S.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Minio, M. &amp; Tasso, C. (1996). User Modeling for Information Filtering on Internet Services: Exploiting an Exte" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR52">
+              Minio, M. &amp; Tasso, C. (1996). User Modeling for Information Filtering on Internet Services: Exploiting an Extended Version of the UMT Shell. In
+              <i>
+               UM96 Workshop on User Modeling for Information Filtering on the WWW
+              </i>
+              . Kailua-Kona, Hawaii.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="T.. Mitchell, R.. Caruana, D.. Freitag, J.. McDermott, D.. Zabowski, " itemprop="author"/>
+             <meta content="1994" itemprop="datePublished"/>
+             <meta content="Mitchell, T., Caruana, R., Freitag, D., McDermott, J. &amp; Zabowski, D. (1994). Experience with a Learning Person" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR53">
+              Mitchell, T., Caruana, R., Freitag, D., McDermott, J. &amp; Zabowski, D. (1994). Experience with a Learning Personal Assistant.
+              <i>
+               Communications of the ACM
+              </i>
+              <b>
+               37
+              </b>
+              (7): 81–91.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 53 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Experience%20with%20a%20Learning%20Personal%20Assistant&amp;journal=Communications%20of%20the%20ACM&amp;volume=37&amp;issue=7&amp;pages=81-91&amp;publication_year=1994&amp;author=Mitchell%2CT.&amp;author=Caruana%2CR.&amp;author=Freitag%2CD.&amp;author=McDermott%2CJ.&amp;author=Zabowski%2CD.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="T. M.. Mitchell, S.. Mahadevan, L.. Steinberg, " itemprop="author"/>
+             <meta content="1985" itemprop="datePublished"/>
+             <meta content="Mitchell, T. M., Mahadevan, S. &amp; Steinberg, L. (1985). Leap: A Learning Apprentice for VLSI Design. In Proceed" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR54">
+              Mitchell, T. M., Mahadevan, S. &amp; Steinberg, L. (1985). Leap: A Learning Apprentice for VLSI Design. In
+              <i>
+               Proceedings of IJCAI'85
+              </i>
+              , 573–580. Los Altos, CA: Morgan Kaufmann.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 54 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20IJCAI%2785&amp;pages=573-580&amp;publication_year=1985&amp;author=Mitchell%2CT.%20M.&amp;author=Mahadevan%2CS.&amp;author=Steinberg%2CL.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="D.. Mladenic, " itemprop="author"/>
+             <meta content="1996" itemprop="datePublished"/>
+             <meta content="Mladenic, D. (1996). Personal WebWatcher: Implementation and Design. Technical Report IJS-DP-7472, Department " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR55">
+              Mladenic, D. (1996). Personal WebWatcher: Implementation and Design.
+              <i>
+               Technical Report IJS-DP-7472, Department of Intelligent Systems
+              </i>
+              . Slovenia: J. Stefan Institute.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 55 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Personal%20WebWatcher%3A%20Implementation%20and%20Design&amp;publication_year=1996&amp;author=Mladenic%2CD.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Mobasher, B., Cooley, R. &amp; Srivastava, J. (2000). Automatic Personalization Based on Web Usage Mining. Communi" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR56">
+              Mobasher, B., Cooley, R. &amp; Srivastava, J. (2000). Automatic Personalization Based on Web Usage Mining.
+              <i>
+               Communications of the ACM
+              </i>
+              <b>
+               43
+              </b>
+              (8).
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="M.. Morita, Y.. Shinoda, " itemprop="author"/>
+             <meta content="1994" itemprop="datePublished"/>
+             <meta content="Morita, M. &amp; Shinoda, Y. (1994). Information Filtering Based on User Behaviour Analysis and Best Match Text Re" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR57">
+              Morita, M. &amp; Shinoda, Y. (1994). Information Filtering Based on User Behaviour Analysis and Best Match Text Retrieval. In
+              <i>
+               Proceedings of SIGIR'94
+              </i>
+              , 272–81. Dublin, Ireland: Springer-Verlag.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 57 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20SIGIR%2794&amp;pages=272-81&amp;publication_year=1994&amp;author=Morita%2CM.&amp;author=Shinoda%2CY.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="A.. Moukas, " itemprop="author"/>
+             <meta content="1997" itemprop="datePublished"/>
+             <meta content="Moukas, A. (1997). Amalthaea: Information Filtering and Discovery Using a Multiagent Evolving System. Journal " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR58">
+              Moukas, A. (1997). Amalthaea: Information Filtering and Discovery Using a Multiagent Evolving System.
+              <i>
+               Journal of Applied AI
+              </i>
+              <b>
+               11
+              </b>
+              (5): 437–457 (Dublin, Ireland, Springer-Verlag).
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 58 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Journal%20of%20Applied%20AI&amp;pages=437-457&amp;publication_year=1997&amp;author=Moukas%2CA.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Nichols, D. M. (1997). Implicit Rating and Filtering. In Proceedings of 5th DELOS Workshop on Filtering and Co" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR59">
+              Nichols, D. M. (1997). Implicit Rating and Filtering. In
+              <i>
+               Proceedings of 5th DELOS Workshop on Filtering and Collaborative Filtering
+              </i>
+              , 31–36.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="L. J.. Orwant, " itemprop="author"/>
+             <meta content="1995" itemprop="datePublished"/>
+             <meta content="Orwant, L. J. (1995). Heterogeneous Learning in the Doppelganger User Modelling System. User Modelling and Use" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR60">
+              Orwant, L. J. (1995). Heterogeneous Learning in the Doppelganger User Modelling System.
+              <i>
+               User Modelling and User Adapted Interaction
+              </i>
+              <b>
+               4
+              </b>
+              (2): 107–130.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 60 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Heterogeneous%20Learning%20in%20the%20Doppelganger%20User%20Modelling%20System&amp;journal=User%20Modelling%20and%20User%20Adapted%20Interaction&amp;volume=4&amp;issue=2&amp;pages=107-130&amp;publication_year=1995&amp;author=Orwant%2CL.%20J.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Pazzani, M. (1999). A Framework for Collaborative, Content-Based and Demographic Filtering. Artificial Intelli" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR61">
+              Pazzani, M. (1999). A Framework for Collaborative, Content-Based and Demographic Filtering.
+              <i>
+               Artificial Intelligence Review
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="M.. Pazzani, D.. Billsus, " itemprop="author"/>
+             <meta content="1997" itemprop="datePublished"/>
+             <meta content="Pazzani, M. &amp; Billsus, D. (1997). Learning and Revising User Profiles: The Identification of Interesting Web S" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR62">
+              Pazzani, M. &amp; Billsus, D. (1997). Learning and Revising User Profiles: The Identification of Interesting Web Sites.
+              <i>
+               Machine Learning
+              </i>
+              <b>
+               27
+              </b>
+              : 313–331 (Kluwer Academic Publishers).
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 62 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Learning%20and%20Revising%20User%20Profiles%3A%20The%20Identification%20of%20Interesting%20Web%20Sites&amp;journal=Machine%20Learning&amp;volume=27&amp;pages=313-331&amp;publication_year=1997&amp;author=Pazzani%2CM.&amp;author=Billsus%2CD.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Pazzani, M., Muramatsu, J. &amp; Billsus, D. (1996). Syskill &amp; Webert: Identifying Interesting Web Sites. In Proce" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR63">
+              Pazzani, M., Muramatsu, J. &amp; Billsus, D. (1996). Syskill &amp; Webert: Identifying Interesting Web Sites. In
+              <i>
+               Proceedings of the Thirteenth National Conference on Artificial Intelligence
+              </i>
+              , 54–61.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="G.. Potter, R.. Trueblood, " itemprop="author"/>
+             <meta content="1988" itemprop="datePublished"/>
+             <meta content="Potter, G. &amp; Trueblood, R. (1988). Traditional, Semantic, and Hyper-Semantic Approaches to Data Modeling. IEEE" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR64">
+              Potter, G. &amp; Trueblood, R. (1988). Traditional, Semantic, and Hyper-Semantic Approaches to Data Modeling.
+              <i>
+               IEEE Computer
+              </i>
+              <b>
+               21
+              </b>
+              (6): 53–63.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 64 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Traditional%2C%20Semantic%2C%20and%20Hyper-Semantic%20Approaches%20to%20Data%20Modeling&amp;journal=IEEE%20Computer&amp;volume=21&amp;issue=6&amp;pages=53-63&amp;publication_year=1988&amp;author=Potter%2CG.&amp;author=Trueblood%2CR.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Pretschner, A. &amp; Gauch, S. (1999). Ontology-Based Personalized Search. In Proceedings of ICTAI'99, 391–398." itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR65">
+              Pretschner, A. &amp; Gauch, S. (1999). Ontology-Based Personalized Search. In
+              <i>
+               Proceedings of ICTAI'99
+              </i>
+              , 391–398.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Quinlan, J. R. (1983). Learning Efficient Classification Procedures and Their Application to Chess End Games. " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR66">
+              Quinlan, J. R. (1983). Learning Efficient Classification Procedures and Their Application to Chess End Games. In Michalski, R. S., Carbonell, J. G. &amp; Mitchell, T. M. (eds.)
+              <i>
+               Machine Learning: An Artificial Intelligence Approach
+              </i>
+              , 463–482.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="J. R.. Quinlan, " itemprop="author"/>
+             <meta content="1994" itemprop="datePublished"/>
+             <meta content="Quinlan, J. R. (1994). The Minimum Description Length Principle and Categorical Theories. In Proceedings of ML" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR67">
+              Quinlan, J. R. (1994). The Minimum Description Length Principle and Categorical Theories. In
+              <i>
+               Proceedings of ML'94
+              </i>
+              . San Mateo: Morgan Kaufmann.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 67 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20ML%2794&amp;publication_year=1994&amp;author=Quinlan%2CJ.%20R.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Resnick, P., Iacovou, N., Suchak, M., Bergstrom, P. &amp; Riedl, J. (1994). Grouplens: An Open Architecture for Co" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR68">
+              Resnick, P., Iacovou, N., Suchak, M., Bergstrom, P. &amp; Riedl, J. (1994). Grouplens: An Open Architecture for Collaborative Filtering of Netnews. In
+              <i>
+               Proceedings of ACM CSCW'94
+              </i>
+              , 175–186.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="E.. Rich, " itemprop="author"/>
+             <meta content="1979" itemprop="datePublished"/>
+             <meta content="Rich, E. (1979). User Modeling via Stereotypes. Cognitive Science
+3: 329–354." itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR69">
+              Rich, E. (1979). User Modeling via Stereotypes.
+              <i>
+               Cognitive Science
+              </i>
+              <b>
+               3
+              </b>
+              : 329–354.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 69 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=User%20Modeling%20via%20Stereotypes&amp;journal=Cognitive%20Science&amp;volume=3&amp;pages=329-354&amp;publication_year=1979&amp;author=Rich%2CE.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Riordan, A. &amp; Sorensen, H. (1995). An Intelligent Agent for High-Precision Information Filtering. In Proceedin" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR70">
+              Riordan, A. &amp; Sorensen, H. (1995). An Intelligent Agent for High-Precision Information Filtering. In
+              <i>
+               Proceedings of the CIKM-95 Conference
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Sakagami, H., Kamba, T. &amp; Koseki, Y. (1997). Learning Personal Preferences on Online Newspaper articles for Us" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR71">
+              Sakagami, H., Kamba, T. &amp; Koseki, Y. (1997). Learning Personal Preferences on Online Newspaper articles for User Behaviors. In
+              <i>
+               Proc. 6th Int. World Wide Web Conference
+              </i>
+              , 291–300.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="G.. Salton, C.. Buckley, " itemprop="author"/>
+             <meta content="1988" itemprop="datePublished"/>
+             <meta content="Salton, G. &amp; Buckley, C. (1988). Term-Weighting Approaches in Automatic Text Retrieval. Information Processing" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR72">
+              Salton, G. &amp; Buckley, C. (1988). Term-Weighting Approaches in Automatic Text Retrieval.
+              <i>
+               Information Processing and Management
+              </i>
+              <b>
+               24
+              </b>
+              (5): 513–523.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 72 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Term-Weighting%20Approaches%20in%20Automatic%20Text%20Retrieval&amp;journal=Information%20Processing%20and%20Management&amp;volume=24&amp;issue=5&amp;pages=513-523&amp;publication_year=1988&amp;author=Salton%2CG.&amp;author=Buckley%2CC.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="G.. Salton, C.. Buckley, " itemprop="author"/>
+             <meta content="1990" itemprop="datePublished"/>
+             <meta content="Salton, G. &amp; Buckley, C. (1990). Improving Retrieval Performance by Relevance Feedback. In Spark Jones and Wil" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR73">
+              Salton, G. &amp; Buckley, C. (1990). Improving Retrieval Performance by Relevance Feedback. In Spark Jones and Willet (eds.)
+              <i>
+               Readings in Information Retrieval
+              </i>
+              , Vol. 24, No.5, 513–523. San Francisco, CA: Morgan Kauffman.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 73 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Readings%20in%20Information%20Retrieval&amp;pages=513-523&amp;publication_year=1990&amp;author=Salton%2CG.&amp;author=Buckley%2CC.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book">
+             <meta content="G.. Salton, M.. McGill, " itemprop="author"/>
+             <meta content="1983" itemprop="datePublished"/>
+             <meta content="Salton, G. &amp; McGill, M. (1983). Introduction to Modern Information Retrieval. New York, NY: McGraw-Hill Publis" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR74">
+              Salton, G. &amp; McGill, M. (1983).
+              <i>
+               Introduction to Modern Information Retrieval
+              </i>
+              . New York, NY: McGraw-Hill Publishing Company.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 74 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Introduction%20to%20Modern%20Information%20Retrieval&amp;publication_year=1983&amp;author=Salton%2CG.&amp;author=McGill%2CM.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Sarwar, B. M., Karypis, G., Konstan, J. A. &amp; Riedl, J. (2000). Analysis of Recommender Algorithms for E-Commer" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR75">
+              Sarwar, B. M., Karypis, G., Konstan, J. A. &amp; Riedl, J. (2000). Analysis of Recommender Algorithms for E-Commerce. In
+              <i>
+               ACM E-Commerce 2000 Conference
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="J. B.. Schafer, J.. Konstan, J.. Riedl, " itemprop="author"/>
+             <meta content="2001" itemprop="datePublished"/>
+             <meta content="Schafer, J. B., Konstan, J. &amp; Riedl, J. (2001). Electronic Commerce Recommender Applications. Journal of Data " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR76">
+              Schafer, J. B., Konstan, J. &amp; Riedl, J. (2001). Electronic Commerce Recommender Applications.
+              <i>
+               Journal of Data Mining and Knowledge Discovery
+              </i>
+              <b>
+               5
+              </b>
+              : 115–152.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 76 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Electronic%20Commerce%20Recommender%20Applications&amp;journal=Journal%20of%20Data%20Mining%20and%20Knowledge%20Discovery&amp;volume=5&amp;pages=115-152&amp;publication_year=2001&amp;author=Schafer%2CJ.%20B.&amp;author=Konstan%2CJ.&amp;author=Riedl%2CJ.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Schwab, I., Kobsa, A. &amp; Koychev, I. (2000). Learning about Users from Observation. In AAAI 2000 Spring Symposi" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR77">
+              Schwab, I., Kobsa, A. &amp; Koychev, I. (2000). Learning about Users from Observation. In
+              <i>
+               AAAI 2000 Spring Symposium: Adaptive User Interface
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Schwab, I., Kobsa, A. &amp; Koychev, I. (2001). Learning User's Interests Through Positive Examples Using Content " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR78">
+              Schwab, I., Kobsa, A. &amp; Koychev, I. (2001). Learning User's Interests Through Positive Examples Using Content Analysis and Collaborative Filtering.
+              <i>
+               Submitted
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Shardanand, U. (1994). Social Information Filtering for Music Recommendation. MIT EECS M. Eng. thesis, also TR" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR79">
+              Shardanand, U. (1994). Social Information Filtering for Music Recommendation. MIT EECS M. Eng. thesis, also TR-94-04.
+              <i>
+               Learning and Common Sense Group
+              </i>
+              . MIT Media Laboratory.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Shardanand, U. &amp; Maes, P. (1995). Social Information Filtering: Algorithms for Automating ‘Word of Mouth’.... " itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR80">
+              Shardanand, U. &amp; Maes, P. (1995). Social Information Filtering: Algorithms for Automating ‘Word of Mouth’
+              <i>
+               ....
+              </i>
+              In
+              <i>
+               Proceedings of CHI'95
+              </i>
+              , 210–217.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Sheth, B. &amp; Maes, P. (1993). Evolving Agents for Personalitzed Information Filtering. In Proceedings of the Ni" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR81">
+              Sheth, B. &amp; Maes, P. (1993). Evolving Agents for Personalitzed Information Filtering. In
+              <i>
+               Proceedings of the Ninth Conferece on Artificial Intelligence for Applications
+              </i>
+              . IEEE Computer Society Press.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Sorensen, H. &amp; McElligot, M. (1995). PSUN: A Profiling System for Usenet News. In CKIM' 95 Workshop on Intelli" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR82">
+              Sorensen, H. &amp; McElligot, M. (1995). PSUN: A Profiling System for Usenet News. In
+              <i>
+               CKIM' 95 Workshop on Intelligent Information Agents
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="H.. Sorensen, A. O.. Riordan, C. O.. Riordan, " itemprop="author"/>
+             <meta content="1997" itemprop="datePublished"/>
+             <meta content="Sorensen, H., Riordan, A. O. &amp; Riordan, C. O. (1997). Profiling with the INFORMER Text Filtering Agent. Journa" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR83">
+              Sorensen, H., Riordan, A. O. &amp; Riordan, C. O. (1997). Profiling with the INFORMER Text Filtering Agent.
+              <i>
+               Journal of Universal Computer Science
+              </i>
+              <b>
+               3
+              </b>
+              (8): 988–1006.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 83 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Profiling%20with%20the%20INFORMER%20Text%20Filtering%20Agent&amp;journal=Journal%20of%20Universal%20Computer%20Science&amp;volume=3&amp;issue=8&amp;pages=988-1006&amp;publication_year=1997&amp;author=Sorensen%2CH.&amp;author=Riordan%2CA.%20O.&amp;author=Riordan%2CC.%20O.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Stefani, A. &amp; Strappavara, C. (1998). Personalizing Access to Web Wites: The SiteIF Project. In Proceedings of" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR84">
+              Stefani, A. &amp; Strappavara, C. (1998). Personalizing Access to Web Wites: The SiteIF Project. In
+              <i>
+               Proceedings of HYPERTEXT'98
+              </i>
+              .
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Terveen, L. G. &amp; Hill, W. (2001). Beyond Recommender Systems: Helping People Help Eachother. In Carroll, J. (e" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR85">
+              Terveen, L. G. &amp; Hill, W. (2001). Beyond Recommender Systems: Helping People Help Eachother. In Carroll, J. (ed.)
+              <i>
+               HCI in the New Millennium
+              </i>
+              . Addison Wesley.
+             </p>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="G.. Webb, M.. Kuzmycz, " itemprop="author"/>
+             <meta content="1996" itemprop="datePublished"/>
+             <meta content="Webb, G. &amp; Kuzmycz, M. (1996). Feature Based Modelling: A Methodology for Producing Coherent, Consistent, Dyna" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR86">
+              Webb, G. &amp; Kuzmycz, M. (1996). Feature Based Modelling: A Methodology for Producing Coherent, Consistent, Dynamically Changing Models of Agents' Competencies.
+              <i>
+               User Modelling and User-Adapted Interaction
+              </i>
+              <b>
+               5
+              </b>
+              : 117–150.
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 86 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Feature%20Based%20Modelling%3A%20A%20Methodology%20for%20Producing%20Coherent%2C%20Consistent%2C%20Dynamically%20Changing%20Models%20of%20Agents%27%20Competencies&amp;journal=User%20Modelling%20and%20User-Adapted%20Interaction&amp;volume=5&amp;pages=117-150&amp;publication_year=1996&amp;author=Webb%2CG.&amp;author=Kuzmycz%2CM.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="G.. Widmer, M.. Kubat, " itemprop="author"/>
+             <meta content="1996" itemprop="datePublished"/>
+             <meta content="Widmer, G. &amp; Kubat, M. (1996). Learning in the Presence of Concept Drift and Hidden Contexts. Machine Learning" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR87">
+              Widmer, G. &amp; Kubat, M. (1996). Learning in the Presence of Concept Drift and Hidden Contexts.
+              <i>
+               Machine Learning
+              </i>
+              <b>
+               23
+              </b>
+              : 69–101 (Kluwer Academic Publishers).
+             </p>
+             <ul class="c-article-references__links u-hide-print">
+              <li>
+               <a aria-label="Search for reference 87 on Google Scholar" data-track="click" data-track-action="outbound reference" data-track-category="article body" data-track-label="link" href="http://scholar.google.com/scholar_lookup?&amp;title=Learning%20in%20the%20Presence%20of%20Concept%20Drift%20and%20Hidden%20Contexts&amp;journal=Machine%20Learning&amp;volume=23&amp;pages=69-101&amp;publication_year=1996&amp;author=Widmer%2CG.&amp;author=Kubat%2CM.">
+                Google Scholar
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle">
+             <meta content="Yan, T. W. &amp; Garcia-Molina, H. (1995). Sift – a Tool for Wide-Area Information Dissemination. In Proceedings o" itemprop="headline"/>
+             <p class="c-article-references__text" id="ref-CR88">
+              Yan, T. W. &amp; Garcia-Molina, H. (1995). Sift – a Tool for Wide-Area Information Dissemination. In
+              <i>
+               Proceedings of the 1195 USENIX Technical Conference
+              </i>
+              , 177–186.
+             </p>
+            </li>
+           </ol>
+           <p class="c-article-references__download u-hide-print">
+            <a data-track="click" data-track-action="download citation references" data-track-category="article body" data-track-label="link" href="/article/10.1023/A:1022850703159-references.ris">
+             Download references
+             <svg class="u-icon" height="16" width="16">
+              <use xlink:href="#global-icon-download" xmlns:xlink="http://www.w3.org/1999/xlink">
+              </use>
+             </svg>
+            </a>
+           </p>
+          </div>
+         </div>
+        </div>
+       </section>
+       <section aria-labelledby="Ack1">
+        <div class="c-article-section" id="Ack1-section">
+         <div class="c-article-section__content" id="Ack1-content">
+         </div>
+        </div>
+       </section>
+       <section aria-labelledby="author-information">
+        <div class="c-article-section" id="author-information-section">
+         <h2 class="c-article-section__title u-h2 js-section-title js-c-reading-companion-sections-item" id="author-information">
+          Author information
+         </h2>
+         <div class="c-article-section__content" id="author-information-content">
+          <h3 class="c-article-author-information__subtitle u-h3" id="affiliations">
+           Affiliations
+          </h3>
+          <ol class="c-article-author-affiliation__list">
+           <li id="Aff1">
+            <span class="c-article-author-affiliation__address u-h3">
+             Agents Research Laboratory, Institut d'Informàtica i Aplicacions, Universitat de Girona, Campus Montilivi, 17071, Girona, Spain
+            </span>
+            <ul class="c-article-author-affiliation__authors-list">
+             <li class="c-article-author-affiliation__authors-item">
+              Miquel Montaner
+             </li>
+             <li class="c-article-author-affiliation__authors-item">
+              , Beatriz López
+             </li>
+             <li class="c-article-author-affiliation__authors-item">
+              &amp; Josep Lluís de la Rosa
+             </li>
+            </ul>
+           </li>
+          </ol>
+          <div class="js-hide u-hide-print" data-test="author-info">
+           <span class="c-article-author-information__subtitle u-h3">
+            Authors
+           </span>
+           <ol class="c-article-authors-search u-list-reset">
+            <li id="auth-1">
+             <span class="c-article-authors-search__title u-h3 js-search-name">
+              Miquel Montaner
+             </span>
+             <div class="c-article-authors-search__list">
+              <div class="c-article-authors-search__item c-article-authors-search__list-item--left">
+               <a class="c-article-button" data-track="click" data-track-action="author link - publication" data-track-category="Article body" data-track-label="link" href='/search?dc.creator="Miquel+Montaner"'>
+                View author publications
+               </a>
+              </div>
+              <div class="c-article-authors-search__item c-article-authors-search__list-item--right">
+               <span class="search-in-title-js">
+                You can also search for this author in
+               </span>
+               <ul class="c-article-identifiers">
+                <li class="c-article-identifiers__item">
+                 <a data-track="click" data-track-action="author link - pubmed" data-track-category="Article body" data-track-label="link" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=search&amp;term=Miquel+Montaner">
+                  PubMed
+                 </a>
+                </li>
+                <li class="c-article-identifiers__item">
+                 <a data-track="click" data-track-action="author link - scholar" data-track-category="Article body" data-track-label="link" href="http://scholar.google.co.uk/scholar?as_q=&amp;num=10&amp;btnG=Search+Scholar&amp;as_epq=&amp;as_oq=&amp;as_eq=&amp;as_occt=any&amp;as_sauthors=%22Miquel+Montaner%22&amp;as_publication=&amp;as_ylo=&amp;as_yhi=&amp;as_allsubj=all&amp;hl=en">
+                  Google Scholar
+                 </a>
+                </li>
+               </ul>
+              </div>
+             </div>
+            </li>
+            <li id="auth-2">
+             <span class="c-article-authors-search__title u-h3 js-search-name">
+              Beatriz López
+             </span>
+             <div class="c-article-authors-search__list">
+              <div class="c-article-authors-search__item c-article-authors-search__list-item--left">
+               <a class="c-article-button" data-track="click" data-track-action="author link - publication" data-track-category="Article body" data-track-label="link" href='/search?dc.creator="Beatriz+L%C3%B3pez"'>
+                View author publications
+               </a>
+              </div>
+              <div class="c-article-authors-search__item c-article-authors-search__list-item--right">
+               <span class="search-in-title-js">
+                You can also search for this author in
+               </span>
+               <ul class="c-article-identifiers">
+                <li class="c-article-identifiers__item">
+                 <a data-track="click" data-track-action="author link - pubmed" data-track-category="Article body" data-track-label="link" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=search&amp;term=Beatriz+L%C3%B3pez">
+                  PubMed
+                 </a>
+                </li>
+                <li class="c-article-identifiers__item">
+                 <a data-track="click" data-track-action="author link - scholar" data-track-category="Article body" data-track-label="link" href="http://scholar.google.co.uk/scholar?as_q=&amp;num=10&amp;btnG=Search+Scholar&amp;as_epq=&amp;as_oq=&amp;as_eq=&amp;as_occt=any&amp;as_sauthors=%22Beatriz+L%C3%B3pez%22&amp;as_publication=&amp;as_ylo=&amp;as_yhi=&amp;as_allsubj=all&amp;hl=en">
+                  Google Scholar
+                 </a>
+                </li>
+               </ul>
+              </div>
+             </div>
+            </li>
+            <li id="auth-3">
+             <span class="c-article-authors-search__title u-h3 js-search-name">
+              Josep Lluís de la Rosa
+             </span>
+             <div class="c-article-authors-search__list">
+              <div class="c-article-authors-search__item c-article-authors-search__list-item--left">
+               <a class="c-article-button" data-track="click" data-track-action="author link - publication" data-track-category="Article body" data-track-label="link" href='/search?dc.creator="Josep Llu%C3%ADs+de la Rosa"'>
+                View author publications
+               </a>
+              </div>
+              <div class="c-article-authors-search__item c-article-authors-search__list-item--right">
+               <span class="search-in-title-js">
+                You can also search for this author in
+               </span>
+               <ul class="c-article-identifiers">
+                <li class="c-article-identifiers__item">
+                 <a data-track="click" data-track-action="author link - pubmed" data-track-category="Article body" data-track-label="link" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=search&amp;term=Josep Llu%C3%ADs+de la Rosa">
+                  PubMed
+                 </a>
+                </li>
+                <li class="c-article-identifiers__item">
+                 <a data-track="click" data-track-action="author link - scholar" data-track-category="Article body" data-track-label="link" href="http://scholar.google.co.uk/scholar?as_q=&amp;num=10&amp;btnG=Search+Scholar&amp;as_epq=&amp;as_oq=&amp;as_eq=&amp;as_occt=any&amp;as_sauthors=%22Josep Llu%C3%ADs+de la Rosa%22&amp;as_publication=&amp;as_ylo=&amp;as_yhi=&amp;as_allsubj=all&amp;hl=en">
+                  Google Scholar
+                 </a>
+                </li>
+               </ul>
+              </div>
+             </div>
+            </li>
+           </ol>
+          </div>
+         </div>
+        </div>
+       </section>
+       <section aria-labelledby="rightslink">
+        <div class="c-article-section" id="rightslink-section">
+         <h2 class="c-article-section__title u-h2 js-section-title js-c-reading-companion-sections-item" id="rightslink">
+          Rights and permissions
+         </h2>
+         <div class="c-article-section__content" id="rightslink-content">
+          <p class="c-article-rights">
+           <a data-track="click" data-track-action="view rights and permissions" data-track-category="article body" data-track-label="link" href="https://s100.copyright.com/AppDispatchServlet?title=A%20Taxonomy%20of%20Recommender%20Agents%20on%20the%20Internet&amp;author=Miquel%20Montaner%20et%20al&amp;contentID=10.1023%2FA%3A1022850703159&amp;publication=0269-2821&amp;publicationDate=2003-06&amp;publisherName=SpringerNature&amp;orderBeanReset=true">
+            Reprints and Permissions
+           </a>
+          </p>
+         </div>
+        </div>
+       </section>
+       <section aria-labelledby="article-info">
+        <div class="c-article-section" id="article-info-section">
+         <h2 class="c-article-section__title u-h2 js-section-title js-c-reading-companion-sections-item" id="article-info">
+          About this article
+         </h2>
+         <div class="c-article-section__content" id="article-info-content">
+          <div class="c-bibliographic-information">
+           <div class="c-bibliographic-information__column">
+            <h3 class="c-article__sub-heading" id="citeas">
+             Cite this article
+            </h3>
+            <p class="c-bibliographic-information__citation">
+             Montaner, M., López, B. &amp; de la Rosa, J.L. A Taxonomy of Recommender Agents on the Internet.
+             <i>
+              Artificial Intelligence Review
+             </i>
+             <b>
+              19,
+             </b>
+             285–330 (2003). https://doi.org/10.1023/A:1022850703159
+            </p>
+            <p class="c-bibliographic-information__download-citation u-hide-print">
+             <a data-test="citation-link" data-track="click" data-track-action="download article citation" data-track-category="article body" data-track-label="link" href="/article/10.1023/A:1022850703159.ris">
+              Download citation
+              <svg class="u-icon" height="16" width="16">
+               <use xlink:href="#global-icon-download" xmlns:xlink="http://www.w3.org/1999/xlink">
+               </use>
+              </svg>
+             </a>
+            </p>
+            <ul class="c-bibliographic-information__list" data-test="publication-history">
+             <li class="c-bibliographic-information__list-item">
+              <p>
+               Issue Date
+               <span class="u-hide">
+                :
+               </span>
+               <span class="u-clearfix c-bibliographic-information__value">
+                <time datetime="2003-06">
+                 June 2003
+                </time>
+               </span>
+              </p>
+             </li>
+             <li class="c-bibliographic-information__list-item c-bibliographic-information__list-item--doi">
+              <p>
+               <abbr title="Digital Object Identifier">
+                DOI
+               </abbr>
+               <span class="u-hide">
+                :
+               </span>
+               <span class="u-clearfix c-bibliographic-information__value">
+                <a data-track="click" data-track-action="view doi" data-track-category="article body" data-track-label="link" href="https://doi.org/10.1023/A:1022850703159" itemprop="sameAs">
+                 https://doi.org/10.1023/A:1022850703159
+                </a>
+               </span>
+              </p>
+             </li>
+            </ul>
+            <div data-component="share-box">
+            </div>
+            <ul class="c-article-subject-list">
+             <li class="c-article-subject-list__subject">
+              <span itemprop="about">
+               agents
+              </span>
+             </li>
+             <li class="c-article-subject-list__subject">
+              <span itemprop="about">
+               information filtering
+              </span>
+             </li>
+             <li class="c-article-subject-list__subject">
+              <span itemprop="about">
+               personalization
+              </span>
+             </li>
+             <li class="c-article-subject-list__subject">
+              <span itemprop="about">
+               profile exploitation
+              </span>
+             </li>
+             <li class="c-article-subject-list__subject">
+              <span itemprop="about">
+               profile generation
+              </span>
+             </li>
+             <li class="c-article-subject-list__subject">
+              <span itemprop="about">
+               profile maintenance
+              </span>
+             </li>
+             <li class="c-article-subject-list__subject">
+              <span itemprop="about">
+               recommender systems
+              </span>
+             </li>
+             <li class="c-article-subject-list__subject">
+              <span itemprop="about">
+               taxonomy
+              </span>
+             </li>
+             <li class="c-article-subject-list__subject">
+              <span itemprop="about">
+               user modelling
+              </span>
+             </li>
+            </ul>
+            <div data-component="article-info-list">
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </section>
+      </div>
+     </article>
+    </main>
+    <div class="c-article-extras u-text-sm u-hide-print" data-container-type="reading-companion" data-track-component="reading companion" id="sidebar">
+     <aside>
+      <div data-test="download-article-link-wrapper">
+      </div>
+      <div data-test="collections">
+      </div>
+      <div data-test="editorial-summary">
+      </div>
+      <div class="c-reading-companion">
+       <div class="c-reading-companion__sticky" data-component="reading-companion-sticky" data-test="reading-companion-sticky">
+        <div class="c-article-buy-box">
+         <div class="sprcom-buybox-articleSidebar" id="sprcom-buybox-articleSidebar">
+          <h2 class="c-box__heading">
+           Access options
+          </h2>
+          <article class="c-box" data-test-id="buy-article">
+           <h3 class="c-box__heading">
+            Buy single article
+           </h3>
+           <div class="c-box__body">
+            <div class="buybox__info">
+             <p>
+              Instant access to the full article PDF.
+             </p>
+            </div>
+            <div class="buybox__buy">
+             <p class="buybox__price">
+              37,40 €
+             </p>
+             <p class="buybox__price-info">
+              Price
+              <b>
+               includes VAT
+              </b>
+              for Spain
+             </p>
+             <form action="https://order.springer.com/public/checkout?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_article&amp;abtest=v2" method="post">
+              <input name="type" type="hidden" value="article"/>
+              <input name="doi" type="hidden" value="10.1023/A:1022850703159"/>
+              <input name="isxn" type="hidden" value="1573-7462"/>
+              <input name="contenttitle" type="hidden" value="A Taxonomy of Recommender Agents on the Internet"/>
+              <input name="copyrightyear" type="hidden" value="2003"/>
+              <input name="year" type="hidden" value=""/>
+              <input name="authors" type="hidden" value="Miquel Montaner, Beatriz López, Josep Lluís de la Rosa"/>
+              <input name="title" type="hidden" value="Artificial Intelligence Review"/>
+              <input name="mac" type="hidden" value="3D687E13B2905DF36DF4A0A636121FA0"/>
+              <input class="c-box__button" data-track="click" data-track-action="buy pdf" data-track-category="ppv" data-track-label="buy article action, new buybox" type="submit" value="Buy article PDF"/>
+             </form>
+            </div>
+           </div>
+          </article>
+          <article class="c-box buybox__subscribe-subscription" data-test-id="journal-subscription">
+           <h3 class="c-box__heading">
+            Subscribe to journal
+           </h3>
+           <div class="c-box__body">
+            <div class="buybox__info">
+             <p>
+              Immediate online access to all issues from 2019. Subscription will auto renew annually.
+             </p>
+            </div>
+            <div class="buybox__buy">
+             <p class="buybox__price">
+              80,33 €
+             </p>
+             <p class="buybox__price-info">
+              Price
+              <b>
+               includes VAT
+              </b>
+              for Spain
+             </p>
+             <form action="https://order.springer.com/public/checkout?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_journal&amp;abtest=v2" method="post">
+              <input name="type" type="hidden" value="journal"/>
+              <input name="contenttitle" type="hidden" value="Artificial Intelligence Review"/>
+              <input name="journalnumber" type="hidden" value="10462"/>
+              <input name="pricetype" type="hidden" value="PSE"/>
+              <input name="countrycode" type="hidden" value="ES"/>
+              <input class="c-box__button" data-track="click" data-track-action="subscribe to journal" data-track-category="journal" data-track-label="subscribe action, new buybox" type="submit" value="Buy journal subscription"/>
+             </form>
+            </div>
+           </div>
+          </article>
+          <article class="c-box buybox__rent-article" data-test-id="journal-subscription" id="deepdyve" style="display: none">
+           <div class="c-box__body">
+            <div class="buybox__info">
+             <p>
+              <a class="deepdyve-link" data-track="click" data-track-action="rent article" data-track-label="rent action, new buybox" target="deepdyve">
+               Rent this article via DeepDyve.
+              </a>
+             </p>
+            </div>
+           </div>
+           <script>
+            function deepDyveResponse(data) {
+                if (data.status === 'ok') {
+                    [].slice.call(document.querySelectorAll('.c-box.buybox__rent-article')).forEach(function (article) {
+                        article.style.display = 'flex'
+                        var link = article.querySelector('.deepdyve-link')
+                        if (link) {
+                          link.setAttribute('href', data.url)
+                        }
+                    })
+                }
+            }
+
+            var script = document.createElement('script')
+            script.src = '//www.deepdyve.com/rental-link?docId=10.1023/A:1022850703159&journal=1573-7462&fieldName=journal_doi&affiliateId=springer&format=jsonp&callback=deepDyveResponse'
+            document.body.appendChild(script)
+           </script>
+          </article>
+          <aside class="buybox__institutional-sub">
+           <div class="c-box__body">
+            <div class="buybox__info">
+             <p>
+              <a data-track="click" data-track-action="institutional link" data-track-label="institutional subscriptions, new buybox" href="https://www.springernature.com/gp/librarians/licensing/license-options?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_institutionalCustomer&amp;abtest=v2">
+               Learn more about Institutional subscriptions
+              </a>
+             </p>
+            </div>
+           </div>
+          </aside>
+          <style>
+           .sprcom-buybox-articleSidebar{
+  box-shadow: 0px 0px 5px rgba(51,51,51,0.101);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+.sprcom-buybox-articleSidebar *{
+  box-sizing: border-box;
+  line-height: calc(100% + 4px);
+  margin: 0px;
+}
+.sprcom-buybox-articleSidebar > *{
+  display: flex;
+  flex-basis: 240px;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0.5px;
+}
+.sprcom-buybox-articleSidebar > *{
+  box-shadow: 0 0 0 1px rgba(204,204,204,0.494);
+}
+.sprcom-buybox-articleSidebar .c-box__body{
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 6%;
+}
+.sprcom-buybox-articleSidebar .c-box__body .buybox__buy{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.sprcom-buybox-articleSidebar p{
+  color: #333;
+  font-size: 15px;
+}
+.sprcom-buybox-articleSidebar .buybox__price{
+  font-size: 24px;
+  font-weight: 500;
+  line-height: calc(100% + 8px);
+  margin: 20px 0;
+  order: 1;
+}
+.sprcom-buybox-articleSidebar form{
+  order: 1;
+}
+.sprcom-buybox-articleSidebar .buybox__price-info{
+  margin-bottom: 20px;
+}
+.sprcom-buybox-articleSidebar .c-box__heading{
+  background-color: #f0f0f0;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 10px 12px;
+  text-align: center;
+}
+.sprcom-buybox-articleSidebar .c-box__button{
+  background-color: #3365A4;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
+  max-width: 222px;
+  padding: 10px 12px;
+  text-decoration: none;
+  width: 100%;
+}
+.sprcom-buybox-articleSidebar h3{
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.sprcom-buybox-articleSidebar h2{
+  flex-basis: 100%;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub, .buybox__rent-article .c-box__body{
+  flex-direction: row;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub, .buybox__rent-article .buybox__info{
+  text-align: left;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub{
+  background-color: #f0f0f0;
+}
+.sprcom-buybox-articleSidebar .visually-hidden{
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.sprcom-buybox-articleSidebar style{
+  display: none;
+}
+          </style>
+         </div>
+        </div>
+        <div class="c-reading-companion__panel c-reading-companion__sections c-reading-companion__panel--active" id="tabpanel-sections">
+         <div class="js-ad">
+          <div class="c-ad c-ad--MPU1">
+           <div class="c-ad c-ad__inner">
+            <p class="c-ad__label">
+             Advertisement
+            </p>
+            <div data-gpt-sizes="300x250" data-gpt-targeting="pos=MPU1;articleid=5115761;" data-gpt-unitpath="/270604982/springerlink/10462/article" id="div-gpt-ad-MPU1">
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="c-reading-companion__panel c-reading-companion__figures c-reading-companion__panel--full-width" id="tabpanel-figures">
+        </div>
+        <div class="c-reading-companion__panel c-reading-companion__references c-reading-companion__panel--full-width" id="tabpanel-references">
+        </div>
+       </div>
+      </div>
+     </aside>
+    </div>
+   </div>
+  </div>
+  <div class="c-page-layout__footer">
+   <footer class="app-footer" role="contentinfo">
+    <div class="app-footer__aside-wrapper u-hide-print">
+     <div class="app-footer__container">
+      <p class="app-footer__strapline">
+       Over 10 million scientific documents at your fingertips
+      </p>
+      <div class="app-footer__edition" data-component="SV.EditionSwitcher">
+       <span class="u-visually-hidden" data-btn-text="Switch between Academic &amp; Corporate Edition" data-role="button-dropdown__title">
+        Switch Edition
+       </span>
+       <ul class="app-footer-edition-list" data-role="button-dropdown__content" data-test="footer-edition-switcher-list">
+        <li class="selected">
+         <a data-test="footer-academic-link" href="/siteEdition/link" id="siteedition-academic-link">
+          Academic Edition
+         </a>
+        </li>
+        <li>
+         <a data-test="footer-corporate-link" href="/siteEdition/rd" id="siteedition-corporate-link">
+          Corporate Edition
+         </a>
+        </li>
+       </ul>
+      </div>
+     </div>
+    </div>
+    <div class="app-footer__container">
+     <ul class="app-footer__nav u-hide-print">
+      <li>
+       <a href="/">
+        Home
+       </a>
+      </li>
+      <li>
+       <a href="/impressum">
+        Impressum
+       </a>
+      </li>
+      <li>
+       <a href="/termsandconditions">
+        Legal information
+       </a>
+      </li>
+      <li>
+       <a href="/privacystatement">
+        Privacy statement
+       </a>
+      </li>
+      <li>
+       <a href="/cookiepolicy">
+        How we use cookies
+       </a>
+      </li>
+      <li>
+       <a href="/accessibility">
+        Accessibility
+       </a>
+      </li>
+      <li>
+       <a href="/contactus" id="contactus-footer-link">
+        Contact us
+       </a>
+      </li>
+     </ul>
+     <div class="c-user-metadata">
+      <p class="c-user-metadata__item">
+       <span data-test="footer-user-login-status">
+        Not logged in
+       </span>
+       <span data-test="footer-user-ip">
+        - 47.61.190.112
+       </span>
+      </p>
+      <p class="c-user-metadata__item" data-test="footer-business-partners">
+       Not affiliated
+      </p>
+     </div>
+     <a class="app-footer__parent-logo" href="//www.springernature.com" rel="noopener" target="_blank" title="Go to Springer Nature">
+      <span class="u-visually-hidden">
+       Springer Nature
+      </span>
+      <svg aria-hidden="true" focusable="false" height="12" width="125">
+       <image alt="Springer Nature logo" height="12" src="/oscar-static/images/springerlink/png/springernature-60a72a849b.png" width="125" xlink:href="/oscar-static/images/springerlink/svg/springernature-ecf01c77dd.svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+       </image>
+      </svg>
+     </a>
+     <p class="app-footer__copyright">
+      © 2020 Springer Nature Switzerland AG. Part of
+      <a href="//www.springernature.com" rel="noopener" target="_blank">
+       Springer Nature
+      </a>
+      .
+     </p>
+    </div>
+    <svg class="u-hide hide">
+     <symbol id="global-icon-chevron-right" viewbox="0 0 16 16">
+      <path d="M7.782 7L5.3 4.518c-.393-.392-.4-1.022-.02-1.403a1.001 1.001 0 011.417 0l4.176 4.177a1.001 1.001 0 010 1.416l-4.176 4.177a.991.991 0 01-1.4.016 1 1 0 01.003-1.42L7.782 9l1.013-.998z" fill-rule="evenodd">
+      </path>
+     </symbol>
+     <symbol id="global-icon-download" viewbox="0 0 16 16">
+      <path d="M2 14c0-.556.449-1 1.002-1h9.996a.999.999 0 110 2H3.002A1.006 1.006 0 012 14zM9 2v6.8l2.482-2.482c.392-.392 1.022-.4 1.403-.02a1.001 1.001 0 010 1.417l-4.177 4.177a1.001 1.001 0 01-1.416 0L3.115 7.715a.991.991 0 01-.016-1.4 1 1 0 011.42.003L7 8.8V2c0-.55.444-.996 1-.996.552 0 1 .445 1 .996z" fill-rule="evenodd">
+      </path>
+     </symbol>
+     <symbol id="global-icon-email" viewbox="0 0 18 18">
+      <path d="M1.995 2h14.01A2 2 0 0118 4.006v9.988A2 2 0 0116.005 16H1.995A2 2 0 010 13.994V4.006A2 2 0 011.995 2zM1 13.994A1 1 0 001.995 15h14.01A1 1 0 0017 13.994V4.006A1 1 0 0016.005 3H1.995A1 1 0 001 4.006zM9 11L2 7V5.557l7 4 7-4V7z" fill-rule="evenodd">
+      </path>
+     </symbol>
+     <symbol id="global-icon-institution" viewbox="0 0 18 18">
+      <path d="M14 8a1 1 0 011 1v6h1.5a.5.5 0 01.5.5v.5h.5a.5.5 0 01.5.5V18H0v-1.5a.5.5 0 01.5-.5H1v-.5a.5.5 0 01.5-.5H3V9a1 1 0 112 0v6h8V9a1 1 0 011-1zM6 8l2 1v4l-2 1zm6 0v6l-2-1V9zM9.573.401l7.036 4.925A.92.92 0 0116.081 7H1.92a.92.92 0 01-.528-1.674L8.427.401a1 1 0 011.146 0zM9 2.441L5.345 5h7.31z" fill-rule="evenodd">
+      </path>
+     </symbol>
+     <symbol id="global-icon-search" viewbox="0 0 14 14">
+      <path d="M13.545 12.648a.641.641 0 01.006.903.646.646 0 01-.903-.006l-2.664-2.663a6.125 6.125 0 11.897-.898l2.664 2.664zm-7.42-1.273a5.25 5.25 0 100-10.5 5.25 5.25 0 000 10.5z">
+      </path>
+     </symbol>
+    </svg>
+   </footer>
+  </div>
+  <script>
+   window.config = {
+        mustardcut: false
+    };
+
+    
+    (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+
+        
+    var mustardcutlink = document.getElementById('js-mustard');
+    if (mustardcutlink && window.matchMedia && window.matchMedia(mustardcutlink.media).matches) {
+        window.config.mustardcut = true;
+    }
+  </script>
+  <script src="/oscar-static/app-springerlink/js/app-bundle-6338d05819.js">
+  </script>
+  <script>
+   if (window.config && window.config.mustardcut) {
+        var globalArticle = document.createElement('script');
+
+        globalArticle.src = '/oscar-static/app-springerlink/js/global-article-bundle-b23c68aacc.js';
+        
+        window.Component = {};
+        document.body.appendChild(globalArticle);
+        
+    }
+  </script>
+  <div id="googleanalytics-container">
+  </div>
+  <div id="google-tag-manager-head-container">
+   <!-- Google Tag Manager -->
+   <script>
+    (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-WCF9Z9');
+   </script>
+   <!-- End Google Tag Manager -->
+  </div>
+  <div id="google-tag-manager-body-container">
+   <!-- Google Tag Manager (noscript) -->
+   <noscript>
+    <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WCF9Z9" style="display:none;visibility:hidden" width="0">
+    </iframe>
+   </noscript>
+   <!-- End Google Tag Manager (noscript) -->
+  </div>
+ </body>
+</html>
