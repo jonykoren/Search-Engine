@@ -7,7 +7,6 @@ comparing Simple Processor VS. Html Processor
 ## Interactive mode - automatic
 
 # Commands:
-# =============
 
 ## Indexing
 index myIndex C:\Users\...\index_folder C:\Users\...\stop-words.txt
