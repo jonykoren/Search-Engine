@@ -18,7 +18,7 @@ batch myIndex C:\Users\...\queries.xml
 C:\...\try.run
 
 #### right click on ireval and run as java application (add ireval main section in run conf. options) 
-C:\Users\...\index_folder\runfile.run batch_self_evaluation.qrel
+C:\Users\...\runfile.run C:\Users\...\batch_self_evaluation.qrel
 ## Interactive mode
 interactive myIndex
 
