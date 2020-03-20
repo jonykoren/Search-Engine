@@ -33,14 +33,14 @@ public class HtmlProcessor implements DocumentProcessor
 	public HtmlProcessor(File pathToStopWords) throws IOException
 	{
 		// P2
-		
+		//if(pathToStopWords!=null){
 		// Load stopwords
 		Scanner sc = new Scanner(pathToStopWords); 
 		  
 		    while (sc.hasNextLine()) 
 		      this.stopwords.add(sc.nextLine());
 	}
-
+	//}
 	/**
 	 * {@inheritDoc}
 	 */
