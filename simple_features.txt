@@ -1,0 +1,6 @@
+Loading index...done. Statistics:
+  - Vocabulary: 80336 terms (2,46 MB).
+  - Documents: 100 documents (1,44 KB).
+  - Inverted: 2,87 MB.
+  - Direct: 2,56 MB.
+  - Cache: 5,2 MB.
