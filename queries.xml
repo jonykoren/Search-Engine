@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topiclist>
+	<topic id="001">
+		<title>Who is the head of Amazon?</title>
+		<relevance>
+			<level value="2">the document must explicitly state that the CEO of Amazon is Jeff Bezos. It is not sufficient if they indicate him as the founder.</level>
+			<level value="1">the document may contain information regarding Jeff Bezos, Amazonx92s CEO or state him as the founder, but it does not explicitly say he is the CEO.</level>
+			<level value="0">the document is not related to the CEO. It may still be related to Amazon, but not to its CEO.</level>
+		</relevance>
+	</topic>
+	<topic id="002">
+		<title>Ebay products</title>
+		<relevance>
+			<level value="2">the document must explicitly state ebay products. It is not sufficient if they indicate less.</level>
+			<level value="1">the document may contain information regarding ebay, but does not explicitly mention products.</level>
+			<level value="0">the document is not related to the ebay. It may still be related to commerce, but not ebay.</level>
+		</relevance>
+	</topic>
+	<topic id="003">
+		<title>recommendation systems</title>
+		<relevance>
+			<level value="2">the document must explicitly state what recommendation systems means. It is not sufficient if they indicate less.</level>
+			<level value="1">the document may contain information regarding recommendation systems, but does not explicitly define.</level>
+			<level value="0">the document is not related to the recommendation systems. It may still be related to recommendation, but not recommendation systems
+			</level>
+		</relevance>
+	</topic>
+	<topic id="004">
+		<title>Who is the founder of alibaba?</title>
+		<relevance>
+			<level value="2">the document must explicitly state what Jack Ma. It is not sufficient if they indicate less.</level>
+			<level value="1">the document may contain information regarding Jack Ma, but does not explicitly say he is the founder.</level>
+			<level value="0">the document is not related to Jack Ma. It may still be related to AliBaba, but not the founder.
+			</level>
+		</relevance>
+	</topic>
+	<topic id="005">
+		<title>what is e-commerce?</title>
+		<relevance>
+			<level value="2">the document must explicitly state what e-commerce is. It is not sufficient if they indicate less.</level>
+			<level value="1">the document may contain information regarding e-commerce, but does not explicitly define what it is.</level>
+			<level value="0">the document is not related to e-commerce. It may still be related to commerce, but not e-commerce.
+			</level>
+		</relevance>
+	</topic>
+</topiclist>
